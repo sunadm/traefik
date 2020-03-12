@@ -31,7 +31,7 @@ EntryPoints是Traefik的网络入口点。
     --entryPoints.web.address=:80
     ```
 
-    我们定义一个名为`web`的`entrypoint`，将监听在`80`端口上。
+    定义一个名为`web`的`entrypoint`，监听在`80`端口上。
 
 ??? example "端口 80 及 443" 
 
@@ -90,7 +90,7 @@ EntryPoints是Traefik的网络入口点。
 ### General
 
 入口点属于[静态配置(Static configuration)](../getting-started/configuration-overview.md#the-static-configuration)的一部分。
-你可以使用一个Toml文件，CLI参数，或是键值对存储来定义它们。
+可以使用一个Toml文件，CLI参数，或是键值对存储来定义它们。
 
 ??? info "可用选项列表，请参看完整的参考"
     
@@ -576,6 +576,7 @@ This whole section is dedicated to options, keyed by entry point, that will appl
 #### `entryPoint`
 
 This section is a convenience to enable (permanent) redirecting of all incoming requests on an entry point (e.g. port `80`) to another entry point (e.g. port `443`).
+此部分为启用（永久）将入口点（例如端口“ 80”）上的所有传入请求重定向到另一个入口点（例如端口“ 443”）的便利。
 
 ??? info "`entryPoint.to`"
     

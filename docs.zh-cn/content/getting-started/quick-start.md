@@ -1,75 +1,75 @@
-# Quick Start
+# 快速入门
 
-A Simple Use Case Using Docker
+一个使用Docker的简单场景
 {: .subtitle }
 
 ![quickstart-diagram](../assets/img/quickstart-diagram.png)
 
-## Launch Traefik With the Docker Provider
+## 随Docker提供者启动Traefik
 
-Create a `docker-compose.yml` file where you will define a `reverse-proxy` service that uses the official Traefik image:
+创建一个`docker-compose.yml`文件，将在其中定义一个使用官方Traefik镜像的`reverse-proxy`服务：
 
 ```yaml
 version: '3'
 
 services:
   reverse-proxy:
-    # The official v2 Traefik docker image
+    # 官方 v2 Traefik docker 镜像
     image: traefik:v2.1
-    # Enables the web UI and tells Traefik to listen to docker
+    # 启用Web UI，并告知Traefik监听Docker
     command: --api.insecure=true --providers.docker
     ports:
-      # The HTTP port
+      # HTTP 端口
       - "80:80"
-      # The Web UI (enabled by --api.insecure=true)
+      # Web UI (通过 --api.insecure=true 启用)
       - "8080:8080"
     volumes:
-      # So that Traefik can listen to the Docker events
+      # 如此Traefik可以监听Docker事件
       - /var/run/docker.sock:/var/run/docker.sock
 ```
 
-**That's it. Now you can launch Traefik!**
+**就这样。现在，你可以启动Traefik！**
 
-Start your `reverse-proxy` with the following command:
+用以下命令启动`reverse-proxy`：
 
 ```shell
 docker-compose up -d reverse-proxy
 ```
 
-You can open a browser and go to [http://localhost:8080/api/rawdata](http://localhost:8080/api/rawdata) to see Traefik's API rawdata (we'll go back there once we have launched a service in step 2).
+可以打开浏览器浏览[http://localhost:8080/api/rawdata](http://localhost:8080/api/rawdata)，查看Traefik的API原始裸数据（在第2步启动服务后，将回到那里）。
 
-## Traefik Detects New Services and Creates the Route for You
+## Traefik检测新服务并创建路由
 
-Now that we have a Traefik instance up and running, we will deploy new services.
+现在启动并运行了一个Traefik实例，现在来部署新服务。
 
-Edit your `docker-compose.yml` file and add the following at the end of your file.
+编辑`docker-compose.yml`文件，并在末尾添加以下内容。
 
 ```yaml
 # ...
   whoami:
-    # A container that exposes an API to show its IP address
+    # 一个容器，暴露显示其IP的API
     image: containous/whoami
     labels:
       - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
 ```
 
-The above defines `whoami`: a simple web service that outputs information about the machine it is deployed on (its IP address, host, and so on).
+上面定义了`whoami`：一个简单的Web服务，输出所部署的机器信息（IP，主机，等等）。
 
-Start the `whoami` service with the following command:
+用以下命令启动`whoami`服务：
 
 ```shell
 docker-compose up -d whoami
 ```
 
-Go back to your browser ([http://localhost:8080/api/rawdata](http://localhost:8080/api/rawdata)) and see that Traefik has automatically detected the new container and updated its own configuration.
+回到浏览器([http://localhost:8080/api/rawdata](http://localhost:8080/api/rawdata))，可看见Traefik已经自动检测到了新的容器，并已经更新了自身的配置。
 
-When Traefik detects new services, it creates the corresponding routes so you can call them ... _let's see!_  (Here, we're using curl)
+当Traefik检测到新服务时，它会创建相应的路由，以便可将其称为……_let's see!_（这里使用`curl`）
 
 ```shell
 curl -H Host:whoami.docker.localhost http://127.0.0.1
 ```
 
-_Shows the following output:_
+_显示以下输出：_
 
 ```yaml
 Hostname: a656c8ddca6c
@@ -77,23 +77,23 @@ IP: 172.27.0.3
 #...
 ```
 
-## More Instances? Traefik Load Balances Them
+## 更多实例？Traefik为其均衡负载
 
-Run more instances of your `whoami` service with the following command:
+用以下命令运行`whoami`服务的更多实例：
 
 ```shell
 docker-compose up -d --scale whoami=2
 ```
 
-Go back to your browser ([http://localhost:8080/api/rawdata](http://localhost:8080/api/rawdata)) and see that Traefik has automatically detected the new instance of the container.
+回到浏览器([http://localhost:8080/api/rawdata](http://localhost:8080/api/rawdata))，可看见Traefik已经自动检测到了容器的新实例。
 
-Finally, see that Traefik load-balances between the two instances of your service by running the following command twice:
+最后，通过运行两次以下命令，来查看Traefik在服务的两个实例之间做的负载均衡：
 
 ```shell
 curl -H Host:whoami.docker.localhost http://127.0.0.1
 ```
 
-The output will show alternatively one of the followings:
+输出将交替显示以下之一：
 
 ```yaml
 Hostname: a656c8ddca6c
@@ -107,5 +107,6 @@ IP: 172.27.0.4
 # ...
 ```
 
-!!! question "Where to Go Next?"
-    Now that you have a basic understanding of how Traefik can automatically create the routes to your services and load balance them, it is time to dive into [the documentation](/) and let Traefik work for you!
+!!! question "下面怎么搞？"
+
+    现在，你已经对Traefik如何自动创建服务的路由，并均衡其负载有了基本了解，是时候深入研究[文档](/)，让Traefik为你服务了！

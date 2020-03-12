@@ -1,36 +1,35 @@
-# Concepts
+# 概念
 
-Everything You Need to Know
+你需要知道的一切
 {: .subtitle }
 
-## Edge Router
+## 边缘路由器
 
-Traefik is an _Edge Router_, it means that it's the door to your platform, and that it intercepts and routes every incoming request:
-it knows all the logic and every rule that determine which services handle which requests (based on the [path](../routing/routers/index.md#rule), the [host](../routing/routers/index.md#rule), [headers](../routing/routers/index.md#rule), [and so on](../routing/routers/index.md#rule) ...).
+Traefik是_边缘路由器_，这意味着它是通向你平台的大门，拦截并路由每个传入的请求：对于哪些服务处理何种请求，它了解所有的逻辑和规则（基于[路径(path)](../routing/routers/index.md#rule)，[主机(host)](../routing/routers/index.md#rule)， [标头(headers)](../routing/routers/index.md#rule)，[等等](../routing/routers/index.md#rule)……）。
 
-![The Door to Your Infrastructure](../assets/img/traefik-concepts-1.png)
+![基础架构的大门](../assets/img/traefik-concepts-1.png)
 
-## Auto Service Discovery
+## 自动服务发现
 
-Where traditionally edge routers (or reverse proxies) need a configuration file that contains every possible route to your services, Traefik gets them from the services themselves.
+传统上，边缘路由器（或反向代理）需要一个配置文件，其中包含通往服务的所有可能路由，而Traefik则从服务本身来获取它们。
 
-Deploying your services, you attach information that tells Traefik the characteristics of the requests the services can handle.
+部署服务时，将附加信息，这些信息告诉Traefik服务所能处理的请求的特征。
 
-![Decentralized Configuration](../assets/img/traefik-concepts-2.png)
+![去中心化配置](../assets/img/traefik-concepts-2.png)
 
-It means that when a service is deployed, Traefik detects it immediately and updates the routing rules in real time.
-The opposite is true: when you remove a service from your infrastructure, the route will disappear accordingly.
+这意味着在部署服务时，Traefik会立即检测到该服务，并实时更新路由规则。
+反之亦然：从基础架构中删除服务时，路由将相应消失。
 
-You no longer need to create and synchronize configuration files cluttered with IP addresses or other rules.
+不再需要创建和同步因IP或其他规则而混乱的配置文件。
 
-!!! info "Many different rules"
+!!! info "许多不同的规则"
 
-    In the example above, we used the request [path](../routing/routers/index.md#rule) to determine which service was in charge, but of course you can use many other different [rules](../routing/routers/index.md#rule).
+    在上面的示例中，我们使用请求[路径(path)](../routing/routers/index.md#rule)来确定负责哪个服务，当然，也可以使用许多其他不同的[规则(rules)](../routing/routers/index.md#rule)。
 
-!!! info "Updating the requests"
+!!! info "更新请求"
 
-    In the [middleware](../middlewares/overview.md) section, you can learn about how to update the requests before forwarding them to the services.
+    在[中间件](../middlewares/overview.md)部分，可以了解在将请求转发到服务之前，如何将请求更新掉。
 
-!!! question "How does Traefik discover the services?"
+!!! question "Traefik如何发现服务？"
 
-    Traefik is able to use your cluster API to discover the services and read the attached information. In Traefik, these connectors are called [providers](../providers/overview.md) because they _provide_ the configuration to Traefik. To learn more about them, read the [provider overview](../providers/overview.md) section.
+    Traefik能够使用集群API来发现服务，并读取附加的信息。在Traefik中，这些连接器称为[提供者](../providers/overview.md)，因为它们为Traefik_提供_配置。要了解更多，请阅读[提供商概述](../providers/overview.md)部分。

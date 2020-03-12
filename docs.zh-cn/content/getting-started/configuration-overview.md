@@ -1,72 +1,70 @@
-# Configuration Introduction
+# 配置介绍
 
-How the Magic Happens
+魔术是如何发生的
 {: .subtitle }
 
-![Configuration](../assets/img/static-dynamic-configuration.png)
+![配置](../assets/img/static-dynamic-configuration.png)
 
-Configuration in Traefik can refer to two different things:
+Traefik中的配置可以引用两种不同的东西：
 
-- The fully dynamic routing configuration (referred to as the _dynamic configuration_)
-- The startup configuration (referred to as the _static configuration_)
+- 完全动态路由配置（称为_动态配置_）
+- 启动时配置（称为_静态配置_）
 
-Elements in the _static configuration_ set up connections to [providers](../providers/overview.md) and define the [entrypoints](../routing/entrypoints.md) Traefik will listen to (these elements don't change often).
+_静态配置_ 中的元素建立了到[提供者](../providers/overview.md)的连接，并定义Traefik将侦听的[入口点](../routing/entrypoints.md)（这些元素不会经常更改）。
 
-The _dynamic configuration_ contains everything that defines how the requests are handled by your system.
-This configuration can change and is seamlessly hot-reloaded, without any request interruption or connection loss.    
+_动态配置_ 包含定义请求如何由系统处理的所有内容。此配置可以更改，并且可以无缝热重载，而不会导致任何请求中断或连接丢失。
 
-!!! warning "Incompatible Configuration"
-    Please be aware that the old configurations for Traefik v1.x are NOT compatible with the v2.x config as of now.
-    If you are running v2, please ensure you are using a v2 configuration.
+!!! warning "不兼容的配置"
+    请注意，截至目前，Traefik v1.x 的旧配置与 v2.x 配置不兼容。如果正在运行v2，请确保使用的是v2配置。
 
-## The Dynamic Configuration 
+## 动态配置
 
-Traefik gets its _dynamic configuration_ from [providers](../providers/overview.md): whether an orchestrator, a service registry, or a plain old configuration file.
+Traefik从[提供者](../providers/overview.md)处获得其_动态配置_：编排器(Orchestrator)，服务注册表，或是普通的旧配置文件。
 
-Since this configuration is specific to your infrastructure choices, we invite you to refer to the [dedicated section of this documentation](../routing/overview.md).
+由于此配置特定于你选择的基础架构，因此请参考[本文档的特定部分](../routing/overview.md)。
 
 !!! info ""
 
-    In the [Quick Start example](../getting-started/quick-start.md), the dynamic configuration comes from docker in the form of labels attached to your containers.
+    在[快速入门示例](../getting-started/quick-start.md)中，动态配置来自Docker，其以标签形式附加在容器上。
     
-!!! info "HTTPS Certificates also belong to the dynamic configuration."
+!!! info "HTTPS证书也属于动态配置。"
     
-    You can add / update / remove them without restarting your Traefik instance. 
- 
-## The Static Configuration
+    可以添加/更新/删除HTTPS证书，而无需重新启动Traefik实例。
 
-There are three different, **mutually exclusive** (e.g. you can use only one at the same time), ways to define static configuration options in Traefik:
+## 静态配置
 
-1. In a configuration file
-1. In the command-line arguments
-1. As environment variables
+有三种不同的，**互斥的**方式（只能同时使用一种），用于在Traefik中定义静态配置选项：
 
-These ways are evaluated in the order listed above.
+1. 在配置文件中
+1. 在命令行参数中
+1. 作为环境变量
 
-If no value was provided for a given option, a default value applies.
-Moreover, if an option has sub-options, and any of these sub-options is not specified, a default value will apply as well.
+这些方法按上面列出的顺序进行评估。
+
+如果没有为给定选项提供任何值，那么将应用默认值。
+此外，如果选项具有子选项，并且未指定任何这些子选项，则默认值也将应用。
+   
+例如，`--providers.docker`选项本身足以启用docker提供者，即使存在`--providers.docker.endpoint`之类的子选项。
+一旦定位后，此选项将设置（并重置）`--providers.docker`所有子选项的默认值。
     
-For example, the `--providers.docker` option is enough by itself to enable the docker provider, even though sub-options like `--providers.docker.endpoint` exist.
-Once positioned, this option sets (and resets) all the default values of the sub-options of `--providers.docker`.
-    
-### Configuration File
+### 配置文件
 
-At startup, Traefik searches for a file named `traefik.toml` (or `traefik.yml` or `traefik.yaml`) in:
+启动时，Traefik在以下位置搜索名为`traefik.toml`（或`traefik.yml`或`traefik.yaml`）的文件：
 
 - `/etc/traefik/`
 - `$XDG_CONFIG_HOME/`
 - `$HOME/.config/`
 - `.` (_the working directory_).
 
-You can override this using the `configFile` argument.
+可以通过使用`configFile`参数来覆盖。
 
 ```bash
 traefik --configFile=foo/bar/myconfigfile.toml
 ```
 
-### Arguments
+### 参数
 
-To get the list of all available arguments:
+获取所有可用参数列表：
 
 ```bash
 traefik --help
@@ -77,14 +75,14 @@ docker run traefik[:version] --help
 # ex: docker run traefik:2.1 --help
 ```
 
-All available arguments can also be found [here](../reference/static-configuration/cli.md).
+所有可用参数也可以[在此找到](../reference/static-configuration/cli.md)。
 
-### Environment Variables
+### 环境变量
 
-All available environment variables can be found [here](../reference/static-configuration/env.md)
+所有可用环境变量可以[在此找到](../reference/static-configuration/env.md)。
 
-## Available Configuration Options
+## 可用配置项
 
-All the configuration options are documented in their related section.
+所有的配置选项都在其相关部分中记录。
 
 You can browse the available features in the menu, the [providers](../providers/overview.md), or the [routing section](../routing/overview.md) to see them in action.
