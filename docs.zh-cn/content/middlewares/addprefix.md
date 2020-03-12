@@ -43,14 +43,14 @@ labels:
   - "traefik.http.middlewares.add-foo.addprefix.prefix=/foo"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Prefixing with /foo
 [http.middlewares]
   [http.middlewares.add-foo.addPrefix]
     prefix = "/foo"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Prefixing with /foo
 http:
   middlewares:

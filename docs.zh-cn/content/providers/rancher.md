@@ -18,11 +18,11 @@ Attach labels to your services and let Traefik do the rest!
 
     Enabling the rancher provider
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [providers.rancher]
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     providers:
       rancher: {}
     ```
@@ -47,11 +47,11 @@ See the dedicated section in [routing](../routing/providers/rancher.md).
 ??? tip "Browse the Reference"
     If you're in a hurry, maybe you'd rather go through the configuration reference:
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     --8<-- "content/providers/rancher.toml"
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     --8<-- "content/providers/rancher.yml"
     ```
     
@@ -63,13 +63,13 @@ See the dedicated section in [routing](../routing/providers/rancher.md).
 
 _Optional, Default=true_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.rancher]
   exposedByDefault = false
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   rancher:
     exposedByDefault: false
@@ -90,13 +90,13 @@ See also [Restrict the Scope of Service Discovery](./overview.md#restrict-the-sc
 
 _Optional, Default=```Host(`{{ normalize .Name }}`)```_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.rancher]
   defaultRule = "Host(`{{ .Name }}.{{ index .Labels \"customLabel\"}}`)"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   rancher:
     defaultRule: "Host(`{{ .Name }}.{{ index .Labels \"customLabel\"}}`)"
@@ -122,13 +122,13 @@ This option can be overridden on a container basis with the `traefik.http.router
 
 _Optional, Default=true_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.rancher]
   enableServiceHealthFilter = false
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   rancher:
     enableServiceHealthFilter: false
@@ -146,13 +146,13 @@ Filter services with unhealthy states and inactive states.
 
 _Optional, Default=15_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.rancher]
   refreshSeconds = 30
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   rancher:
     refreshSeconds: 30
@@ -170,13 +170,13 @@ Defines the polling interval (in seconds).
 
 _Optional, Default=false_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.rancher]
   intervalPoll = true
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   rancher:
     intervalPoll: true
@@ -195,13 +195,13 @@ which is less accurate than the default long polling technique which will provid
 
 _Optional, Default=/latest_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.rancher]
   prefix = "/test"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   rancher:
     prefix: "/test"
@@ -219,13 +219,13 @@ Prefix used for accessing the Rancher metadata service
 
 _Optional, Default=""_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.rancher]
   constraints = "Label(`a.label.name`,`foo`)"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   rancher:
     constraints: "Label(`a.label.name`,`foo`)"

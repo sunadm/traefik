@@ -2,12 +2,12 @@
 
 To enable the Haystack:
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.haystack]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   haystack: {}
 ```
@@ -22,13 +22,13 @@ _Require, Default="127.0.0.1"_
 
 Local Agent Host instructs reporter to send spans to haystack-agent at this address.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.haystack]
     localAgentHost = "127.0.0.1"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   haystack:
     localAgentHost: 127.0.0.1
@@ -44,13 +44,13 @@ _Require, Default=35000_
 
 Local Agent port instructs reporter to send spans to the haystack-agent at this port.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.haystack]
     localAgentPort = 35000
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   haystack:
     localAgentPort: 35000
@@ -66,13 +66,13 @@ _Optional, Default=empty_
 
 Apply shared tag in a form of Key:Value to all the traces.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.haystack]
     globalTag = "sample:test"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   haystack:
     globalTag: sample:test
@@ -88,13 +88,13 @@ _Optional, Default=empty_
 
 Specifies the header name that will be used to store the trace ID.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.haystack]
     traceIDHeaderName = "Trace-ID"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   haystack:
     traceIDHeaderName: Trace-ID
@@ -110,13 +110,13 @@ _Optional, Default=empty_
 
 Specifies the header name that will be used to store the parent ID.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.haystack]
     parentIDHeaderName = "Parent-Message-ID"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   haystack:
     parentIDHeaderName: Parent-Message-ID
@@ -132,13 +132,13 @@ _Optional, Default=empty_
 
 Specifies the header name that will be used to store the span ID.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.haystack]
     spanIDHeaderName = "Message-ID"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   haystack:
     spanIDHeaderName: Message-ID
@@ -154,13 +154,13 @@ _Optional, Default=empty_
 
 Specifies the header name prefix that will be used to store baggage items in a map.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.haystack]
     baggagePrefixHeaderName = "sample"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   haystack:
     baggagePrefixHeaderName: "sample"

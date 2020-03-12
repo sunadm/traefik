@@ -45,14 +45,14 @@ labels:
   - "traefik.http.middlewares.test-replacepath.replacepath.path=/foo"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Replace the path by /foo
 [http.middlewares]
   [http.middlewares.test-replacepath.replacePath]
     path = "/foo"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Replace the path by /foo
 http:
   middlewares:

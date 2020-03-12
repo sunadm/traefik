@@ -45,14 +45,14 @@ labels:
   - "traefik.http.middlewares.test-auth.forwardauth.address=https://authserver.com/auth"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Forward authentication to authserver.com
 [http.middlewares]
   [http.middlewares.test-auth.forwardAuth]
     address = "https://authserver.com/auth"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Forward authentication to authserver.com
 http:
   middlewares:
@@ -97,13 +97,13 @@ labels:
   - "traefik.http.middlewares.test-auth.forwardauth.address=https://authserver.com/auth"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.test-auth.forwardAuth]
     address = "https://authserver.com/auth"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     test-auth:
@@ -146,14 +146,14 @@ labels:
   - "traefik.http.middlewares.test-auth.forwardauth.trustForwardHeader=true"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.test-auth.forwardAuth]
     address = "https://authserver.com/auth"
     trustForwardHeader = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     test-auth:
@@ -199,14 +199,14 @@ labels:
   - "traefik.http.middlewares.test-auth.forwardauth.authResponseHeaders=X-Auth-User, X-Secret"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.test-auth.forwardAuth]
     address = "https://authserver.com/auth"
     authResponseHeaders = ["X-Auth-User", "X-Secret"]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     test-auth:
@@ -267,7 +267,7 @@ labels:
   - "traefik.http.middlewares.test-auth.forwardauth.tls.ca=path/to/local.crt"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.test-auth.forwardAuth]
     address = "https://authserver.com/auth"
@@ -275,7 +275,7 @@ labels:
       ca = "path/to/local.crt"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     test-auth:
@@ -326,7 +326,7 @@ labels:
   - "traefik.http.middlewares.test-auth.forwardauth.tls.caOptional=true"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.test-auth.forwardAuth]
     address = "https://authserver.com/auth"
@@ -334,7 +334,7 @@ labels:
       caOptional = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     test-auth:
@@ -395,7 +395,7 @@ labels:
   - "traefik.http.middlewares.test-auth.forwardauth.tls.key=path/to/foo.key"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.test-auth.forwardAuth]
     address = "https://authserver.com/auth"
@@ -404,7 +404,7 @@ labels:
       key = "path/to/foo.key"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     test-auth:
@@ -469,7 +469,7 @@ labels:
   - "traefik.http.middlewares.test-auth.forwardauth.tls.key=path/to/foo.key"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.test-auth.forwardAuth]
     address = "https://authserver.com/auth"
@@ -478,7 +478,7 @@ labels:
       key = "path/to/foo.key"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     test-auth:
@@ -528,7 +528,7 @@ labels:
   - "traefik.http.middlewares.test-auth.forwardauth.tls.InsecureSkipVerify=true"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.test-auth.forwardAuth]
     address = "https://authserver.com/auth"
@@ -536,7 +536,7 @@ labels:
       insecureSkipVerify: true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     test-auth:

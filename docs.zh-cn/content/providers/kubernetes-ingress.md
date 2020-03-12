@@ -14,11 +14,11 @@ See the dedicated section in [routing](../routing/providers/kubernetes-ingress.m
 
 As usual, the provider is enabled through the static configuration:
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesIngress]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesIngress: {}
 ```
@@ -31,7 +31,7 @@ The provider then watches for incoming ingresses events, such as the example bel
 and derives the corresponding dynamic configuration from it,
 which in turn will create the resulting routers, services, handlers, etc.
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 kind: Ingress
 apiVersion: extensions/v1beta1
 metadata:
@@ -82,13 +82,13 @@ it will create secrets in your namespaces that can be referenced as TLS secrets 
 
 _Optional, Default=empty_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesIngress]
   endpoint = "http://localhost:8080"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesIngress:
     endpoint = "http://localhost:8080"
@@ -115,13 +115,13 @@ and authorization of the associated kubeconfig.
 
 _Optional, Default=empty_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesIngress]
   token = "mytoken"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesIngress:
     token = "mytoken"
@@ -138,13 +138,13 @@ Bearer token used for the Kubernetes client configuration.
 
 _Optional, Default=empty_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesIngress]
   certAuthFilePath = "/my/ca.crt"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesIngress:
     certAuthFilePath: "/my/ca.crt"
@@ -162,13 +162,13 @@ Used for the Kubernetes client configuration.
 
 _Optional, Default=false_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesIngress]
   disablePassHostHeaders = true
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesIngress:
     disablePassHostHeaders: true
@@ -185,13 +185,13 @@ Whether to disable PassHost Headers.
 
 _Optional, Default: all namespaces (empty array)_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesIngress]
   namespaces = ["default", "production"]
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesIngress:
     namespaces:
@@ -210,13 +210,13 @@ Array of namespaces to watch.
 
 _Optional,Default: empty (process all Ingresses)_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesIngress]
   labelSelector = "A and not B"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesIngress:
     labelselector: "A and not B"
@@ -236,13 +236,13 @@ See [label-selectors](https://kubernetes.io/docs/concepts/overview/working-with-
 
 _Optional, Default: empty_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesIngress]
   ingressClass = "traefik-internal"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesIngress:
     ingressClass: "traefik-internal"
@@ -264,13 +264,13 @@ Otherwise, Ingresses missing the annotation, having an empty value, or with the 
 
 _Optional, Default: empty_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesIngress.ingressEndpoint]
   hostname = "foo.com"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesIngress:
     ingressEndpoint:
@@ -288,13 +288,13 @@ Hostname used for Kubernetes Ingress endpoints.
 
 _Optional, Default: empty_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesIngress.ingressEndpoint]
   ip = "1.2.3.4"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesIngress:
     ingressEndpoint:
@@ -312,13 +312,13 @@ IP used for Kubernetes Ingress endpoints.
 
 _Optional, Default: empty_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesIngress.ingressEndpoint]
   publishedService = "namespace/foo-service"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesIngress:
     ingressEndpoint:
@@ -337,13 +337,13 @@ Format: `namespace/servicename`.
 
 _Optional, Default: 0 (no throttling)_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesIngress]
   throttleDuration = "10s"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesIngress:
     throttleDuration: "10s"

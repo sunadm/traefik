@@ -10,13 +10,13 @@ For this very reason, the sendAnonymousUsage option is mandatory: we want you to
 
 !!! example "Enabling Data Collection"
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [global]
       # Send anonymous usage data
       sendAnonymousUsage = true
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     global:
       # Send anonymous usage data
       sendAnonymousUsage: true

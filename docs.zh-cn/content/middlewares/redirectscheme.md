@@ -51,7 +51,7 @@ labels:
   - "traefik.http.middlewares.test-redirectscheme.redirectscheme.permanent=true"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Redirect to https
 [http.middlewares]
   [http.middlewares.test-redirectscheme.redirectScheme]
@@ -59,7 +59,7 @@ labels:
     permanent = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Redirect to https
 http:
   middlewares:
@@ -115,7 +115,7 @@ labels:
   - "traefik.http.middlewares.test-redirectscheme.redirectscheme.permanent=true"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Redirect to https
 [http.middlewares]
   [http.middlewares.test-redirectscheme.redirectScheme]
@@ -123,7 +123,7 @@ labels:
     permanent = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Redirect to https
 http:
   middlewares:
@@ -172,14 +172,14 @@ labels:
   - "traefik.http.middlewares.test-redirectscheme.redirectscheme.scheme=https"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Redirect to https
 [http.middlewares]
   [http.middlewares.test-redirectscheme.redirectScheme]
     scheme = "https"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Redirect to https
 http:
   middlewares:
@@ -232,7 +232,7 @@ labels:
   - "traefik.http.middlewares.test-redirectscheme.redirectscheme.port=443"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Redirect to https
 [http.middlewares]
   [http.middlewares.test-redirectscheme.redirectScheme]
@@ -240,7 +240,7 @@ labels:
     port = 443
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Redirect to https
 http:
   middlewares:

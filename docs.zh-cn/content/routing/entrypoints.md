@@ -1,20 +1,16 @@
-# 入口点(EntryPoints)
+# 入口点
 
 为传入请求打开连接
-Opening Connections for Incoming Requests
 {: .subtitle }
 
 ![入口点(entryPoints)](../assets/img/entrypoints.png)
 
 EntryPoints是Traefik的网络入口点。
-它们定义了将接收数据包的端口，以及侦听TCP还是UDP。
-EntryPoints are the network entry points into Traefik.
-They define the port which will receive the packets,
-and whether to listen for TCP or UDP.
+它们定义了将接收数据包的端口，以及监听TCP还是UDP。
 
-## 配置示例(Configuration Examples)
+## 配置示例
 
-??? example "Port 80 only"
+??? example "仅 80 端口"
 
     ```toml tab="文件 (TOML)"
     ## Static configuration
@@ -35,9 +31,9 @@ and whether to listen for TCP or UDP.
     --entryPoints.web.address=:80
     ```
 
-    We define an `entrypoint` called `web` that will listen on port `80`.
+    我们定义一个名为`web`的`entrypoint`，将监听在`80`端口上。
 
-??? example "Port 80 & 443" 
+??? example "端口 80 及 443" 
 
     ```toml tab="文件 (TOML)"
     ## Static configuration
@@ -65,8 +61,8 @@ and whether to listen for TCP or UDP.
     --entryPoints.websecure.address=:443
     ```
 
-    - Two entrypoints are defined: one called `web`, and the other called `websecure`.
-    - `web` listens on port `80`, and `websecure` on port `443`. 
+    - 定义了两个入口点：一个名为`web`，另一个名为`websecure`。
+    - `web`监听在端口`80`上，`websecure`监听在端口`443`上.
 
 ??? example "UDP on port 1704"
 
@@ -89,16 +85,14 @@ and whether to listen for TCP or UDP.
     --entryPoints.streaming.address=:1704/udp
     ```
 
-## 配置(Configuration)
+## 配置
 
 ### General
 
 入口点属于[静态配置(Static configuration)](../getting-started/configuration-overview.md#the-static-configuration)的一部分。
 你可以使用一个Toml文件，CLI参数，或是键值对存储来定义它们。
-EntryPoints are part of the [static configuration](../getting-started/configuration-overview.md#the-static-configuration).
-You can define them using a toml file, CLI arguments, or a key-value store.
 
-??? info "See the complete reference for the list of available options"
+??? info "可用选项列表，请参看完整的参考"
     
     ```toml tab="文件 (TOML)"
     ## Static configuration
@@ -160,23 +154,18 @@ You can define them using a toml file, CLI arguments, or a key-value store.
     --entryPoints.name.forwardedHeaders.trustedIPs=127.0.0.1,192.168.0.1
     ```
 
-### 地址(Address)
+### 地址
 
 地址定义了端口，以及可选的主机名，用以侦听传入连接和数据包。
 它还定义了要使用的协议（TCP或UDP）。
 如果未指定协议，则默认为TCP。
 格式为：
-The address defines the port, and optionally the hostname, on which to listen for incoming connections and packets.
-It also defines the protocol to use (TCP or UDP).
-If no protocol is specified, the default is TCP.
-The format is:
 
 ```bash
 [host]:port[/tcp|/udp]
 ```
 
 如果同一端口同时需要TCP和UDP，则需要两个`entryPoints`定义，如下例。
-If both TCP and UDP are wanted for the same port, two entryPoints definitions are needed, such as in the example below.
 
 ??? example "Both TCP and UDP on port 3179"
 
@@ -207,12 +196,10 @@ If both TCP and UDP are wanted for the same port, two entryPoints definitions ar
 ### Forwarded Headers
 
 您可以配置Traefik，以信任转发的HTTP头信息（`X-Forwarded-*`）。
-You can configure Traefik to trust the forwarded headers information (`X-Forwarded-*`).
 
 ??? info "`forwardedHeaders.trustedIPs`"
     
     信任来自指定IP的转发头(Forwarded Headers)。
-    Trusting Forwarded Headers from specific IPs.
 
     ```toml tab="文件 (TOML)"
     ## Static configuration
@@ -244,7 +231,6 @@ You can configure Traefik to trust the forwarded headers information (`X-Forward
 ??? info "`forwardedHeaders.insecure`"
     
     非安全模式（始终信任转发头(Forwarded Headers)）。
-    Insecure Mode (Always Trusting Forwarded Headers).
 
     ```toml tab="文件 (TOML)"
     ## Static configuration
@@ -277,23 +263,16 @@ You can configure Traefik to trust the forwarded headers information (`X-Forward
 
 `respondingTimeouts` 是传入请求到Traefik实例间的超时时间。
 设置它们对 UDP entryPoints 无效。
-`respondingTimeouts` are timeouts for incoming requests to the Traefik instance.
-Setting them has no effect for UDP entryPoints.
 
 ??? info "`transport.respondingTimeouts.readTimeout`"
     
     _可选，默认=0s_
-    _Optional, Default=0s_
     
     `readTimeout`是读取整个请求（包括请求体）的最大持续时间。
-    `readTimeout` is the maximum duration for reading the entire request, including the body.  
 
-    如果为0，则不设超时。
-    可以以[time.ParseDuration](https://golang.org/pkg/time/#ParseDuration)支持的格式或原始值(数字)来提供。
+    如为0，则不设超时。
+    可以用[time.ParseDuration](https://golang.org/pkg/time/#ParseDuration)支持的格式或原始值(数字)来提供。
     如果未提供单位，则以秒为单位解析该值。 
-    If zero, no timeout exists.  
-    Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw values (digits).
-    If no units are provided, the value is parsed assuming seconds.
 
     ```toml tab="文件 (TOML)"
     ## Static configuration
@@ -324,19 +303,13 @@ Setting them has no effect for UDP entryPoints.
 ??? info "`transport.respondingTimeouts.writeTimeout`"
     
     _可选，默认=0s_
-    _Optional, Default=0s_
 
     `writeTimeout`是响应(Response)写入超时前的最大持续时间。
-    `writeTimeout` is the maximum duration before timing out writes of the response.
 
     它涵盖了从请求标头读取结束，到响应写入结束之间的时间。
     如为0，则不设超时。
     可以用[time.ParseDuration](https://golang.org/pkg/time/#ParseDuration)支持的格式或原始值(数字)提供。
-    如果未提供单位，则以秒为单位解析该值。      
-    It covers the time from the end of the request header read to the end of the response write.
-    If zero, no timeout exists.  
-    Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw values (digits).
-    If no units are provided, the value is parsed assuming seconds.
+    如果未提供单位，则以秒为单位解析该值。
     
     ```toml tab="文件 (TOML)"
     ## Static configuration
@@ -366,7 +339,7 @@ Setting them has no effect for UDP entryPoints.
 
 ??? info "`transport.respondingTimeouts.idleTimeout`"
     
-    _Optional, Default=180s_
+    _可选，默认=180s_
     
     `idleTimeout` is the maximum duration an idle (keep-alive) connection will remain idle before closing itself.  
     
@@ -524,7 +497,6 @@ If the Proxy Protocol header is passed, then the version is determined automatic
 ??? info "`proxyProtocol.insecure`"
 
     非安全模式（仅测试环境）。
-    Insecure Mode (Testing Environment Only).
     
     In a test environments, you can configure Traefik to trust every incoming connection.
     Doing so, every remote client address will be replaced (`trustedIPs` won't have any effect)
@@ -562,9 +534,9 @@ If the Proxy Protocol header is passed, then the version is determined automatic
 
 This whole section is dedicated to options, keyed by entry point, that will apply only to HTTP routing.
 
-### Redirection
+### 重定向(Redirection)
 
-??? example "HTTPS redirection (80 to 443)"
+??? example "HTTPS 重定向 (80 到 443)"
     
     ```toml tab="文件 (TOML)"
     [entryPoints.web]
@@ -607,9 +579,9 @@ This section is a convenience to enable (permanent) redirecting of all incoming 
 
 ??? info "`entryPoint.to`"
     
-    _Required_
+    _必需_
     
-    The target entry point.
+    目标入口点。
 
     ```toml tab="文件 (TOML)"
     [entryPoints.foo]
@@ -637,7 +609,7 @@ This section is a convenience to enable (permanent) redirecting of all incoming 
     
     _Optional, Default="http"_
     
-    The redirection target scheme.
+    重定向的目标Scheme
 
     ```toml tab="文件 (TOML)"
     [entryPoints.foo]
@@ -663,10 +635,9 @@ This section is a convenience to enable (permanent) redirecting of all incoming 
     --entrypoints.foo.http.redirections.entryPoint.scheme=https
     ```
 
-### Middlewares
+### 中间件(Middlewares)
 
 中间件列表，该中间件列表默认放置在与已命名入口点关联的每个路由器的中间件列表之前。
-The list of middlewares that are prepended by default to the list of middlewares of each router associated to the named entry point.
 
 ```toml tab="文件 (TOML)"
 [entryPoints.websecure]
@@ -694,13 +665,10 @@ entrypoints.websecure.http.middlewares=auth@file,strip@file
 ### TLS
 
 本节关于默认TLS配置，其应用到所有与已命名入口点关联的路由器。
-This section is about the default TLS configuration applied to all routers associated with the named entry point.
 
 如果一个TLS区块（即其任何字段）为用户定义，则默认配置根本不适用。
-If a TLS section (i.e. any of its fields) is user-defined, then the default configuration does not apply at all.
 
 此TLS区块，等同于[HTTP路由器上的TLS区块](./routers/index.md#tls)。
-The TLS section is the same as the [TLS section on HTTP routers](./routers/index.md#tls).
 
 ```toml tab="文件 (TOML)"
 [entryPoints.websecure]

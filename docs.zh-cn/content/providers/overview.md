@@ -62,12 +62,12 @@ This option cannot be set per provider,
 but the throttling algorithm applies independently to each of them.
 It defaults to 2 seconds.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers]
   providers.providersThrottleDuration = 10s
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   providersThrottleDuration: 10s
 ```

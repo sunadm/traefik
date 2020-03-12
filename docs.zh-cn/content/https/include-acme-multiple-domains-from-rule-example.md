@@ -52,7 +52,7 @@ labels:
   - traefik.http.routers.blog.tls.certresolver=myresolver
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 ## Dynamic configuration
 [http.routers]
   [http.routers.blog]
@@ -61,7 +61,7 @@ labels:
       certResolver = "myresolver"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 ## Dynamic configuration
 http:
   routers:

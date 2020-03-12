@@ -47,14 +47,14 @@ labels:
   - "traefik.http.middlewares.limit.buffering.maxRequestBodyBytes=2000000"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Sets the maximum request body to 2Mb
 [http.middlewares]
   [http.middlewares.limit.buffering]
     maxRequestBodyBytes = 2000000
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Sets the maximum request body to 2Mb
 http:
   middlewares:
@@ -101,13 +101,13 @@ labels:
   - "traefik.http.middlewares.limit.buffering.maxRequestBodyBytes=2000000"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.limit.buffering]
     maxRequestBodyBytes = 2000000
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     limit:
@@ -149,13 +149,13 @@ labels:
   - "traefik.http.middlewares.limit.buffering.memRequestBodyBytes=2000000"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.limit.buffering]
     memRequestBodyBytes = 2000000
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     limit:
@@ -199,13 +199,13 @@ labels:
   - "traefik.http.middlewares.limit.buffering.maxResponseBodyBytes=2000000"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.limit.buffering]
     maxResponseBodyBytes = 2000000
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     limit:
@@ -247,13 +247,13 @@ labels:
   - "traefik.http.middlewares.limit.buffering.memResponseBodyBytes=2000000"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.limit.buffering]
     memResponseBodyBytes = 2000000
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     limit:
@@ -297,13 +297,13 @@ You can have the Buffering middleware replay the request with the help of the `r
       - "traefik.http.middlewares.limit.buffering.retryExpression=IsNetworkError() && Attempts() < 2"
     ```
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [http.middlewares]
       [http.middlewares.limit.buffering]
         retryExpression = "IsNetworkError() && Attempts() < 2"
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     http:
       middlewares:
         limit:

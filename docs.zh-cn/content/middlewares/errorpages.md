@@ -58,7 +58,7 @@ labels:
   - "traefik.http.middlewares.test-errorpage.errors.query=/{status}.html"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Custom Error Page for 5XX
 [http.middlewares]
   [http.middlewares.test-errorpage.errors]
@@ -70,7 +70,7 @@ labels:
   # ... definition of error-handler-service and my-service
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Custom Error Page for 5XX
 http:
   middlewares:

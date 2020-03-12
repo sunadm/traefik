@@ -119,7 +119,7 @@ labels:
   - "http.services.service1.loadbalancer.server.port=80"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # ...    
 [http.routers]
   [http.routers.router1]
@@ -147,7 +147,7 @@ labels:
         url = "http://127.0.0.1:80"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # ...    
 http:
   routers:

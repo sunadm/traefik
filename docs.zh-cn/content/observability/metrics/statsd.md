@@ -2,12 +2,12 @@
 
 To enable the Statsd:
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.statsD]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   statsD: {}
 ```
@@ -22,13 +22,13 @@ _Required, Default="localhost:8125"_
 
 Address instructs exporter to send metrics to statsd at this address.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.statsD]
     address = "localhost:8125"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   statsD:
     address: localhost:8125
@@ -44,13 +44,13 @@ _Optional, Default=true_
 
 Enable metrics on entry points.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.statsD]
     addEntryPointsLabels = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   statsD:
     addEntryPointsLabels: true
@@ -66,13 +66,13 @@ _Optional, Default=true_
 
 Enable metrics on services.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.statsD]
     addServicesLabels = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   statsD:
     addServicesLabels: true
@@ -88,13 +88,13 @@ _Optional, Default=10s_
 
 The interval used by the exporter to push metrics to statsD.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.statsD]
     pushInterval = 10s
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   statsD:
     pushInterval: 10s
@@ -110,13 +110,13 @@ _Optional, Default="traefik"_
 
 The prefix to use for metrics collection.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.statsD]
     prefix = "traefik"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   statsD:
     prefix: traefik

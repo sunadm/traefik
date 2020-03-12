@@ -30,11 +30,11 @@ You can read more about this retrieval mechanism in the following section: [ACME
     There are many available options for ACME.
     For a quick glance at what's possible, browse the configuration reference:
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     --8<-- "content/https/ref-acme.toml"
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     --8<-- "content/https/ref-acme.yaml"
     ```
     
@@ -70,7 +70,7 @@ Please check the [configuration examples below](#configuration-examples) for mor
 
 ??? example "Enabling ACME"
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [entryPoints]
       [entryPoints.web]
         address = ":80"
@@ -86,7 +86,7 @@ Please check the [configuration examples below](#configuration-examples) for mor
         entryPoint = "web"
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     entryPoints:
       web:
         address: ":80"
@@ -165,13 +165,13 @@ when using the `TLS-ALPN-01` challenge, Traefik must be reachable by Let's Encry
 
 ??? example "Configuring the `tlsChallenge`"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [certificatesResolvers.myresolver.acme]
       # ...
       [certificatesResolvers.myresolver.acme.tlsChallenge]
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     certificatesResolvers:
       myresolver:
         acme:
@@ -193,7 +193,7 @@ when using the `HTTP-01` challenge, `certificatesResolvers.myresolver.acme.httpC
 
 ??? example "Using an EntryPoint Called web for the `httpChallenge`"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [entryPoints]
       [entryPoints.web]
         address = ":80"
@@ -207,7 +207,7 @@ when using the `HTTP-01` challenge, `certificatesResolvers.myresolver.acme.httpC
         entryPoint = "web"
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     entryPoints:
       web:
         address: ":80"
@@ -239,7 +239,7 @@ Use the `DNS-01` challenge to generate and renew ACME certificates by provisioni
 
 ??? example "Configuring a `dnsChallenge` with the DigitalOcean Provider"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [certificatesResolvers.myresolver.acme]
       # ...
       [certificatesResolvers.myresolver.acme.dnsChallenge]
@@ -248,7 +248,7 @@ Use the `DNS-01` challenge to generate and renew ACME certificates by provisioni
     # ...
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     certificatesResolvers:
       myresolver:
         acme:
@@ -362,7 +362,7 @@ For example, `CF_API_EMAIL_FILE=/run/secrets/traefik_cf-api-email` could be used
 
 Use custom DNS servers to resolve the FQDN authority.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [certificatesResolvers.myresolver.acme]
   # ...
   [certificatesResolvers.myresolver.acme.dnsChallenge]
@@ -370,7 +370,7 @@ Use custom DNS servers to resolve the FQDN authority.
     resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 certificatesResolvers:
   myresolver:
     acme:
@@ -405,14 +405,14 @@ The CA server to use:
 
 ??? example "Using the Let's Encrypt staging server"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [certificatesResolvers.myresolver.acme]
       # ...
       caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
       # ...
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     certificatesResolvers:
       myresolver:
         acme:
@@ -433,14 +433,14 @@ _Required, Default="acme.json"_
 
 The `storage` option sets the location where your ACME certificates are saved to.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [certificatesResolvers.myresolver.acme]
   # ...
   storage = "acme.json"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 certificatesResolvers:
   myresolver:
     acme:

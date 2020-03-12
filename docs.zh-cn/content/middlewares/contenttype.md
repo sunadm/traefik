@@ -58,14 +58,14 @@ labels:
   - "traefik.http.middlewares.autodetect.contenttype.autodetect=false"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Disable auto-detection
 [http.middlewares]
   [http.middlewares.autodetect.contentType]
      autoDetect=false
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Disable auto-detection
 http:
   middlewares:

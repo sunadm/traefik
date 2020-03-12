@@ -34,7 +34,7 @@ or act before forwarding the request to the service.
     
     **Dynamic Configuration**
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Dynamic configuration
     [tcp]
       [tcp.routers]
@@ -45,7 +45,7 @@ or act before forwarding the request to the service.
           service = "database"
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Dynamic configuration
     tcp:
       routers:
@@ -59,7 +59,7 @@ or act before forwarding the request to the service.
     
     **Static Configuration**
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Static configuration
     [entryPoints]
       [entryPoints.web]
@@ -68,7 +68,7 @@ or act before forwarding the request to the service.
         address = ":3306"   
     ```
      
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Static configuration
     entryPoints:
       web:
@@ -96,7 +96,7 @@ If you want to limit the router scope to a set of entry points, set the `entryPo
     
     **Dynamic Configuration**
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Dynamic configuration
     [http.routers]
       [http.routers.Router-1]
@@ -105,7 +105,7 @@ If you want to limit the router scope to a set of entry points, set the `entryPo
         service = "service-1"
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Dynamic configuration
     http:
       routers:
@@ -117,7 +117,7 @@ If you want to limit the router scope to a set of entry points, set the `entryPo
     
     **Static Configuration**
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Static configuration
     [entryPoints]
       [entryPoints.web]
@@ -128,7 +128,7 @@ If you want to limit the router scope to a set of entry points, set the `entryPo
         address = ":9090"
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Static configuration
     entryPoints:
       web:
@@ -150,7 +150,7 @@ If you want to limit the router scope to a set of entry points, set the `entryPo
     
     **Dynamic Configuration**
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Dynamic configuration
     [http.routers]
       [http.routers.Router-1]
@@ -160,7 +160,7 @@ If you want to limit the router scope to a set of entry points, set the `entryPo
         service = "service-1"
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Dynamic configuration
     http:
       routers:
@@ -175,7 +175,7 @@ If you want to limit the router scope to a set of entry points, set the `entryPo
 
     **Static Configuration**
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Static configuration
     [entryPoints]
       [entryPoints.web]
@@ -186,7 +186,7 @@ If you want to limit the router scope to a set of entry points, set the `entryPo
         address = ":9090"
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Static configuration
     entryPoints:
       web:
@@ -269,7 +269,7 @@ A value of `0` for the priority is ignored: `priority = 0` means that the defaul
 
 ??? info "How default priorities are computed"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Dynamic configuration
     [http.routers]
       [http.routers.Router-1]
@@ -280,7 +280,7 @@ A value of `0` for the priority is ignored: `priority = 0` means that the defaul
         # ...
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Dynamic configuration
     http:
       routers:
@@ -305,7 +305,7 @@ A value of `0` for the priority is ignored: `priority = 0` means that the defaul
 
 ??? example "Set priorities -- using the [File Provider](../../providers/file.md)"
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Dynamic configuration
     [http.routers]
       [http.routers.Router-1]
@@ -320,7 +320,7 @@ A value of `0` for the priority is ignored: `priority = 0` means that the defaul
         service = "service-2"
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Dynamic configuration
     http:
       routers:
@@ -399,7 +399,7 @@ Traefik will terminate the SSL connections (meaning that it will send decrypted 
 
 ??? example "Configuring the router to accept HTTPS requests only"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Dynamic configuration
     [http.routers]
       [http.routers.Router-1]
@@ -409,7 +409,7 @@ Traefik will terminate the SSL connections (meaning that it will send decrypted 
         [http.routers.Router-1.tls]
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Dynamic configuration
     http:
       routers:
@@ -427,7 +427,7 @@ Traefik will terminate the SSL connections (meaning that it will send decrypted 
 
     ??? example "HTTP & HTTPS routes"
 
-        ```toml tab="File (TOML)"
+        ```toml tab="文件 (TOML)"
         ## Dynamic configuration
         [http.routers]
           [http.routers.my-https-router]
@@ -441,7 +441,7 @@ Traefik will terminate the SSL connections (meaning that it will send decrypted 
             service = "service-id"
         ```
 
-        ```yaml tab="File (YAML)"
+        ```yaml tab="文件 (YAML)"
         ## Dynamic configuration
         http:
           routers:
@@ -473,7 +473,7 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
 
 ??? example "Configuring the TLS options"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Dynamic configuration
     [http.routers]
       [http.routers.Router-1]
@@ -495,7 +495,7 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
         ]
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Dynamic configuration
     http:
       routers:
@@ -524,7 +524,7 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
     if a configuration introduces a situation where the same host name (from a `Host` rule) gets matched with two TLS options references,
     a conflict occurs, such as in the example below:
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Dynamic configuration
     [http.routers]
       [http.routers.routerfoo]
@@ -539,7 +539,7 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
           options = "bar"
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Dynamic configuration
     http:
       routers:
@@ -560,7 +560,7 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
 
 If `certResolver` is defined, Traefik will try to generate certificates based on routers `Host` & `HostSNI` rules.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 ## Dynamic configuration
 [http.routers]
   [http.routers.routerfoo]
@@ -569,7 +569,7 @@ If `certResolver` is defined, Traefik will try to generate certificates based on
       certResolver = "foo"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 ## Dynamic configuration
 http:
   routers:
@@ -588,7 +588,7 @@ You can set SANs (alternative domains) for each main domain.
 Every domain must have A/AAAA records pointing to Traefik.
 Each domain & SAN will lead to a certificate request.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 ## Dynamic configuration
 [http.routers]
   [http.routers.routerbar]
@@ -600,7 +600,7 @@ Each domain & SAN will lead to a certificate request.
         sans = ["*.snitest.com"]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 ## Dynamic configuration
 http:
   routers:
@@ -648,7 +648,7 @@ If you want to limit the router scope to a set of entry points, set the entry po
     
     **Dynamic Configuration**
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Dynamic configuration
     
     [tcp.routers]
@@ -660,7 +660,7 @@ If you want to limit the router scope to a set of entry points, set the entry po
         [tcp.routers.Router-1.tls]
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Dynamic configuration
     
     tcp:
@@ -675,7 +675,7 @@ If you want to limit the router scope to a set of entry points, set the entry po
 
     **Static Configuration**
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Static configuration
     
     [entryPoints]
@@ -687,7 +687,7 @@ If you want to limit the router scope to a set of entry points, set the entry po
         address = ":9090"
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Static configuration
     
     entryPoints:
@@ -710,7 +710,7 @@ If you want to limit the router scope to a set of entry points, set the entry po
     
     **Dynamic Configuration**
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Dynamic configuration
     [tcp.routers]
       [tcp.routers.Router-1]
@@ -722,7 +722,7 @@ If you want to limit the router scope to a set of entry points, set the entry po
         [tcp.routers.Router-1.tls]
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Dynamic configuration
     tcp:
       routers:
@@ -739,7 +739,7 @@ If you want to limit the router scope to a set of entry points, set the entry po
 
     **Static Configuration**
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Static configuration
     
     [entryPoints]
@@ -751,7 +751,7 @@ If you want to limit the router scope to a set of entry points, set the entry po
         address = ":9090"
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Static configuration
     
     entryPoints:
@@ -801,7 +801,7 @@ but Traefik can be configured in order to let the requests pass through (keeping
 
 ??? example "Configuring TLS Termination"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Dynamic configuration
     [tcp.routers]
       [tcp.routers.Router-1]
@@ -811,7 +811,7 @@ but Traefik can be configured in order to let the requests pass through (keeping
         [tcp.routers.Router-1.tls]
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Dynamic configuration
     tcp:
       routers:
@@ -824,7 +824,7 @@ but Traefik can be configured in order to let the requests pass through (keeping
 
 ??? example "Configuring passthrough"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Dynamic configuration
     [tcp.routers]
       [tcp.routers.Router-1]
@@ -834,7 +834,7 @@ but Traefik can be configured in order to let the requests pass through (keeping
           passthrough = true
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Dynamic configuration
     tcp:
       routers:
@@ -852,7 +852,7 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
 
 !!! example "Configuring the tls options"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Dynamic configuration
     [tcp.routers]
       [tcp.routers.Router-1]
@@ -874,7 +874,7 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
         ]
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Dynamic configuration
     tcp:
       routers:
@@ -901,7 +901,7 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
 
 See [`certResolver` for HTTP router](./index.md#certresolver) for more information.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 ## Dynamic configuration
 [tcp.routers]
   [tcp.routers.routerfoo]
@@ -910,7 +910,7 @@ See [`certResolver` for HTTP router](./index.md#certresolver) for more informati
       certResolver = "foo"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 ## Dynamic configuration
 tcp:
   routers:
@@ -924,7 +924,7 @@ tcp:
 
 See [`domains` for HTTP router](./index.md#domains) for more information.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 ## Dynamic configuration
 [tcp.routers]
   [tcp.routers.routerbar]
@@ -936,7 +936,7 @@ See [`domains` for HTTP router](./index.md#domains) for more information.
         sans = ["*.snitest.com"]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 ## Dynamic configuration
 tcp:
   routers:
@@ -982,7 +982,7 @@ If one wants to limit the router scope to a set of entry points, one should set 
 
     **Dynamic Configuration**
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Dynamic configuration
 
     [udp.routers]
@@ -992,7 +992,7 @@ If one wants to limit the router scope to a set of entry points, one should set 
         service = "service-1"
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Dynamic configuration
 
     udp:
@@ -1005,7 +1005,7 @@ If one wants to limit the router scope to a set of entry points, one should set 
 
     **Static Configuration**
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Static configuration
 
     [entryPoints]
@@ -1019,7 +1019,7 @@ If one wants to limit the router scope to a set of entry points, one should set 
         address = ":9191/udp"
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Static configuration
 
     entryPoints:
@@ -1044,7 +1044,7 @@ If one wants to limit the router scope to a set of entry points, one should set 
 
     **Dynamic Configuration**
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Dynamic configuration
     [udp.routers]
       [udp.routers.Router-1]
@@ -1053,7 +1053,7 @@ If one wants to limit the router scope to a set of entry points, one should set 
         service = "service-1"
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Dynamic configuration
     udp:
       routers:
@@ -1066,7 +1066,7 @@ If one wants to limit the router scope to a set of entry points, one should set 
 
     **Static Configuration**
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Static configuration
 
     [entryPoints]
@@ -1078,7 +1078,7 @@ If one wants to limit the router scope to a set of entry points, one should set 
         address = ":9191/udp"
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Static configuration
 
     entryPoints:

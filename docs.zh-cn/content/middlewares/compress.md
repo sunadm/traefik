@@ -42,13 +42,13 @@ labels:
   - "traefik.http.middlewares.test-compress.compress=true"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Enable gzip compression
 [http.middlewares]
   [http.middlewares.test-compress.compress]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Enable gzip compression
 http:
   middlewares:
@@ -105,13 +105,13 @@ labels:
   - "traefik.http.middlewares.test-compress.compress.excludedcontenttypes=text/event-stream"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.test-compress.compress]
     excludedContentTypes = ["text/event-stream"]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     test-compress:

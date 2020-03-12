@@ -62,14 +62,14 @@ labels:
   - "traefik.http.middlewares.latency-check.circuitbreaker.expression=LatencyAtQuantileMS(50.0) > 100"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Latency Check
 [http.middlewares]
   [http.middlewares.latency-check.circuitBreaker]
     expression = "LatencyAtQuantileMS(50.0) > 100"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Latency Check
 http:
   middlewares:

@@ -2,12 +2,12 @@
 
 To enable the Instana:
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.instana]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   instana: {}
 ```
@@ -22,13 +22,13 @@ _Require, Default="127.0.0.1"_
 
 Local Agent Host instructs reporter to send spans to instana-agent at this address.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.instana]
     localAgentHost = "127.0.0.1"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   instana:
     localAgentHost: 127.0.0.1
@@ -44,13 +44,13 @@ _Require, Default=42699_
 
 Local Agent port instructs reporter to send spans to the instana-agent at this port.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.instana]
     localAgentPort = 42699
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   instana:
     localAgentPort: 42699
@@ -73,13 +73,13 @@ Valid values for logLevel field are:
 - `debug`
 - `info`
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.instana]
     logLevel = "info"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   instana:
     logLevel: info

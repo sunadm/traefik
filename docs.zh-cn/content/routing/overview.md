@@ -1,17 +1,17 @@
-# 概览(Overview)
+# 概览
 
 请求(Requests)发生了什么？
 {: .subtitle }
 
 让我们放大Traefik的体系结构，并讨论使路由得以创建的组件。
 
-首先，当启动Traefik时，你定义了[入口点(Entrypoints)](../entrypoints) (以其最基本的形式，它们就是端口号)。
+首先，当启动Traefik时，你定义了[入口点(Entrypoints)](../entrypoints) (以其最基本的形式来说，它们就是端口号)。
 然后，连接到这些入口点的[路由器(Routers)](../routers)会分析传入的请求，以查看它们是否符合一组规则。
 如果符合，路由器可能会在将请求转发到您的[服务(Services)](./services/index.md)之前，使用些许[中间件(middleware)](../middlewares/overview.md)来转换请求。
 
 ![体系架构(Architecture)](../assets/img/architecture-overview.png)
 
-## 明确职责范围(Clear Responsibilities)
+## 明确职责范围
 
 - [_提供者(Providers)_](../providers/overview.md) 发现您基础设施上存在的服务（它们的IP，健康状况，……）
 - [_入口点(Entrypoints)_](./entrypoints.md) 侦听传入流量（端口，……）
@@ -19,7 +19,7 @@
 - [_服务(Services)_](./services/index.md) 将请求转发到您的服务（负载均衡器，……）
 - [_中间件(Middlewares)_](../middlewares/overview.md) 可以更新请求，或根据请求做出决定（身份认证，速率限制，HTTP标头，……）
 
-## 文件提供者示例(Example with a File Provider)
+## 文件提供者示例
 
 以下是[文件提供者(File provider)](../providers/file.md)的完整配置文件示例，该文件将`http://domain/whoami/`请求转发到在`http://private/whoami-service/`上可访问的服务。
 在此过程中，Traefik将确保用户是通过身份验证的（使用[BasicAuth中间件](../middlewares/basicauth.md)）。
@@ -126,7 +126,7 @@ http:
 
         **静态配置(Static Configuration)**
         
-        ```toml tab="File (TOML)"
+        ```toml tab="文件 (TOML)"
         [entryPoints]
           [entryPoints.web]
             # Listen on port 8081 for incoming requests
@@ -138,7 +138,7 @@ http:
             directory = "/path/to/dynamic/conf"
         ```
         
-        ```yaml tab="File (YAML)"
+        ```yaml tab="文件 (YAML)"
         entryPoints:
           web:
             # Listen on port 8081 for incoming requests
@@ -272,13 +272,13 @@ _可选_
 
 `rootCAs` 是证书的列表（文件路径或数据字节），使用自签名TLS证书时将被设置为“根证书颁发机构”。
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 ## Static configuration
 [serversTransport]
   rootCAs = ["foo.crt", "bar.crt"]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 ## Static configuration
 serversTransport:
   rootCAs:
@@ -297,13 +297,13 @@ _可选，默认=2_
 
 如不为0，`maxIdleConnsPerHost` 控制每个主机要保留的最大空闲（保持活动(keep-alive)）连接数。
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 ## Static configuration
 [serversTransport]
   maxIdleConnsPerHost = 7
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 ## Static configuration
 serversTransport:
   maxIdleConnsPerHost: 7
@@ -324,13 +324,13 @@ _可选，默认=30s_
 
 `dialTimeout` 是建立与后端服务器的连接所允许的最大持续时间。0表示不设超时。
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 ## Static configuration
 [serversTransport.forwardingTimeouts]
   dialTimeout = "1s"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 ## Static configuration
 serversTransport:
   forwardingTimeouts:
@@ -349,13 +349,13 @@ _可选, 默认=0s_
 `responseHeaderTimeout`，如果不为零，则指定在完全写入请求（包括请求体，如果有）之后，等待服务器的响应头的时间。
 该时间不包括读取响应包体(Response Body)的时间。0表示不设超时。
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 ## Static configuration
 [serversTransport.forwardingTimeouts]
   responseHeaderTimeout = "1s"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 ## Static configuration
 serversTransport:
   forwardingTimeouts:
@@ -373,13 +373,13 @@ _可选，默认=90s_
 
 `idleConnTimeout`，是空闲（保持活动状态）连接在关闭自身之前，其保持空闲状态的最长时间。0表示不设超时。
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 ## Static configuration
 [serversTransport.forwardingTimeouts]
   idleConnTimeout = "1s"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 ## Static configuration
 serversTransport:
   forwardingTimeouts:

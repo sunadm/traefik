@@ -2,12 +2,12 @@
 
 To enable the InfluxDB:
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.influxDB]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   influxDB: {}
 ```
@@ -22,13 +22,13 @@ _Required, Default="localhost:8089"_
 
 Address instructs exporter to send metrics to influxdb at this address.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.influxDB]
     address = "localhost:8089"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   influxDB:
     address: localhost:8089
@@ -44,13 +44,13 @@ _Required, Default="udp"_
 
 InfluxDB's address protocol (udp or http).
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.influxDB]
     protocol = "udp"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   influxDB:
     protocol: udp
@@ -66,13 +66,13 @@ _Optional, Default=""_
 
 InfluxDB database used when protocol is http.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.influxDB]
     database = "db"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   influxDB:
     database: "db"
@@ -88,13 +88,13 @@ _Optional, Default=""_
 
 InfluxDB retention policy used when protocol is http.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.influxDB]
     retentionPolicy = "two_hours"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   influxDB:
     retentionPolicy: "two_hours"
@@ -110,13 +110,13 @@ _Optional, Default=""_
 
 InfluxDB username (only with http).
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.influxDB]
     username = "john"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   influxDB:
     username: "john"
@@ -132,13 +132,13 @@ _Optional, Default=""_
 
 InfluxDB password (only with http).
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.influxDB]
     password = "secret"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   influxDB:
     password: "secret"
@@ -154,13 +154,13 @@ _Optional, Default=true_
 
 Enable metrics on entry points.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.influxDB]
     addEntryPointsLabels = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   influxDB:
     addEntryPointsLabels: true
@@ -176,13 +176,13 @@ _Optional, Default=true_
 
 Enable metrics on services.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.influxDB]
     addServicesLabels = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   influxDB:
     addServicesLabels: true
@@ -198,13 +198,13 @@ _Optional, Default=10s_
 
 The interval used by the exporter to push metrics to influxdb.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.influxDB]
     pushInterval = 10s
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   influxDB:
     pushInterval: 10s

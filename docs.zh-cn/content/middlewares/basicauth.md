@@ -46,7 +46,7 @@ labels:
   - "traefik.http.middlewares.test-auth.basicauth.users=test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/,test2:$apr1$d9hr9HBB$4HxwgUir3HP4EsggP/QNo0"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Declaring the user list
 [http.middlewares]
   [http.middlewares.test-auth.basicAuth]
@@ -56,7 +56,7 @@ labels:
   ]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Declaring the user list
 http:
   middlewares:
@@ -140,7 +140,7 @@ labels:
   - "traefik.http.middlewares.test-auth.basicauth.users=test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/,test2:$apr1$d9hr9HBB$4HxwgUir3HP4EsggP/QNo0"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Declaring the user list
 [http.middlewares]
   [http.middlewares.test-auth.basicAuth]
@@ -150,7 +150,7 @@ labels:
     ]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Declaring the user list
 http:
   middlewares:
@@ -214,13 +214,13 @@ labels:
   - "traefik.http.middlewares.test-auth.basicauth.usersfile=/path/to/my/usersfile"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.test-auth.basicAuth]
     usersFile = "/path/to/my/usersfile"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     test-auth:
@@ -269,13 +269,13 @@ labels:
   - "traefik.http.middlewares.test-auth.basicauth.realm=MyRealm"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.test-auth.basicAuth]
     realm = "MyRealm"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     test-auth:
@@ -313,13 +313,13 @@ spec:
 }
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares.my-auth.basicAuth]
   # ...
   headerField = "X-WebAuth-User"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     my-auth:
@@ -362,13 +362,13 @@ labels:
   - "traefik.http.middlewares.test-auth.basicauth.removeheader=true"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.test-auth.basicAuth]
     removeHeader = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     test-auth:

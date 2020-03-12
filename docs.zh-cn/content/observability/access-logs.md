@@ -9,11 +9,11 @@ By default, logs are written to stdout, in text format.
 
 To enable the access logs:
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [accessLog]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 accessLog: {}
 ```
 
@@ -44,14 +44,14 @@ To write the logs in an asynchronous fashion, specify a  `bufferingSize` option.
 This option represents the number of log lines Traefik will keep in memory before writing them to the selected output.
 In some cases, this option can greatly help performances.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Configuring a buffer of 100 lines
 [accessLog]
   filePath = "/path/to/access.log"
   bufferingSize = 100
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Configuring a buffer of 100 lines
 accessLog:
   filePath: "/path/to/access.log"
@@ -76,7 +76,7 @@ The available filters are:
 - `retryAttempts`, to keep the access logs when at least one retry has happened
 - `minDuration`, to keep access logs when requests take longer than the specified duration
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Configuring Multiple Filters
 [accessLog]
   filePath = "/path/to/access.log"
@@ -88,7 +88,7 @@ The available filters are:
     minDuration = "10ms"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Configuring Multiple Filters
 accessLog:
   filePath: "/path/to/access.log"
@@ -123,7 +123,7 @@ Each field can be set to:
 
 The `defaultMode` for `fields.header` is `drop`.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Limiting the Logs to Specific Fields
 [accessLog]
   filePath = "/path/to/access.log"
@@ -144,7 +144,7 @@ The `defaultMode` for `fields.header` is `drop`.
         "Content-Type" = "keep"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Limiting the Logs to Specific Fields
 accessLog:
   filePath: "/path/to/access.log"

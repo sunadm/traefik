@@ -13,11 +13,11 @@ Attach tags to your services and let Traefik do the rest!
 
     Enabling the consul catalog provider
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [providers.consulCatalog]
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     providers:
       consulCatalog: {}
     ```
@@ -42,13 +42,13 @@ See the dedicated section in [routing](../routing/providers/consul-catalog.md).
 
 _Optional, Default=15s_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog]
   refreshInterval = "30s"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     refreshInterval: 30s
@@ -66,13 +66,13 @@ Defines the polling interval.
 
 _required, Default="traefik"_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog]
   prefix = "test"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     prefix: test
@@ -90,13 +90,13 @@ The prefix for Consul Catalog tags defining traefik labels.
 
 _Optional, Default=false_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog]
   requireConsistent = true
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     requireConsistent: true
@@ -114,13 +114,13 @@ Forces the read to be fully consistent.
 
 _Optional, Default=false_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog]
   stale = true
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     stale: true
@@ -138,13 +138,13 @@ Use stale consistency for catalog reads.
 
 _Optional, Default=false_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog]
   cache = true
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     cache: true
@@ -166,14 +166,14 @@ Defines the Consul server endpoint.
 
 _Optional, Default="http://127.0.0.1:8500"_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog]
   [providers.consulCatalog.endpoint]
     address = "http://127.0.0.1:8500"
     # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     endpoint:
@@ -192,14 +192,14 @@ Defines the address of the Consul server.
 
 _Optional, Default=""_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog]
   [providers.consulCatalog.endpoint]
     scheme = "https"
     # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     endpoint:
@@ -218,14 +218,14 @@ Defines the URI scheme for the Consul server.
 
 _Optional, Default=""_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog]
   [providers.consulCatalog.endpoint]
     datacenter = "test"
     # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     endpoint:
@@ -245,14 +245,14 @@ If not provided, the default agent data center is used.
 
 _Optional, Default=""_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog]
   [providers.consulCatalog.endpoint]
     token = "test"
     # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     endpoint:
@@ -271,14 +271,14 @@ Token is used to provide a per-request ACL token which overrides the agent's def
 
 _Optional, Default=""_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog]
   [providers.consulCatalog.endpoint]
     endpointWaitTime = "15s"
     # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     endpoint:
@@ -304,12 +304,12 @@ Used to authenticate http client with HTTP Basic Authentication.
 
 _Optional_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog.endpoint.httpAuth]
   username = "test"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     endpoint:
@@ -327,12 +327,12 @@ Username to use for HTTP Basic Authentication
 
 _Optional_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog.endpoint.httpAuth]
   password = "test"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     endpoint:
@@ -356,12 +356,12 @@ Defines TLS options for Consul server endpoint.
 
 _Optional_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog.endpoint.tls]
   ca = "path/to/ca.crt"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     endpoint:
@@ -379,12 +379,12 @@ providers:
 
 _Optional_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog.endpoint.tls]
   caOptional = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     endpoint:
@@ -407,13 +407,13 @@ Requires `tls.ca` to be defined.
 
 _Optional_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog.endpoint.tls]
   cert = "path/to/foo.cert"
   key = "path/to/foo.key"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     endpoint:
@@ -434,13 +434,13 @@ If this is set then you need to also set `key.
 
 _Optional_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog.endpoint.tls]
   cert = "path/to/foo.cert"
   key = "path/to/foo.key"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     endpoint:
@@ -461,12 +461,12 @@ If this is set then you need to also set `cert`.
 
 _Optional_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog.endpoint.tls]
   insecureSkipVerify = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     endpoint:
@@ -484,13 +484,13 @@ If `insecureSkipVerify` is `true`, TLS for the connection to Consul server accep
 
 _Optional, Default=true_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog]
   exposedByDefault = false
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     exposedByDefault: false
@@ -511,13 +511,13 @@ See also [Restrict the Scope of Service Discovery](./overview.md#restrict-the-sc
 
 _Optional, Default=```Host(`{{ normalize .Name }}`)```_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog]
   defaultRule = "Host(`{{ .Name }}.{{ index .Labels \"customLabel\"}}`)"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     defaultRule: "Host(`{{ .Name }}.{{ index .Labels \"customLabel\"}}`)"
@@ -543,13 +543,13 @@ The option can be overridden on an instance basis with the `traefik.http.routers
 
 _Optional, Default=""_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.consulCatalog]
   constraints = "Tag(`a.tag.name`)"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   consulCatalog:
     constraints: "Tag(`a.tag.name`)"

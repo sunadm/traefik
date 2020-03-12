@@ -53,7 +53,7 @@ labels:
   - "traefik.http.middlewares.test-redirectregex.redirectregex.replacement=http://mydomain/$${1}"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Redirect with domain replacement
 [http.middlewares]
   [http.middlewares.test-redirectregex.redirectRegex]
@@ -61,7 +61,7 @@ labels:
     replacement = "http://mydomain/${1}"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Redirect with domain replacement
 http:
   middlewares:

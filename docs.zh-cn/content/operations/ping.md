@@ -7,11 +7,11 @@ Checking the Health of Your Traefik Instances
 
 To enable the API handler:
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [ping]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 ping: {}
 ```
 
@@ -36,7 +36,7 @@ You can customize the `entryPoint` where the `/ping` is active with the `entryPo
 
 Enabling /ping on a dedicated EntryPoint.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [entryPoints]
   [entryPoints.ping]
     address = ":8082"
@@ -45,7 +45,7 @@ Enabling /ping on a dedicated EntryPoint.
   entryPoint = "ping"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 entryPoints:
   ping:
     address: ":8082"
@@ -65,12 +65,12 @@ _Optional, Default=false_
 
 If `manualRouting` is `true`, it disables the default internal router in order to allow one to create a custom router for the `ping@internal` service.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [ping]
   manualRouting = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 ping:
   manualRouting: true
 ```

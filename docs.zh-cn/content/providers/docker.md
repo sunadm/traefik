@@ -19,11 +19,11 @@ and [Docker Swarm Mode](https://docs.docker.com/engine/swarm/).
 
     Enabling the docker provider
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [providers.docker]
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     providers:
       docker: {}
     ```
@@ -47,7 +47,7 @@ and [Docker Swarm Mode](https://docs.docker.com/engine/swarm/).
 
     Enabling the docker provider (Swarm Mode)
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [providers.docker]
       # swarm classic (1.12-)
       # endpoint = "tcp://127.0.0.1:2375"
@@ -56,7 +56,7 @@ and [Docker Swarm Mode](https://docs.docker.com/engine/swarm/).
       swarmMode = true
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     providers:
       docker:
         # swarm classic (1.12-)
@@ -235,12 +235,12 @@ services:
 
 _Required, Default="unix:///var/run/docker.sock"_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.docker]
   endpoint = "unix:///var/run/docker.sock"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   docker:
     endpoint: "unix:///var/run/docker.sock"
@@ -270,13 +270,13 @@ See the sections [Docker API Access](#docker-api-access) and [Docker Swarm API A
 
     We specify the docker.sock in traefik's configuration file.
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [providers.docker]
       endpoint = "unix:///var/run/docker.sock"
       # ...
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     providers:
       docker:
         endpoint: "unix:///var/run/docker.sock"
@@ -294,13 +294,13 @@ See the sections [Docker API Access](#docker-api-access) and [Docker Swarm API A
     We specify the SSH host and user in Traefik's configuration file.
     Note that is server requires public keys for authentication you must have those accessible for user who runs Traefik.
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [providers.docker]
       endpoint = "ssh://traefik@192.168.2.5:2022"
       # ...
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     providers:
       docker:
         endpoint: "ssh://traefik@192.168.2.5:2022"
@@ -316,13 +316,13 @@ See the sections [Docker API Access](#docker-api-access) and [Docker Swarm API A
 
 _Optional, Default=false_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.docker]
   useBindPortIP = true
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   docker:
     useBindPortIP: true
@@ -366,13 +366,13 @@ but still uses the `traefik.http.services.<name>.loadbalancer.server.port` that 
 
 _Optional, Default=true_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.docker]
   exposedByDefault = false
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   docker:
     exposedByDefault: false
@@ -393,13 +393,13 @@ See also [Restrict the Scope of Service Discovery](./overview.md#restrict-the-sc
 
 _Optional, Default=empty_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.docker]
   network = "test"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   docker:
     network: test
@@ -419,13 +419,13 @@ This option can be overridden on a container basis with the `traefik.docker.netw
 
 _Optional, Default=```Host(`{{ normalize .Name }}`)```_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.docker]
   defaultRule = "Host(`{{ .Name }}.{{ index .Labels \"customLabel\"}}`)"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   docker:
     defaultRule: "Host(`{{ .Name }}.{{ index .Labels \"customLabel\"}}`)"
@@ -447,13 +447,13 @@ and the template has access to all the labels defined on this container.
 
 _Optional, Default=false_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.docker]
   swarmMode = true
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   docker:
     swarmMode: true
@@ -471,13 +471,13 @@ Activates the Swarm Mode (instead of standalone Docker).
 
 _Optional, Default=15_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.docker]
   swarmModeRefreshSeconds = "30s"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   docker:
     swarmModeRefreshSeconds: "30s"
@@ -495,13 +495,13 @@ Defines the polling interval (in seconds) in Swarm Mode.
 
 _Optional, Default=true_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.docker]
   watch = false
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   docker:
     watch: false
@@ -519,13 +519,13 @@ Watch Docker Swarm events.
 
 _Optional, Default=""_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.docker]
   constraints = "Label(`a.label.name`,`foo`)"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   docker:
     constraints: "Label(`a.label.name`,`foo`)"
@@ -585,12 +585,12 @@ _Optional_
 
 Certificate Authority used for the secured connection to Docker.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.docker.tls]
   ca = "path/to/ca.crt"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   docker:
     tls:
@@ -610,12 +610,12 @@ Requires `tls.ca` to be defined.
 - `false`: RequireAndVerifyClientCert
 - if `tls.ca` is undefined NoClientCert
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.docker.tls]
   caOptional = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   docker:
     tls:
@@ -630,13 +630,13 @@ providers:
 
 Public certificate used for the secured connection to Docker.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.docker.tls]
   cert = "path/to/foo.cert"
   key = "path/to/foo.key"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   docker:
     tls:
@@ -653,13 +653,13 @@ providers:
 
 Private certificate used for the secured connection to Docker.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.docker.tls]
   cert = "path/to/foo.cert"
   key = "path/to/foo.key"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   docker:
     tls:
@@ -676,12 +676,12 @@ providers:
 
 If `insecureSkipVerify` is `true`, TLS for the connection to Docker accepts any certificate presented by the server and any host name in that certificate.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.docker.tls]
   insecureSkipVerify = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   docker:
     tls:

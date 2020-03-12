@@ -2,12 +2,12 @@
 
 To enable the Prometheus:
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.prometheus]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   prometheus: {}
 ```
@@ -22,13 +22,13 @@ _Optional, Default="0.100000, 0.300000, 1.200000, 5.000000"_
 
 Buckets for latency metrics.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.prometheus]
     buckets = [0.1,0.3,1.2,5.0]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   prometheus:
     buckets:
@@ -48,13 +48,13 @@ _Optional, Default=true_
 
 Enable metrics on entry points.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.prometheus]
     addEntryPointsLabels = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   prometheus:
     addEntryPointsLabels: true
@@ -70,13 +70,13 @@ _Optional, Default=true_
 
 Enable metrics on services.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.prometheus]
     addServicesLabels = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   prometheus:
     addServicesLabels: true
@@ -92,7 +92,7 @@ _Optional, Default=traefik_
 
 Entry point used to expose metrics.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [entryPoints]
   [entryPoints.metrics]
     address = ":8082"
@@ -102,7 +102,7 @@ Entry point used to expose metrics.
     entryPoint = "metrics"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 entryPoints:
   metrics:
     address: ":8082"
@@ -123,13 +123,13 @@ _Optional, Default=false_
 
 If `manualRouting` is `true`, it disables the default internal router in order to allow one to create a custom router for the `prometheus@internal` service.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [metrics]
   [metrics.prometheus]
     manualRouting = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 metrics:
   prometheus:
     manualRouting: true

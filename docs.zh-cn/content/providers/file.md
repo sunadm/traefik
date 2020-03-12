@@ -21,12 +21,12 @@ You can write one of these mutually exclusive configuration elements:
 
     Enabling the file provider:
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [providers.file]
       directory = "/path/to/dynamic/conf"
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     providers:
       file:
         directory: "/path/to/dynamic/conf"
@@ -124,13 +124,13 @@ Defines the path to the configuration file.
     `filename` and `directory` are mutually exclusive.
     The recommendation is to use `directory`.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers]
   [providers.file]
     filename = "/path/to/config/dynamic_conf.toml"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   file:
     filename: /path/to/config/dynamic_conf.yml
@@ -148,13 +148,13 @@ Defines the path to the directory that contains the configuration files.
     `filename` and `directory` are mutually exclusive.
     The recommendation is to use `directory`.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers]
   [providers.file]
     directory = "/path/to/config"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   file:
     directory: /path/to/config
@@ -169,14 +169,14 @@ providers:
 Set the `watch` option to `true` to allow Traefik to automatically watch for file changes.  
 It works with both the `filename` and the `directory` options.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers]
   [providers.file]
     directory = "/path/to/dynamic/conf"
     watch = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   file:
     directory: /path/to/dynamic/conf

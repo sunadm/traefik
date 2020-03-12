@@ -50,7 +50,7 @@ labels:
   - "traefik.http.middlewares.test-ratelimit.ratelimit.burst=50"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Here, an average of 100 requests per second is allowed.
 # In addition, a burst of 50 requests is allowed.
 [http.middlewares]
@@ -59,7 +59,7 @@ labels:
     burst = 50
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Here, an average of 100 requests per second is allowed.
 # In addition, a burst of 50 requests is allowed.
 http:
@@ -114,14 +114,14 @@ labels:
   - "traefik.http.middlewares.test-ratelimit.ratelimit.average=100"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # 100 reqs/s
 [http.middlewares]
   [http.middlewares.test-ratelimit.rateLimit]
     average = 100
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # 100 reqs/s
 http:
   middlewares:
@@ -179,7 +179,7 @@ labels:
   - "traefik.http.middlewares.test-ratelimit.ratelimit.period=1m"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # 6 reqs/minute
 [http.middlewares]
   [http.middlewares.test-ratelimit.rateLimit]
@@ -187,7 +187,7 @@ labels:
     period = 1m
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # 6 reqs/minute
 http:
   middlewares:
@@ -233,13 +233,13 @@ labels:
   - "traefik.http.middlewares.test-ratelimit.ratelimit.burst=100"	
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.test-ratelimit.rateLimit]
     burst = 100
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     test-ratelimit:
@@ -310,14 +310,14 @@ labels:
   - "traefik.http.middlewares.test-ratelimit.ratelimit.sourcecriterion.ipstrategy.excludedips=127.0.0.1/32, 192.168.1.7"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.test-ratelimit.rateLimit]
     [http.middlewares.test-ratelimit.rateLimit.sourceCriterion.ipStrategy]
       excludedIPs = ["127.0.0.1/32", "192.168.1.7"]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     test-ratelimit:
@@ -378,14 +378,14 @@ labels:
   - "traefik.http.middlewares.test-ratelimit.ratelimit.sourcecriterion.requestheadername=username"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.test-ratelimit.rateLimit]
     [http.middlewares.test-ratelimit.rateLimit.sourceCriterion]
       requestHeaderName = "username"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     test-ratelimit:
@@ -429,14 +429,14 @@ labels:
   - "traefik.http.middlewares.test-ratelimit.ratelimit.sourcecriterion.requesthost=true"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.test-ratelimit.rateLimit]
     [http.middlewares.test-ratelimit.rateLimit.sourceCriterion]
       requestHost = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     test-ratelimit:

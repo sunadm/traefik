@@ -26,12 +26,12 @@ If you enable the API, a new special `service` named `api@internal` is created a
 To enable the API handler, use the following option on the
 [static configuration](../getting-started/configuration-overview.md#the-static-configuration):
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Static Configuration
 [api]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Static Configuration
 api: {}
 ```
@@ -74,12 +74,12 @@ Enable the API in `insecure` mode, which means that the API will be available di
 !!! info
     If the entryPoint named `traefik` is not configured, it will be automatically created on port 8080.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [api]
   insecure = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 api:
   insecure: true
 ```
@@ -94,12 +94,12 @@ _Optional, Default=true_
 
 Enable the dashboard. More about the dashboard features [here](./dashboard.md).
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [api]
   dashboard = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 api:
   dashboard: true
 ```
@@ -117,12 +117,12 @@ _Optional, Default=false_
 
 Enable additional [endpoints](./api.md#endpoints) for debugging and profiling, served under `/debug/`.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [api]
   debug = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 api:
   debug: true
 ```

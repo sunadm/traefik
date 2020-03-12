@@ -5,7 +5,7 @@ site_url: https://traefik-doc.livedig.com
 dev_addr: 0.0.0.0:8000
 
 repo_name: 'GitHub'
-repo_url: 'https://github.com/containous/traefik'
+repo_url: 'https://github.com/sunadm/traefik'
 
 docs_dir: 'content'
 
@@ -26,7 +26,7 @@ theme:
     prev: 'Previous'
     next: 'Next'
 
-copyright: "Copyright &copy; 2016-2019 Containous"
+copyright: "Copyright &copy; 2016-2020 Containous"
 
 google_analytics:
   - 'UA-51880359-3'
@@ -69,31 +69,31 @@ markdown_extensions:
 
 # Page tree
 nav:
-  - '欢迎\nWelcome': 'index.md'
-  - '入门\nGetting Started':
-      - 'Concepts' : 'getting-started/concepts.md'
-      - 'Quick Start': 'getting-started/quick-start.md'
-      - 'Configuration Introduction': 'getting-started/configuration-overview.md'
-      - 'Install Traefik': 'getting-started/install-traefik.md'
-  - 'Configuration Discovery':
-      - 'Overview': 'providers/overview.md'
+  - '欢迎': 'index.md'
+  - '入门':
+      - '概念' : 'getting-started/concepts.md'
+      - '快速入门': 'getting-started/quick-start.md'
+      - '配置介绍': 'getting-started/configuration-overview.md'
+      - '安装Traefik': 'getting-started/install-traefik.md'
+  - '配置发现':
+      - '概览': 'providers/overview.md'
       - 'Docker': 'providers/docker.md'
       - 'Kubernetes IngressRoute': 'providers/kubernetes-crd.md'
       - 'Kubernetes Ingress': 'providers/kubernetes-ingress.md'
       - 'Consul Catalog': 'providers/consul-catalog.md'
       - 'Marathon': 'providers/marathon.md'
       - 'Rancher': 'providers/rancher.md'
-      - 'File': 'providers/file.md'
+      - '文件': 'providers/file.md'
       - 'Consul': 'providers/consul.md'
       - 'Etcd': 'providers/etcd.md'
       - 'ZooKeeper': 'providers/zookeeper.md'
       - 'Redis': 'providers/redis.md'
-  - 'Routing & Load Balancing':
-      - 'Overview': 'routing/overview.md'
-      - 'EntryPoints': 'routing/entrypoints.md'
-      - 'Routers': 'routing/routers/index.md'
-      - 'Services': 'routing/services/index.md'
-      - 'Providers':
+  - '路由和负载均衡':
+      - '概览': 'routing/overview.md'
+      - '入口点EntryPoints': 'routing/entrypoints.md'
+      - '路由器Routers': 'routing/routers/index.md'
+      - '服务Services': 'routing/services/index.md'
+      - '提供者Providers':
           - 'Docker': 'routing/providers/docker.md'
           - 'Kubernetes IngressRoute': 'routing/providers/kubernetes-crd.md'
           - 'Kubernetes Ingress': 'routing/providers/kubernetes-ingress.md'
@@ -101,12 +101,12 @@ nav:
           - 'Marathon': 'routing/providers/marathon.md'
           - 'Rancher': 'routing/providers/rancher.md'
           - 'KV': 'routing/providers/kv.md'
-  - 'HTTPS & TLS':
-      - 'Overview': 'https/overview.md'
+  - 'HTTPS和TLS':
+      - '概览': 'https/overview.md'
       - 'TLS': 'https/tls.md'
       - 'Let''s Encrypt': 'https/acme.md'
-  - 'Middlewares':
-      - 'Overview': 'middlewares/overview.md'
+  - '中间件':
+      - '概览': 'middlewares/overview.md'
       - 'AddPrefix': 'middlewares/addprefix.md'
       - 'BasicAuth': 'middlewares/basicauth.md'
       - 'Buffering': 'middlewares/buffering.md'
@@ -134,55 +134,55 @@ nav:
       - 'Dashboard' : 'operations/dashboard.md'
       - 'API': 'operations/api.md'
       - 'Ping': 'operations/ping.md'
-  - 'Observability':
-      - 'Logs': 'observability/logs.md'
-      - 'Access Logs': 'observability/access-logs.md'
-      - 'Metrics':
-          - 'Overview': 'observability/metrics/overview.md'
+  - '可观测性':
+      - '日志': 'observability/logs.md'
+      - '访问日志': 'observability/access-logs.md'
+      - '指标Metrics':
+          - '概览': 'observability/metrics/overview.md'
           - 'Datadog': 'observability/metrics/datadog.md'
           - 'InfluxDB': 'observability/metrics/influxdb.md'
           - 'Prometheus': 'observability/metrics/prometheus.md'
           - 'StatsD': 'observability/metrics/statsd.md'
-      - 'Tracing':
-          - 'Overview': 'observability/tracing/overview.md'
+      - '追踪Tracing':
+          - '概览': 'observability/tracing/overview.md'
           - 'Jaeger': 'observability/tracing/jaeger.md'
           - 'Zipkin': 'observability/tracing/zipkin.md'
           - 'Datadog': 'observability/tracing/datadog.md'
           - 'Instana': 'observability/tracing/instana.md'
           - 'Haystack': 'observability/tracing/haystack.md'
           - 'Elastic': 'observability/tracing/elastic.md'
-  - 'User Guides':
-      - 'Kubernetes and Let''s Encrypt': 'user-guides/crd-acme/index.md'
-      - 'gRPC Examples': 'user-guides/grpc.md'
+  - '用户指南':
+      - 'Kubernetes以及Let''s Encrypt': 'user-guides/crd-acme/index.md'
+      - 'gRPC示例': 'user-guides/grpc.md'
       - 'Marathon': 'user-guides/marathon.md'
       - 'Docker':
-        - 'Basic Example': 'user-guides/docker-compose/basic-example/index.md'
+        - '基础示例': 'user-guides/docker-compose/basic-example/index.md'
         - 'HTTPS with Let''s Encrypt':
-          - 'TLS Challenge': 'user-guides/docker-compose/acme-tls/index.md'
-          - 'HTTP Challenge': 'user-guides/docker-compose/acme-http/index.md'
-          - 'DNS Challenge': 'user-guides/docker-compose/acme-dns/index.md'
-  - 'Migration':
-      - 'Traefik v2 minor migrations': 'migration/v2.md'
-      - 'Traefik v1 to v2': 'migration/v1-to-v2.md'
-  - 'Contributing':
-      - 'Thank You!': 'contributing/thank-you.md'
-      - 'Submitting Issues': 'contributing/submitting-issues.md'
-      - 'Submitting PRs': 'contributing/submitting-pull-requests.md'
-      - 'Security': 'contributing/submitting-security-issues.md'
-      - 'Building and Testing': 'contributing/building-testing.md'
-      - 'Documentation': 'contributing/documentation.md'
-      - 'Data Collection': 'contributing/data-collection.md'
+          - 'TLS 挑战': 'user-guides/docker-compose/acme-tls/index.md'
+          - 'HTTP 挑战': 'user-guides/docker-compose/acme-http/index.md'
+          - 'DNS 挑战': 'user-guides/docker-compose/acme-dns/index.md'
+  - '迁移':
+      - 'Traefik v2 小迁移': 'migration/v2.md'
+      - 'Traefik v1 到 v2': 'migration/v1-to-v2.md'
+  - '贡献':
+      - '谢谢你！': 'contributing/thank-you.md'
+      - '提交Issues': 'contributing/submitting-issues.md'
+      - '提交PRs': 'contributing/submitting-pull-requests.md'
+      - '安全': 'contributing/submitting-security-issues.md'
+      - '构建及测试': 'contributing/building-testing.md'
+      - '文档': 'contributing/documentation.md'
+      - '数据收集': 'contributing/data-collection.md'
       - 'Advocating': 'contributing/advocating.md'
-      - 'Maintainers': 'contributing/maintainers.md'
+      - '维护者': 'contributing/maintainers.md'
 #  - 'Glossary': 'glossary.md'
-  - 'References':
-      - 'Static Configuration':
-          - 'Overview': 'reference/static-configuration/overview.md'
-          - 'File': 'reference/static-configuration/file.md'
+  - '参考':
+      - '静态配置':
+          - '概览': 'reference/static-configuration/overview.md'
+          - '文件': 'reference/static-configuration/file.md'
           - 'CLI': 'reference/static-configuration/cli.md'
-          - 'Environment variables': 'reference/static-configuration/env.md'
-      - 'Dynamic Configuration':
-        - 'File': 'reference/dynamic-configuration/file.md'
+          - '环境变量': 'reference/static-configuration/env.md'
+      - '动态配置':
+        - '文件': 'reference/dynamic-configuration/file.md'
         - 'Docker': 'reference/dynamic-configuration/docker.md'
         - 'Kubernetes CRD': 'reference/dynamic-configuration/kubernetes-crd.md'
         - 'Consul Catalog': 'reference/dynamic-configuration/consul-catalog.md'

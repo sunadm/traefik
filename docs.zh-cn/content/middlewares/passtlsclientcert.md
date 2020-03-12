@@ -46,14 +46,14 @@ labels:
   - "traefik.http.middlewares.test-passtlsclientcert.passtlsclientcert.pem=true"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Pass the escaped pem in the `X-Forwarded-Tls-Client-Cert` header.
 [http.middlewares]
   [http.middlewares.test-passtlsclientcert.passTLSClientCert]
     pem = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Pass the escaped pem in the `X-Forwarded-Tls-Client-Cert` header.
 http:
   middlewares:
@@ -182,7 +182,7 @@ http:
       - "traefik.http.middlewares.test-passtlsclientcert.passtlsclientcert.info.issuer.serialnumber=true"
     ```
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # Pass all the available info in the `X-Forwarded-Tls-Client-Cert-Info` header
     [http.middlewares]
       [http.middlewares.test-passtlsclientcert.passTLSClientCert]
@@ -208,7 +208,7 @@ http:
             domainComponent = true
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     # Pass all the available info in the `X-Forwarded-Tls-Client-Cert-Info` header
     http:
       middlewares:

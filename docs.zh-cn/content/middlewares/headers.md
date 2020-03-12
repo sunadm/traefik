@@ -50,7 +50,7 @@ labels:
   - "traefik.http.middlewares.testheader.headers.customresponseheaders.X-Custom-Response-Header=value"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.testHeader.headers]
     [http.middlewares.testHeader.headers.customRequestHeaders]
@@ -59,7 +59,7 @@ labels:
         X-Custom-Response-Header = "value"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     testHeader:
@@ -111,7 +111,7 @@ labels:
   - "traefik.http.middlewares.testheader.headers.customrequestheaders.X-Script-Name=test"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [http.middlewares]
   [http.middlewares.testHeader.headers]
     [http.middlewares.testHeader.headers.customRequestHeaders]
@@ -121,7 +121,7 @@ labels:
         X-Custom-Response-Header = "" # Removes
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     testHeader:
@@ -173,14 +173,14 @@ labels:
   - "traefik.http.middlewares.testheader.headers.sslredirect=true"
 ```
 
-```toml tab="File (TOML)"    
+```toml tab="文件 (TOML)"    
 [http.middlewares]
   [http.middlewares.testHeader.headers]
     frameDeny = true
     sslRedirect = true
 ```
 
-```yaml tab="File (YAML)"  
+```yaml tab="文件 (YAML)"  
 http:
   middlewares:
     testHeader:
@@ -244,7 +244,7 @@ labels:
   - "traefik.http.middlewares.testheader.headers.addvaryheader=true"
 ```
 
-```toml tab="File (TOML)"    
+```toml tab="文件 (TOML)"    
 [http.middlewares]
   [http.middlewares.testHeader.headers]
     accessControlAllowMethods= ["GET", "OPTIONS", "PUT"]
@@ -253,7 +253,7 @@ labels:
     addVaryHeader = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 http:
   middlewares:
     testHeader:

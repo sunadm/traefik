@@ -64,7 +64,7 @@ labels:
   - traefik.http.routers.blog.tls.domains[0].sans=*.company.org
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 ## Dynamic configuration
 [http.routers]
   [http.routers.blog]
@@ -76,7 +76,7 @@ labels:
         sans = ["*.company.org"]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 ## Dynamic configuration
 http:
   routers:

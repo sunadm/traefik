@@ -63,7 +63,7 @@ Then any router can refer to an instance of the wanted middleware.
               servicePort: 80
     ```
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [frontends]
       [frontends.frontend1]
         entryPoints = ["http"]
@@ -139,7 +139,7 @@ Then any router can refer to an instance of the wanted middleware.
           namespace: foo
     ```
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [http.routers]
       [http.routers.router0]
         rule = "Host(`test.localhost`) && PathPrefix(`/test`)"
@@ -160,7 +160,7 @@ Then any router can refer to an instance of the wanted middleware.
         ]
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     http:
       routers:
         router0:
@@ -194,7 +194,7 @@ Then, a [router's TLS field](../routing/routers/index.md#tls) can refer to one o
 
     !!! info "v1"
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # static configuration
     [entryPoints]
       [entryPoints.websecure]
@@ -221,7 +221,7 @@ Then, a [router's TLS field](../routing/routers/index.md#tls) can refer to one o
 
     !!! info "v2"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # dynamic configuration
     [http.routers]
       [http.routers.Router-1]
@@ -248,7 +248,7 @@ Then, a [router's TLS field](../routing/routers/index.md#tls) can refer to one o
         ]
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     http:
       routers:
         Router-1:
@@ -330,7 +330,7 @@ To apply a redirection, one of the redirect middlewares, [RedirectRegex](../midd
 
     !!! info "v1"
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # static configuration
     defaultEntryPoints = ["web", "websecure"]
     
@@ -406,7 +406,7 @@ To apply a redirection, one of the redirect middlewares, [RedirectRegex](../midd
         permanent: true
     ```
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # traefik.toml
     ## static configuration
     
@@ -438,7 +438,7 @@ To apply a redirection, one of the redirect middlewares, [RedirectRegex](../midd
         permanent = true
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     # traefik.yaml
     ## static configuration
     
@@ -479,7 +479,7 @@ To apply a redirection, one of the redirect middlewares, [RedirectRegex](../midd
 
     !!! info "v1"
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # static configuration
     defaultEntryPoints = ["web", "websecure"]
     
@@ -564,7 +564,7 @@ To apply a redirection, one of the redirect middlewares, [RedirectRegex](../midd
         permanent: true
     ```
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## static configuration
     # traefik.toml
     
@@ -608,7 +608,7 @@ To apply a redirection, one of the redirect middlewares, [RedirectRegex](../midd
       keyFile = "/path/to/domain.key"
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## static configuration
     # traefik.yml
     
@@ -701,7 +701,7 @@ with the path `/admin` stripped, e.g. to `http://<IP>:<port>/`. In this case, yo
               servicePort: admin
     ```
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [frontends.admin]
       [frontends.admin.routes.admin_1]
       rule = "Host:company.org;PathPrefixStrip:/admin"
@@ -744,7 +744,7 @@ with the path `/admin` stripped, e.g. to `http://<IP>:<port>/`. In this case, yo
           - /admin
     ```
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## Dynamic configuration
     # dynamic-conf.toml
 
@@ -761,7 +761,7 @@ with the path `/admin` stripped, e.g. to `http://<IP>:<port>/`. In this case, yo
     # ...
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## Dynamic Configuration
     # dynamic-conf.yml
 
@@ -800,7 +800,7 @@ with the path `/admin` stripped, e.g. to `http://<IP>:<port>/`. In this case, yo
 
     !!! info "v1"
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # static configuration
     defaultEntryPoints = ["websecure","web"]
     
@@ -834,7 +834,7 @@ with the path `/admin` stripped, e.g. to `http://<IP>:<port>/`. In this case, yo
 
     !!! info "v2"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # static configuration
     [entryPoints]
       [entryPoints.web]
@@ -851,7 +851,7 @@ with the path `/admin` stripped, e.g. to `http://<IP>:<port>/`. In this case, yo
         entryPoint = "web"
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     entryPoints:
       web:
         address: ":80"
@@ -886,7 +886,7 @@ There is no more log configuration at the root level.
 
     !!! info "v1"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # static configuration
     logLevel = "DEBUG"
     
@@ -903,7 +903,7 @@ There is no more log configuration at the root level.
 
     !!! info "v2"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # static configuration
     [log]
       level = "DEBUG"
@@ -911,7 +911,7 @@ There is no more log configuration at the root level.
       format = "json"
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     # static configuration
     log:
       level: DEBUG
@@ -933,7 +933,7 @@ Traefik v2 retains OpenTracing support. The `backend` root option from the v1 is
 
     !!! info "v1"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # static configuration
     [tracing]
       backend = "jaeger"
@@ -956,7 +956,7 @@ Traefik v2 retains OpenTracing support. The `backend` root option from the v1 is
 
     !!! info "v2"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # static configuration
     [tracing]
       servicename = "tracing"
@@ -967,7 +967,7 @@ Traefik v2 retains OpenTracing support. The `backend` root option from the v1 is
         localAgentHostPort = "12.0.0.1:6831"
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     # static configuration
     tracing:
       servicename: tracing
@@ -995,7 +995,7 @@ For a basic configuration, the [metrics configuration](../observability/metrics/
 
     !!! info "v1"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # static configuration
     [metrics.prometheus]
       buckets = [0.1,0.3,1.2,5.0]
@@ -1009,14 +1009,14 @@ For a basic configuration, the [metrics configuration](../observability/metrics/
 
     !!! info "v2"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # static configuration
     [metrics.prometheus]
       buckets = [0.1,0.3,1.2,5.0]
       entryPoint = "metrics"
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     # static configuration
     metrics:
       prometheus:
@@ -1042,7 +1042,7 @@ Each root item has been moved to a related section or removed.
 
     !!! info "v1"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # static configuration
     checkNewVersion = false
     sendAnonymousUsage = true
@@ -1073,7 +1073,7 @@ Each root item has been moved to a related section or removed.
 
     !!! info "v2"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # static configuration
     [global]
       checkNewVersion = true
@@ -1091,7 +1091,7 @@ Each root item has been moved to a related section or removed.
       providersThrottleDuration = 42
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     # static configuration
     global:
       checkNewVersion: true
@@ -1136,7 +1136,7 @@ As the dashboard access is now secured by default you can either:
 
     !!! info "v1"
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## static configuration
     # traefik.toml
     
@@ -1171,7 +1171,7 @@ As the dashboard access is now secured by default you can either:
       - "traefik.http.middlewares.myAuth.basicauth.users=test:$$apr1$$H6uskkkW$$IgXLP6ewTrSuBkTrqE8wj/"
     ```
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     ## static configuration
     # traefik.toml
     
@@ -1201,7 +1201,7 @@ As the dashboard access is now secured by default you can either:
       ]
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     ## static configuration
     # traefik.yaml
     

@@ -8,7 +8,7 @@ This section explains how to use Traefik as reverse proxy for gRPC application.
 
 Static configuration:
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [entryPoints]
   [entryPoints.web]
     address = ":80"
@@ -19,7 +19,7 @@ Static configuration:
   directory = "/path/to/dynamic/config"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 entryPoints:
   web:
     address: :80
@@ -119,7 +119,7 @@ At last, we configure our Traefik instance to use both self-signed certificates.
 
 Static configuration:
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [entryPoints]
   [entryPoints.websecure]
     address = ":4443"
@@ -135,7 +135,7 @@ Static configuration:
   directory = "/path/to/dynamic/config"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 entryPoints:
   websecure:
     address: :4443

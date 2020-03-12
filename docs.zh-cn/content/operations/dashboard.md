@@ -31,7 +31,7 @@ This is the **recommended** method.
 Start by enabling the dashboard by using the following option from [Traefik's API](./api.md)
 on the [static configuration](../getting-started/configuration-overview.md#the-static-configuration):
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [api]
   # Dashboard
   #
@@ -41,7 +41,7 @@ on the [static configuration](../getting-started/configuration-overview.md#the-s
   dashboard = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 api:
   # Dashboard
   #
@@ -105,13 +105,13 @@ This mode is not recommended because it does not allow the use of security featu
 
 To enable the "insecure mode", use the following options from [Traefik's API](./api.md#insecure):
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [api]
   dashboard = true
   insecure = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 api:
   dashboard: true
   insecure: true

@@ -13,11 +13,11 @@ Attach labels to your containers and let Traefik do the rest!
 
     Enabling the docker provider
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [providers.docker]
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     providers:
       docker: {}
     ```
@@ -62,7 +62,7 @@ Attach labels to your containers and let Traefik do the rest!
 
     Enabling the docker provider (Swarm Mode)
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [providers.docker]
       # swarm classic (1.12-)
       # endpoint = "tcp://127.0.0.1:2375"
@@ -71,7 +71,7 @@ Attach labels to your containers and let Traefik do the rest!
       swarmMode = true
     ```
 
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     providers:
       docker:
         # swarm classic (1.12-)

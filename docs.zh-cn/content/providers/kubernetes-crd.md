@@ -69,13 +69,13 @@ Please note that this still requires manual intervention to create the certifica
 
 _Optional, Default=empty_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesCRD]
   endpoint = "http://localhost:8080"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesCRD:
     endpoint = "http://localhost:8080"
@@ -103,13 +103,13 @@ Specifically, it may be set to the URL used by `kubectl proxy` to connect to a K
 
 _Optional, Default=empty_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesCRD]
   token = "mytoken"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesCRD:
     token = "mytoken"
@@ -126,13 +126,13 @@ Bearer token used for the Kubernetes client configuration.
 
 _Optional, Default=empty_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesCRD]
   certAuthFilePath = "/my/ca.crt"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesCRD:
     certAuthFilePath: "/my/ca.crt"
@@ -150,13 +150,13 @@ Used for the Kubernetes client configuration.
 
 _Optional, Default: all namespaces (empty array)_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesCRD]
   namespaces = ["default", "production"]
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesCRD:
     namespaces:
@@ -175,13 +175,13 @@ Array of namespaces to watch.
 
 _Optional,Default: empty (process all Ingresses)_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesCRD]
   labelselector = "A and not B"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesCRD:
     labelselector: "A and not B"
@@ -201,13 +201,13 @@ See [label-selectors](https://kubernetes.io/docs/concepts/overview/working-with-
 
 _Optional, Default: empty_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesCRD]
   ingressClass = "traefik-internal"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesCRD:
     ingressClass: "traefik-internal"
@@ -227,13 +227,13 @@ Otherwise, Ingresses missing the annotation, having an empty value, or the value
 
 _Optional, Default: 0 (no throttling)_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.kubernetesCRD]
   throttleDuration = "10s"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   kubernetesCRD:
     throttleDuration: "10s"

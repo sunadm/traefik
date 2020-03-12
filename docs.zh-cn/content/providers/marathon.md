@@ -11,11 +11,11 @@ See also [Marathon user guide](../user-guides/marathon.md).
 
     Enabling the marathon provider
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [providers.marathon]
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     providers:
       marathon: {}
     ```
@@ -59,13 +59,13 @@ See the dedicated section in [routing](../routing/providers/marathon.md).
 
 _Optional_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon.basic]
   httpBasicAuthUser = "foo"
   httpBasicPassword = "bar"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   marathon:
     basic:
@@ -84,13 +84,13 @@ Enables Marathon basic authentication.
 
 _Optional_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon]
   dcosToken = "xxxxxx"
   # ...
 ```
 
-```toml tab="File (YAML)"
+```toml tab="文件 (YAML)"
 providers:
   marathon:
     dcosToken: "xxxxxx"
@@ -109,13 +109,13 @@ If set, it overrides the Authorization header.
 
 _Optional, Default=```Host(`{{ normalize .Name }}`)```_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon]
   defaultRule = "Host(`{{ .Name }}.{{ index .Labels \"customLabel\"}}`)"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   marathon:
     defaultRule: "Host(`{{ .Name }}.{{ index .Labels \"customLabel\"}}`)"
@@ -139,13 +139,13 @@ and the template has access to all the labels defined on this Marathon applicati
 
 _Optional, Default=5s_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon]
   dialerTimeout = "10s"
   # ...
 ```
 
-```toml tab="File (YAML)"
+```toml tab="文件 (YAML)"
 providers:
   marathon:
     dialerTimeout: "10s"
@@ -168,13 +168,13 @@ or directly as a number of seconds.
 
 _Optional, Default=http://127.0.0.1:8080_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon]
   endpoint = "http://10.241.1.71:8080,10.241.1.72:8080,10.241.1.73:8080"
   # ...
 ```
 
-```toml tab="File (YAML)"
+```toml tab="文件 (YAML)"
 providers:
   marathon:
     endpoint: "http://10.241.1.71:8080,10.241.1.72:8080,10.241.1.73:8080"
@@ -193,13 +193,13 @@ You can optionally specify multiple endpoints:
 
 _Optional, Default=true_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon]
   exposedByDefault = false
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   marathon:
     exposedByDefault: false
@@ -221,13 +221,13 @@ See also [Restrict the Scope of Service Discovery](./overview.md#restrict-the-sc
 
 _Optional, Default=""_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon]
   constraints = "Label(`a.label.name`,`foo`)"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   marathon:
     constraints: "Label(`a.label.name`,`foo`)"
@@ -295,13 +295,13 @@ See also [Restrict the Scope of Service Discovery](./overview.md#restrict-the-sc
 
 _Optional, Default=false_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon]
   forceTaskHostname = true
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   marathon:
     forceTaskHostname: true
@@ -321,13 +321,13 @@ The latter behavior can be enforced by enabling this switch.
 
 _Optional, Default=10s_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon]
   keepAlive = "30s"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   marathon:
     keepAlive: "30s"
@@ -347,13 +347,13 @@ or directly as a number of seconds.
 
 _Optional, Default=false_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon]
   respectReadinessChecks = true
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   marathon:
     respectReadinessChecks: true
@@ -375,13 +375,13 @@ See the Marathon guide for details.
 
 _Optional, Default=60s_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon]
   responseHeaderTimeout = "66s"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   marathon:
     responseHeaderTimeout: "66s"
@@ -407,12 +407,12 @@ _Optional_
 
 Certificate Authority used for the secured connection to Marathon.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon.tls]
   ca = "path/to/ca.crt"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   marathon:
     tls:
@@ -432,12 +432,12 @@ Requires `tls.ca` to be defined.
 - `false`: RequireAndVerifyClientCert
 - if `tls.ca` is undefined NoClientCert
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon.tls]
   caOptional = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   marathon:
     tls:
@@ -452,13 +452,13 @@ providers:
 
 Public certificate used for the secured connection to Marathon.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon.tls]
   cert = "path/to/foo.cert"
   key = "path/to/foo.key"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   marathon:
     tls:
@@ -475,13 +475,13 @@ providers:
 
 Private certificate used for the secured connection to Marathon.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon.tls]
   cert = "path/to/foo.cert"
   key = "path/to/foo.key"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   marathon:
     tls:
@@ -498,12 +498,12 @@ providers:
 
 If `insecureSkipVerify` is `true`, TLS for the connection to Marathon accepts any certificate presented by the server and any host name in that certificate.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon.tls]
   insecureSkipVerify = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   marathon:
     tls:
@@ -518,13 +518,13 @@ providers:
 
 _Optional, Default=5s_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon]
   responseHeaderTimeout = "10s"
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   marathon:
     responseHeaderTimeout: "10s"
@@ -547,13 +547,13 @@ or directly as a number of seconds.
 
 _Optional, Default=false_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon]
   trace = true
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   marathon:
     trace: true
@@ -571,13 +571,13 @@ Displays additional provider logs (if available).
 
 _Optional, Default=true_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.marathon]
   watch = false
   # ...
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   marathon:
     watch: false

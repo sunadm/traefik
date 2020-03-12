@@ -61,7 +61,7 @@ labels:
     certResolver = "myresolver"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 ## Dynamic configuration
 http:
   routers:

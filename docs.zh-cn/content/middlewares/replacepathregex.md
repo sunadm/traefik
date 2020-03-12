@@ -50,7 +50,7 @@ labels:
   - "traefik.http.middlewares.test-replacepathregex.replacepathregex.replacement=/bar/$1"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Redirect with domain replacement
 [http.middlewares]
   [http.middlewares.test-replacepathregex.replacePathRegex]
@@ -58,7 +58,7 @@ labels:
     replacement = "/bar/$1"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Redirect with domain replacement
 http:
   middlewares:

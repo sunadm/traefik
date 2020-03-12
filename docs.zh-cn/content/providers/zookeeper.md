@@ -17,12 +17,12 @@ _Required, Default="127.0.0.1:2181"_
 
 Defines how to access to ZooKeeper.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.zooKeeper]
   endpoints = ["127.0.0.1:2181"]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   zooKeeper:
     endpoints:
@@ -39,12 +39,12 @@ Defines the root key of the configuration.
 
 _Required, Default="traefik"_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.zooKeeper]
   rootKey = "traefik"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   zooKeeper:
     rootKey: "traefik"
@@ -60,13 +60,13 @@ Defines a username to connect with ZooKeeper.
 
 _Optional, Default=""_
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.zooKeeper]
   # ...
   username = "foo"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   zooKeeper:
     # ...
@@ -83,13 +83,13 @@ _Optional, Default=""_
 
 Defines a password to connect with ZooKeeper.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.zooKeeper]
   # ...
   password = "bar"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   zooKeeper:
     # ...
@@ -108,12 +108,12 @@ _Optional_
 
 Certificate Authority used for the secured connection to ZooKeeper.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.zooKeeper.tls]
   ca = "path/to/ca.crt"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   zooKeeper:
     tls:
@@ -133,12 +133,12 @@ Requires `tls.ca` to be defined.
 - `false`: RequireAndVerifyClientCert
 - if `tls.ca` is undefined NoClientCert
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.zooKeeper.tls]
   caOptional = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   zooKeeper:
     tls:
@@ -153,13 +153,13 @@ providers:
 
 Public certificate used for the secured connection to ZooKeeper.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.zooKeeper.tls]
   cert = "path/to/foo.cert"
   key = "path/to/foo.key"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   zooKeeper:
     tls:
@@ -176,13 +176,13 @@ providers:
 
 Private certificate used for the secured connection to ZooKeeper.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.zooKeeper.tls]
   cert = "path/to/foo.cert"
   key = "path/to/foo.key"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   zooKeeper:
     tls:
@@ -199,12 +199,12 @@ providers:
 
 If `insecureSkipVerify` is `true`, TLS for the connection to ZooKeeper accepts any certificate presented by the server and any host name in that certificate.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [providers.zooKeeper.tls]
   insecureSkipVerify = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 providers:
   zooKeeper:
     tls:

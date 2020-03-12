@@ -2,12 +2,12 @@
 
 To enable the Jaeger:
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.jaeger]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   jaeger: {}
 ```
@@ -26,13 +26,13 @@ _Required, Default="http://localhost:5778/sampling"_
 
 Sampling Server URL is the address of jaeger-agent's HTTP sampling server.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.jaeger]
     samplingServerURL = "http://localhost:5778/sampling"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   jaeger:
     samplingServerURL: http://localhost:5778/sampling
@@ -48,13 +48,13 @@ _Required, Default="const"_
 
 Sampling Type specifies the type of the sampler: `const`, `probabilistic`, `rateLimiting`.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.jaeger]
     samplingType = "const"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   jaeger:
     samplingType: const
@@ -76,13 +76,13 @@ Valid values for Param field are:
 - for `probabilistic` sampler, a probability between 0 and 1
 - for `rateLimiting` sampler, the number of spans per second
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.jaeger]
     samplingParam = 1.0
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   jaeger:
     samplingParam: 1.0
@@ -98,13 +98,13 @@ _Required, Default="127.0.0.1:6831"_
 
 Local Agent Host Port instructs reporter to send spans to jaeger-agent at this address.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.jaeger]
     localAgentHostPort = "127.0.0.1:6831"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   jaeger:
     localAgentHostPort: 127.0.0.1:6831
@@ -120,13 +120,13 @@ _Optional, Default=false_
 
 Generate 128-bit trace IDs, compatible with OpenCensus.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.jaeger]
     gen128Bit = true
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   jaeger:
     gen128Bit: true
@@ -146,13 +146,13 @@ This can be either:
 - `jaeger`, jaeger's default trace header.
 - `b3`, compatible with OpenZipkin
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.jaeger]
     propagation = "jaeger"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   jaeger:
     propagation: jaeger
@@ -169,13 +169,13 @@ _Required, Default="uber-trace-id"_
 Trace Context Header Name is the http header name used to propagate tracing context.
 This must be in lower-case to avoid mismatches when decoding incoming headers.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.jaeger]
     traceContextHeaderName = "uber-trace-id"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   jaeger:
     traceContextHeaderName: uber-trace-id
@@ -192,13 +192,13 @@ _Optional, Default=""_
 
 Collector Endpoint instructs reporter to send spans to jaeger-collector at this URL.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.jaeger.collector]
     endpoint = "http://127.0.0.1:14268/api/traces?format=jaeger.thrift"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   jaeger:
     collector:
@@ -215,13 +215,13 @@ _Optional, Default=""_
 
 User instructs reporter to include a user for basic http authentication when sending spans to jaeger-collector.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.jaeger.collector]
     user = "my-user"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   jaeger:
     collector:
@@ -238,13 +238,13 @@ _Optional, Default=""_
 
 Password instructs reporter to include a password for basic http authentication when sending spans to jaeger-collector.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   [tracing.jaeger.collector]
     password = "my-password"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   jaeger:
     collector:

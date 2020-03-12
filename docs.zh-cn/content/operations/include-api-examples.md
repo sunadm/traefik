@@ -69,7 +69,7 @@ labels:
   - "traefik.http.middlewares.auth.basicauth.users=test:$$apr1$$H6uskkkW$$IgXLP6ewTrSuBkTrqE8wj/,test2:$$apr1$$d9hr9HBB$$4HxwgUir3HP4EsggP/QNo0"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Dynamic Configuration
 [http.routers.my-api]
   rule = "Host(`traefik.domain.com`)"
@@ -83,7 +83,7 @@ labels:
   ]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Dynamic Configuration
 http:
   routers:

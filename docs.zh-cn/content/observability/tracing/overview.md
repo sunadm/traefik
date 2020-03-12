@@ -21,11 +21,11 @@ By default, Traefik uses Jaeger as tracing backend.
 
 To enable the tracing:
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing: {}
 ```
 
@@ -41,12 +41,12 @@ _Required, Default="traefik"_
 
 Service name used in selected backend.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   serviceName = "traefik"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   serviceName: traefik
 ```
@@ -64,12 +64,12 @@ This can prevent certain tracing providers to drop traces that exceed their leng
 
 `0` means no truncation will occur.
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 [tracing]
   spanNameLimit = 150
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 tracing:
   spanNameLimit: 150
 ```

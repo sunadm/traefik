@@ -44,14 +44,14 @@ labels:
   - "traefik.http.middlewares.test-ipwhitelist.ipwhitelist.sourcerange=127.0.0.1/32, 192.168.1.7"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Accepts request from defined IP
 [http.middlewares]
   [http.middlewares.test-ipwhitelist.ipWhiteList]
     sourceRange = ["127.0.0.1/32", "192.168.1.7"]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Accepts request from defined IP
 http:
   middlewares:
@@ -120,7 +120,7 @@ The `depth` option tells Traefik to use the `X-Forwarded-For` header and take th
       - "traefik.http.middlewares.testIPwhitelist.ipwhitelist.ipstrategy.depth=2"
     ```
     
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     # Whitelisting Based on `X-Forwarded-For` with `depth=2`
     [http.middlewares]
       [http.middlewares.test-ipwhitelist.ipWhiteList]
@@ -129,7 +129,7 @@ The `depth` option tells Traefik to use the `X-Forwarded-For` header and take th
           depth = 2
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     # Whitelisting Based on `X-Forwarded-For` with `depth=2`
     http:
       middlewares:
@@ -196,7 +196,7 @@ labels:
   - "traefik.http.middlewares.test-ipwhitelist.ipwhitelist.ipstrategy.excludedips=127.0.0.1/32, 192.168.1.7"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # Exclude from `X-Forwarded-For`
 [http.middlewares]
   [http.middlewares.test-ipwhitelist.ipWhiteList]
@@ -204,7 +204,7 @@ labels:
       excludedIPs = ["127.0.0.1/32", "192.168.1.7"]
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # Exclude from `X-Forwarded-For`
 http:
   middlewares:

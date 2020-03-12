@@ -86,7 +86,7 @@ labels:
   - "traefik.http.routers.router1.middlewares=foo-add-prefix@rancher"
 ```
 
-```toml tab="File (TOML)"
+```toml tab="文件 (TOML)"
 # As TOML Configuration File
 [http.routers]
   [http.routers.router1]
@@ -106,7 +106,7 @@ labels:
         url = "http://127.0.0.1:80"
 ```
 
-```yaml tab="File (YAML)"
+```yaml tab="文件 (YAML)"
 # As YAML Configuration File
 http:
   routers:
@@ -153,13 +153,13 @@ then you'll have to append to the middleware name, the `@` separator, followed b
 
     Declaring the add-foo-prefix in the file provider.
 
-    ```toml tab="File (TOML)"
+    ```toml tab="文件 (TOML)"
     [http.middlewares]
       [http.middlewares.add-foo-prefix.addPrefix]
         prefix = "/foo"
     ```
     
-    ```yaml tab="File (YAML)"
+    ```yaml tab="文件 (YAML)"
     http:
       middlewares:
         add-foo-prefix:
