@@ -1,11 +1,11 @@
-# 快速入门
+# 快速入门 { #quick-start }
 
 一个使用Docker的简单场景
 {: .subtitle }
 
 ![quickstart-diagram](../assets/img/quickstart-diagram.png)
 
-## 随Docker提供者启动Traefik
+## 随Docker提供者启动Traefik { #launch-traefik-with-the-docker-provider }
 
 创建一个`docker-compose.yml`文件，将在其中定义一个使用官方Traefik镜像的`reverse-proxy`服务：
 
@@ -38,7 +38,7 @@ docker-compose up -d reverse-proxy
 
 可以打开浏览器浏览[http://localhost:8080/api/rawdata](http://localhost:8080/api/rawdata)，查看Traefik的API原始裸数据（在第2步启动服务后，将回到那里）。
 
-## Traefik检测新服务并创建路由
+## Traefik检测新服务并创建路由 { #traefik-detects-new-services-and-creates-the-route-for-you }
 
 现在启动并运行了一个Traefik实例，现在来部署新服务。
 
@@ -77,7 +77,7 @@ IP: 172.27.0.3
 #...
 ```
 
-## 更多实例？Traefik为其均衡负载
+## 更多实例？Traefik为其均衡负载 { #more-instances-traefik-load-balances-them }
 
 用以下命令运行`whoami`服务的更多实例：
 

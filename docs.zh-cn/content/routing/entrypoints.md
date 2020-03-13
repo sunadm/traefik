@@ -1,4 +1,4 @@
-# 入口点
+# 入口点 { #entrypoints }
 
 为传入请求打开连接
 {: .subtitle }
@@ -8,7 +8,7 @@
 EntryPoints是Traefik的网络入口点。
 它们定义了将接收数据包的端口，以及监听TCP还是UDP。
 
-## 配置示例
+## 配置示例 { #configuration-examples }
 
 ??? example "仅 80 端口"
 
@@ -85,11 +85,11 @@ EntryPoints是Traefik的网络入口点。
     --entryPoints.streaming.address=:1704/udp
     ```
 
-## 配置
+## 配置 { #configuration }
 
 ### General
 
-入口点属于[静态配置(Static configuration)](../getting-started/configuration-overview.md#the-static-configuration)的一部分。
+入口点属于[静态配置](../getting-started/configuration-overview.md#the-static-configuration)的一部分。
 可以使用一个Toml文件，CLI参数，或是键值对存储来定义它们。
 
 ??? info "可用选项列表，请参看完整的参考"
@@ -154,7 +154,7 @@ EntryPoints是Traefik的网络入口点。
     --entryPoints.name.forwardedHeaders.trustedIPs=127.0.0.1,192.168.0.1
     ```
 
-### 地址
+### 地址 { #address }
 
 地址定义了端口，以及可选的主机名，用以侦听传入连接和数据包。
 它还定义了要使用的协议（TCP或UDP）。
@@ -257,7 +257,7 @@ EntryPoints是Traefik的网络入口点。
     --entryPoints.web.forwardedHeaders.insecure
     ```
 
-### 传输(Transport)
+### 传输(Transport) { #transport }
 
 #### `respondingTimeouts`
 
@@ -534,7 +534,7 @@ If the Proxy Protocol header is passed, then the version is determined automatic
 
 This whole section is dedicated to options, keyed by entry point, that will apply only to HTTP routing.
 
-### 重定向(Redirection)
+### 重定向(Redirection) { #redirection }
 
 ??? example "HTTPS 重定向 (80 到 443)"
     
@@ -636,7 +636,7 @@ This section is a convenience to enable (permanent) redirecting of all incoming 
     --entrypoints.foo.http.redirections.entryPoint.scheme=https
     ```
 
-### 中间件(Middlewares)
+### 中间件(Middlewares) { #middlewares }
 
 中间件列表，该中间件列表默认放置在与已命名入口点关联的每个路由器的中间件列表之前。
 

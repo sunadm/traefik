@@ -1,4 +1,4 @@
-# 安装Traefik
+# 安装Traefik { #install-traefik }
 
 You can install Traefik with the following flavors:
 
@@ -7,7 +7,7 @@ You can install Traefik with the following flavors:
 * [Use the binary distribution](./#use-the-binary-distribution)
 * [Compile your binary from the sources](./#compile-your-binary-from-the-sources)
 
-## 使用官方Docker镜像
+## 使用官方Docker镜像 { #use-the-official-docker-image }
 
 Choose one of the [official Docker images](https://hub.docker.com/_/traefik) and run it with the [sample configuration file](https://raw.githubusercontent.com/containous/traefik/v2.1/traefik.sample.toml):
 
@@ -25,7 +25,7 @@ For more details, go to the [Docker provider documentation](../providers/docker.
     * Docker images are based from the [Alpine Linux Official image](https://hub.docker.com/_/alpine).
     * Any orchestrator using docker images can fetch the official Traefik docker image.
 
-## 使用Helm Chart
+## 使用Helm Chart { #use-the-helm-chart }
 
 !!! warning "Experimental Helm Chart"
     
@@ -89,7 +89,7 @@ helm install ./traefik-helm-chart
         loglevel: DEBUG
     ```
 
-## 使用二进制发行版
+## 使用二进制发行版 { #use-the-binary-distribution }
 
 Grab the latest binary from the [releases](https://github.com/containous/traefik/releases) page.
 
@@ -130,6 +130,6 @@ And run it:
 ./traefik --help
 ```
 
-## 从源代码编译自己的二进制文件
+## 从源代码编译自己的二进制文件 { #compile-your-binary-from-the-sources }
 
 All the details are available in the [Contributing Guide](../contributing/building-testing.md)

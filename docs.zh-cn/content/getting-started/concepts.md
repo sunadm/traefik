@@ -1,15 +1,15 @@
-# 概念
+# 概念 { #concepts }
 
 你需要知道的一切
 {: .subtitle }
 
-## 边缘路由器
+## 边缘路由器 { #edge-router }
 
 Traefik是_边缘路由器_，这意味着它是通向你平台的大门，拦截并路由每个传入的请求：对于哪些服务处理何种请求，它了解所有的逻辑和规则（基于[路径(path)](../routing/routers/index.md#rule)，[主机(host)](../routing/routers/index.md#rule)， [标头(headers)](../routing/routers/index.md#rule)，[等等](../routing/routers/index.md#rule)……）。
 
 ![基础架构的大门](../assets/img/traefik-concepts-1.png)
 
-## 自动服务发现
+## 自动服务发现 { #auto-service-discovery }
 
 传统上，边缘路由器（或反向代理）需要一个配置文件，其中包含通往服务的所有可能路由，而Traefik则从服务本身来获取它们。
 

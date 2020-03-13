@@ -1,4 +1,4 @@
-# 概览
+# 概览 { #overview }
 
 请求(Requests)发生了什么？
 {: .subtitle }
@@ -11,7 +11,7 @@
 
 ![体系架构(Architecture)](../assets/img/architecture-overview.png)
 
-## 明确职责范围
+## 明确职责范围 { #clear-responsibilities }
 
 - [_提供者(Providers)_](../providers/overview.md) 发现您基础设施上存在的服务（它们的IP，健康状况，……）
 - [_入口点(Entrypoints)_](./entrypoints.md) 侦听传入流量（端口，……）
@@ -19,7 +19,7 @@
 - [_服务(Services)_](./services/index.md) 将请求转发到您的服务（负载均衡器，……）
 - [_中间件(Middlewares)_](../middlewares/overview.md) 可以更新请求，或根据请求做出决定（身份认证，速率限制，HTTP标头，……）
 
-## 文件提供者示例
+## 文件提供者示例 { #example-with-a-file-provider }
 
 以下是[文件提供者(File provider)](../providers/file.md)的完整配置文件示例，该文件将`http://domain/whoami/`请求转发到在`http://private/whoami-service/`上可访问的服务。
 在此过程中，Traefik将确保用户是通过身份验证的（使用[BasicAuth中间件](../middlewares/basicauth.md)）。
@@ -236,7 +236,7 @@ http:
                 - address: xx.xx.xx.xx:xx
         ```
 
-## 传输配置(Transport configuration)
+## 传输配置(Transport configuration) { #transport-configuration }
 
 客户端和Traefik之间，以及随后的Traefik与后端服务器之间的连接，其所发生的大部分事情，都是通过[入口点](../entrypoints)和[路由器](../routers)进行配置的。
 

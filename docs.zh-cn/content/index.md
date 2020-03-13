@@ -1,4 +1,4 @@
-# 欢迎
+# 欢迎 { #welcome }
 
 ![体系架构(Architecture)](assets/img/traefik-architecture.png)
 
