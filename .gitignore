@@ -7,6 +7,7 @@
 /webui/.tmp/
 /site/
 /docs/site/
+/docs.zh-cn/site/
 /static/
 /autogen/
 /traefik
