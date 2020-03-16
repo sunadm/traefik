@@ -7,8 +7,8 @@
 
 Traefik中的配置可以引用两种不同的东西：
 
-- 完全动态路由配置（称为_动态配置_）
-- 启动时配置（称为_静态配置_）
+- 完全动态路由配置（称为 _动态配置_）
+- 启动时配置（称为 _静态配置_）
 
 _静态配置_ 中的元素建立了到[提供者](../providers/overview.md)的连接，并定义Traefik将侦听的[入口点](../routing/entrypoints.md)（这些元素不会经常更改）。
 
@@ -19,7 +19,7 @@ _动态配置_ 包含定义请求如何由系统处理的所有内容。此配�
 
 ## 动态配置 { #the-dynamic-configuration }
 
-Traefik从[提供者](../providers/overview.md)处获得其_动态配置_：编排器(Orchestrator)，服务注册表，或是普通的旧配置文件。
+Traefik从[提供者](../providers/overview.md)处获得其 _动态配置_：编排器(Orchestrator)，服务注册表，或是普通的旧配置文件。
 
 由于此配置特定于你选择的基础架构，因此请参考[本文档的特定部分](../routing/overview.md)。
 

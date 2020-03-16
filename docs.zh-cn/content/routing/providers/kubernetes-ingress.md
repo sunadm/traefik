@@ -1,13 +1,12 @@
-# Traefik & Kubernetes
+# Traefik和Kubernetes { #traefik-kubernetes }
 
-The Kubernetes Ingress Controller.
+Kubernetes Ingress 控制器.
 {: .subtitle }
 
-## Routing Configuration
+## 路由配置 { #routing-configuration }
 
-The provider then watches for incoming ingresses events, such as the example below,
-and derives the corresponding dynamic configuration from it,
-which in turn will create the resulting routers, services, handlers, etc.
+提供者程序随即监视传入的ingresses事件，如下，并从中得出相应的动态配置，
+可依次创建最终的路由器(Routers)、服务(Services)、处理程序(Handlers)等。
 
 ```yaml
 kind: Ingress
@@ -34,7 +33,7 @@ spec:
   - secretName: mySecret
 ```
 
-### Annotations
+### 注解 { #annotations }
 
 ??? example
     
@@ -81,7 +80,7 @@ spec:
 
 ??? info "`traefik.ingress.kubernetes.io/router.entrypoints`"
 
-    See [entry points](../routers/index.md#entrypoints) for more information.
+    更多信息参看[entry points](../routers/index.md#entrypoints)。
 
     ```yaml
     traefik.ingress.kubernetes.io/router.entrypoints: ep1,ep2
@@ -89,7 +88,7 @@ spec:
 
 ??? info "`traefik.ingress.kubernetes.io/router.middlewares`"
 
-    See [middlewares](../routers/index.md#middlewares) and [middlewares overview](../../middlewares/overview.md) for more information.
+    更多信息参看[middlewares](../routers/index.md#middlewares)，以及[中间件概览](../../middlewares/overview.md)。
 
     ```yaml
     traefik.ingress.kubernetes.io/router.middlewares: auth@file,prefix@kuberntes-crd,cb@file
@@ -97,7 +96,7 @@ spec:
 
 ??? info "`traefik.ingress.kubernetes.io/router.priority`"
 
-    See [priority](../routers/index.md#priority) for more information.
+    更多信息参看[priority](../routers/index.md#priority)。
 
     ```yaml
     traefik.ingress.kubernetes.io/router.priority: "42"
@@ -105,10 +104,10 @@ spec:
 
 ??? info "`traefik.ingress.kubernetes.io/router.pathmatcher`"
 
-    Overrides the default router rule type used for a path.  
-    Only path-related matcher name can be specified: `Path`, `PathPrefix`.
+    覆盖用于路径的默认路由器规则类型。
+    只能指定与路径相关的匹配器名称：`Path`，`PathPrefix`。
     
-    Default `PathPrefix`
+    默认 `PathPrefix`
 
     ```yaml
     traefik.ingress.kubernetes.io/router.pathmatcher: Path
@@ -116,7 +115,7 @@ spec:
 
 ??? info "`traefik.ingress.kubernetes.io/router.tls`"
 
-    See [tls](../routers/index.md#tls) for more information.
+    更多信息参看[tls](../routers/index.md#tls)。
 
     ```yaml
     traefik.ingress.kubernetes.io/router.tls: "true"
@@ -124,7 +123,7 @@ spec:
 
 ??? info "`traefik.ingress.kubernetes.io/router.tls.certresolver`"
 
-    See [certResolver](../routers/index.md#certresolver) for more information.
+    更多信息参看[certResolver](../routers/index.md#certresolver)。
 
     ```yaml
     traefik.ingress.kubernetes.io/router.tls.certresolver: myresolver
@@ -132,7 +131,7 @@ spec:
 
 ??? info "`traefik.ingress.kubernetes.io/router.tls.domains.n.main`"
 
-    See [domains](../routers/index.md#domains) for more information.
+    更多信息参看[domains](../routers/index.md#domains)。
 
     ```yaml
     traefik.ingress.kubernetes.io/router.tls.domains.0.main: foobar.com
@@ -140,7 +139,7 @@ spec:
 
 ??? info "`traefik.ingress.kubernetes.io/router.tls.domains.n.sans`"
 
-    See [domains](../routers/index.md#domains) for more information.
+    更多信息参看[domains](../routers/index.md#domains)。
 
     ```yaml
     traefik.ingress.kubernetes.io/router.tls.domains.0.sans: test.foobar.com,dev.foobar.com
@@ -148,7 +147,7 @@ spec:
 
 ??? info "`traefik.ingress.kubernetes.io/router.tls.options`"
 
-    See [options](../routers/index.md#options) for more information.
+    更多信息参看[options](../routers/index.md#options)。
 
     ```yaml
     traefik.ingress.kubernetes.io/router.tls.options: foobar
@@ -158,7 +157,7 @@ spec:
 
 ??? info "`traefik.ingress.kubernetes.io/service.serversscheme`"
 
-    Overrides the default scheme.
+    覆盖默认的 Scheme。
 
     ```yaml
     traefik.ingress.kubernetes.io/service.serversscheme: h2c
@@ -166,7 +165,7 @@ spec:
 
 ??? info "`traefik.ingress.kubernetes.io/service.passhostheader`"
 
-    See [pass Host header](../services/index.md#pass-host-header) for more information.
+    更多信息参看[pass Host header](../services/index.md#pass-host-header)。
 
     ```yaml
     traefik.ingress.kubernetes.io/service.passhostheader: "true"
@@ -174,7 +173,7 @@ spec:
 
 ??? info "`traefik.ingress.kubernetes.io/service.sticky`"
 
-    See [sticky sessions](../services/index.md#sticky-sessions) for more information.
+    更多信息参看[sticky sessions](../services/index.md#sticky-sessions)。
 
     ```yaml
     traefik.ingress.kubernetes.io/service.sticky: "true"
@@ -182,7 +181,7 @@ spec:
 
 ??? info "`traefik.ingress.kubernetes.io/service.sticky.cookie.httponly`"
 
-    See [sticky sessions](../services/index.md#sticky-sessions) for more information.
+    更多信息参看[sticky sessions](../services/index.md#sticky-sessions)。
 
     ```yaml
     traefik.ingress.kubernetes.io/service.sticky.cookie.httponly: "true"
@@ -190,7 +189,7 @@ spec:
 
 ??? info "`traefik.ingress.kubernetes.io/service.sticky.cookie.name`"
 
-    See [sticky sessions](../services/index.md#sticky-sessions) for more information.
+    更多信息参看[sticky sessions](../services/index.md#sticky-sessions)。
 
     ```yaml
     traefik.ingress.kubernetes.io/service.sticky.cookie.name: foobar
@@ -198,7 +197,7 @@ spec:
 
 ??? info "`traefik.ingress.kubernetes.io/service.sticky.cookie.secure`"
 
-    See [sticky sessions](../services/index.md#sticky-sessions) for more information.
+    更多信息参看[sticky sessions](../services/index.md#sticky-sessions)。
 
     ```yaml
     traefik.ingress.kubernetes.io/service.sticky.cookie.secure: "true"
@@ -206,29 +205,26 @@ spec:
 
 ### TLS
 
-#### Communication Between Traefik and Pods
+#### Traefik与Pod间的通讯 { #communication-between-traefik-and-pods }
 
-Traefik automatically requests endpoint information based on the service provided in the ingress spec.
-Although Traefik will connect directly to the endpoints (pods),
-it still checks the service port to see if TLS communication is required.
+Traefik基于Ingress规范（Ingress Spec）所提供的服务，来自动请求端点信息。
+尽管Traefik将直连到端点（Pods），但它仍会检查服务端口，以查看是否需要TLS通信。
 
-There are 3 ways to configure Traefik to use https to communicate with pods:
+有3种方法可以将Traefik配置为使用https与pod进行通信：
 
-1. If the service port defined in the ingress spec is `443` (note that you can still use `targetPort` to use a different port on your pod).
-1. If the service port defined in the ingress spec has a name that starts with https (such as `https-api`, `https-web` or just `https`).
-1. If the ingress spec includes the annotation `traefik.ingress.kubernetes.io/service.serversscheme: https`.
+1. 如果Ingress规范中定义的服务端口是`443`（注意，仍然可以在Pod上用`targetPort`来使用其他端口）。
+1. 如果Ingress规范中定义的服务端口是名称以https开头（例如，`https-api`，`https-web`或只是`https`）。
+1. 如果Ingress规范包含注解`traefik.ingress.kubernetes.io/service.serversscheme: https`。
 
-If either of those configuration options exist, then the backend communication protocol is assumed to be TLS,
-and will connect via TLS automatically.
+如果存在这些配置选项之一，则假定后端通信协议为TLS，并将自动通过TLS连接。
 
 !!! info
-    
-    Please note that by enabling TLS communication between traefik and your pods,
-    you will have to have trusted certificates that have the proper trust chain and IP subject name.
-    If this is not an option, you may need to skip TLS certificate verification.
-    See the [insecureSkipVerify](../../routing/overview.md#insecureskipverify) setting for more details.
 
-#### Certificates Management
+    请注意，启用Traefik和Pod之间的TLS通信，则必须拥有具有正确信任链和IP主题名称(Subject Name)的受信任证书。
+    如果没得选，那就可能要跳过TLS证书验证。
+    更多细节，参看[insecureSkipVerify](../../routing/overview.md#insecureskipverify)设置。
+
+#### 证书管理 { #certificates-management }
 
 ??? example "Using a secret"
     
@@ -264,16 +260,16 @@ and will connect via TLS automatically.
       tls.key: LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0=
     ```
 
-TLS certificates can be managed in Secrets objects.
+TLS证书可以用Secrets对象来管理。
 
 !!! info
     
-    Only TLS certificates provided by users can be stored in Kubernetes Secrets.
-    [Let's Encrypt](../../https/acme.md) certificates cannot be managed in Kubernetes Secrets yet.
+    只有用户提供的TLS证书才能保存在Kubernetes Secrets中
+    [Let's Encrypt](../../https/acme.md) 证书尚不能在Kubernetes Secrets中进行管理。
 
 ## Global Default Backend Ingresses
 
-Ingresses can be created that look like the following:
+可以创建如下所示的Ingresses：
 
 ```yaml
 apiVersion: networking.k8s.io/v1beta1
@@ -287,12 +283,10 @@ spec:
    servicePort: 80
 ```
 
-This ingress follows the Global Default Backend property of ingresses.
-This will allow users to create a "default router" that will match all unmatched requests.
+此Ingress遵循Ingress的全局默认后端属性。
+这允许用户创建匹配所有不匹配请求的“默认路由器”。
 
 !!! info
-    
-    Due to Traefik's use of priorities, you may have to set this ingress priority lower than other ingresses in your environment,
-    to avoid this global ingress from satisfying requests that could match other ingresses.
-    
-    To do this, use the `traefik.ingress.kubernetes.io/router.priority` annotation (as seen in [Annotations on Ingress](#on-ingress)) on your ingresses accordingly.
+
+    由于Traefik使用优先级，你可能必须将此Ingress的优先级设为低于环境中的其他Ingress，避免此全局Ingress满足可能与其他ingress匹配的请求。
+    为此，请在Ingress上相应地使用`traefik.ingress.kubernetes.io/router.priority`注解（如[Ingress上的注解](#on-ingress)中所示）。

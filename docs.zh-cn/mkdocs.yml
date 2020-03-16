@@ -1,5 +1,5 @@
-site_name: Traefik
-site_description: Traefik Documentation
+site_name: Traefik 文档
+site_description: Traefik Documentation Chinese Edition
 site_author: containo.us
 site_url: https://traefik-doc.livedig.com
 dev_addr: 0.0.0.0:8000

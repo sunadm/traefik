@@ -250,19 +250,19 @@ _可选，默认=false_
 `insecureSkipVerify` 禁用了SSL证书验证。
 
 ```toml tab="文件 (TOML)"
-## Static configuration
+## 静态配置
 [serversTransport]
   insecureSkipVerify = true
 ```
 
 ```yaml tab="文件 (YAML)"
-## Static configuration
+## 静态配置
 serversTransport:
   insecureSkipVerify: true
 ```
 
 ```bash tab="CLI"
-## Static configuration
+## 静态配置
 --serversTransport.insecureSkipVerify=true
 ```
 
@@ -273,13 +273,13 @@ _可选_
 `rootCAs` 是证书的列表（文件路径或数据字节），使用自签名TLS证书时将被设置为“根证书颁发机构”。
 
 ```toml tab="文件 (TOML)"
-## Static configuration
+## 静态配置
 [serversTransport]
   rootCAs = ["foo.crt", "bar.crt"]
 ```
 
 ```yaml tab="文件 (YAML)"
-## Static configuration
+## 静态配置
 serversTransport:
   rootCAs:
     - foo.crt
@@ -287,7 +287,7 @@ serversTransport:
 ```
 
 ```bash tab="CLI"
-## Static configuration
+## 静态配置
 --serversTransport.rootCAs=foo.crt,bar.crt
 ```
 
@@ -298,19 +298,19 @@ _可选，默认=2_
 如不为0，`maxIdleConnsPerHost` 控制每个主机要保留的最大空闲（保持活动(keep-alive)）连接数。
 
 ```toml tab="文件 (TOML)"
-## Static configuration
+## 静态配置
 [serversTransport]
   maxIdleConnsPerHost = 7
 ```
 
 ```yaml tab="文件 (YAML)"
-## Static configuration
+## 静态配置
 serversTransport:
   maxIdleConnsPerHost: 7
 ```
 
 ```bash tab="CLI"
-## Static configuration
+## 静态配置
 --serversTransport.maxIdleConnsPerHost=7
 ```
 
@@ -325,20 +325,20 @@ _可选，默认=30s_
 `dialTimeout` 是建立与后端服务器的连接所允许的最大持续时间。0表示不设超时。
 
 ```toml tab="文件 (TOML)"
-## Static configuration
+## 静态配置
 [serversTransport.forwardingTimeouts]
   dialTimeout = "1s"
 ```
 
 ```yaml tab="文件 (YAML)"
-## Static configuration
+## 静态配置
 serversTransport:
   forwardingTimeouts:
     dialTimeout: 1s
 ```
 
 ```bash tab="CLI"
-## Static configuration
+## 静态配置
 --serversTransport.forwardingTimeouts.dialTimeout=1s
 ```
 
@@ -350,20 +350,20 @@ _可选, 默认=0s_
 该时间不包括读取响应包体(Response Body)的时间。0表示不设超时。
 
 ```toml tab="文件 (TOML)"
-## Static configuration
+## 静态配置
 [serversTransport.forwardingTimeouts]
   responseHeaderTimeout = "1s"
 ```
 
 ```yaml tab="文件 (YAML)"
-## Static configuration
+## 静态配置
 serversTransport:
   forwardingTimeouts:
     responseHeaderTimeout: 1s
 ```
 
 ```bash tab="CLI"
-## Static configuration
+## 静态配置
 --serversTransport.forwardingTimeouts.responseHeaderTimeout=1s
 ```
 
@@ -374,19 +374,19 @@ _可选，默认=90s_
 `idleConnTimeout`，是空闲（保持活动状态）连接在关闭自身之前，其保持空闲状态的最长时间。0表示不设超时。
 
 ```toml tab="文件 (TOML)"
-## Static configuration
+## 静态配置
 [serversTransport.forwardingTimeouts]
   idleConnTimeout = "1s"
 ```
 
 ```yaml tab="文件 (YAML)"
-## Static configuration
+## 静态配置
 serversTransport:
   forwardingTimeouts:
     idleConnTimeout: 1s
 ```
 
 ```bash tab="CLI"
-## Static configuration
+## 静态配置
 --serversTransport.forwardingTimeouts.idleConnTimeout=1s
 ```

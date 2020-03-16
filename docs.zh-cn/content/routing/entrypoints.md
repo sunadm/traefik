@@ -13,21 +13,21 @@ EntryPoints是Traefik的网络入口点。
 ??? example "仅 80 端口"
 
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.web]
         address = ":80"
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       web:
        address: ":80"
     ```
     
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entryPoints.web.address=:80
     ```
 
@@ -36,7 +36,7 @@ EntryPoints是Traefik的网络入口点。
 ??? example "端口 80 及 443" 
 
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.web]
         address = ":80"
@@ -46,7 +46,7 @@ EntryPoints是Traefik的网络入口点。
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       web:
         address: ":80"
@@ -56,7 +56,7 @@ EntryPoints是Traefik的网络入口点。
     ```
     
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entryPoints.web.address=:80
     --entryPoints.websecure.address=:443
     ```
@@ -67,21 +67,21 @@ EntryPoints是Traefik的网络入口点。
 ??? example "UDP on port 1704"
 
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.streaming]
         address = ":1704/udp"
     ```
 
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       streaming:
         address: ":1704/udp"
     ```
 
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entryPoints.streaming.address=:1704/udp
     ```
 
@@ -95,7 +95,7 @@ EntryPoints是Traefik的网络入口点。
 ??? info "可用选项列表，请参看完整的参考"
     
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.name]
         address = ":8888" # same as ":8888/tcp"
@@ -116,7 +116,7 @@ EntryPoints是Traefik的网络入口点。
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       name:
         address: ":8888" # same as ":8888/tcp"
@@ -141,7 +141,7 @@ EntryPoints是Traefik的网络入口点。
     ```
     
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entryPoints.name.address=:8888 # same as :8888/tcp
     --entryPoints.name.transport.lifeCycle.requestAcceptGraceTimeout=42
     --entryPoints.name.transport.lifeCycle.graceTimeOut=42
@@ -170,7 +170,7 @@ EntryPoints是Traefik的网络入口点。
 ??? example "Both TCP and UDP on port 3179"
 
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.tcpep]
         address = ":3179"
@@ -179,7 +179,7 @@ EntryPoints是Traefik的网络入口点。
     ```
 
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       tcpep:
        address: ":3179"
@@ -188,7 +188,7 @@ EntryPoints是Traefik的网络入口点。
     ```
 
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entryPoints.tcpep.address=:3179
     --entryPoints.udpep.address=:3179/udp
     ```
@@ -202,7 +202,7 @@ EntryPoints是Traefik的网络入口点。
     信任来自指定IP的转发头(Forwarded Headers)。
 
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.web]
         address = ":80"
@@ -212,7 +212,7 @@ EntryPoints是Traefik的网络入口点。
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       web:
         address: ":80"
@@ -223,7 +223,7 @@ EntryPoints是Traefik的网络入口点。
     ```
     
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entryPoints.web.address=:80
     --entryPoints.web.forwardedHeaders.trustedIPs=127.0.0.1/32,192.168.1.7
     ```
@@ -233,7 +233,7 @@ EntryPoints是Traefik的网络入口点。
     非安全模式（始终信任转发头(Forwarded Headers)）。
 
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.web]
         address = ":80"
@@ -243,7 +243,7 @@ EntryPoints是Traefik的网络入口点。
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       web:
         address: ":80"
@@ -252,7 +252,7 @@ EntryPoints是Traefik的网络入口点。
     ```
     
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entryPoints.web.address=:80
     --entryPoints.web.forwardedHeaders.insecure
     ```
@@ -275,7 +275,7 @@ EntryPoints是Traefik的网络入口点。
     如果未提供单位，则以秒为单位解析该值。 
 
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.name]
         address = ":8888"
@@ -285,7 +285,7 @@ EntryPoints是Traefik的网络入口点。
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       name:
         address: ":8888"
@@ -295,7 +295,7 @@ EntryPoints是Traefik的网络入口点。
     ```
     
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entryPoints.name.address=:8888
     --entryPoints.name.transport.respondingTimeouts.readTimeout=42
     ```
@@ -312,7 +312,7 @@ EntryPoints是Traefik的网络入口点。
     如果未提供单位，则以秒为单位解析该值。
     
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.name]
         address = ":8888"
@@ -322,7 +322,7 @@ EntryPoints是Traefik的网络入口点。
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       name:
         address: ":8888"
@@ -332,7 +332,7 @@ EntryPoints是Traefik的网络入口点。
     ```
     
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entryPoints.name.address=:8888
     --entryPoints.name.transport.respondingTimeouts.writeTimeout=42
     ```
@@ -343,12 +343,12 @@ EntryPoints是Traefik的网络入口点。
     
     `idleTimeout` is the maximum duration an idle (keep-alive) connection will remain idle before closing itself.  
     
-    If zero, no timeout exists.  
+    如为0，则不设超时。
     Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw values (digits).
     If no units are provided, the value is parsed assuming seconds.
     
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.name]
         address = ":8888"
@@ -358,7 +358,7 @@ EntryPoints是Traefik的网络入口点。
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       name:
         address: ":8888"
@@ -368,7 +368,7 @@ EntryPoints是Traefik的网络入口点。
     ```
     
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entryPoints.name.address=:8888
     --entryPoints.name.transport.respondingTimeouts.idleTimeout=42
     ```
@@ -390,7 +390,7 @@ Controls the behavior of Traefik during the shutdown phase.
     The zero duration disables the request accepting grace period, i.e., Traefik will immediately proceed to the grace period.
     
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.name]
         address = ":8888"
@@ -400,7 +400,7 @@ Controls the behavior of Traefik during the shutdown phase.
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       name:
         address: ":8888"
@@ -410,7 +410,7 @@ Controls the behavior of Traefik during the shutdown phase.
     ```
     
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entryPoints.name.address=:8888
     --entryPoints.name.transport.lifeCycle.requestAcceptGraceTimeout=42
     ```
@@ -428,7 +428,7 @@ Controls the behavior of Traefik during the shutdown phase.
     !!! warning "In this time frame no new requests are accepted."
     
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.name]
         address = ":8888"
@@ -438,7 +438,7 @@ Controls the behavior of Traefik during the shutdown phase.
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       name:
         address: ":8888"
@@ -448,7 +448,7 @@ Controls the behavior of Traefik during the shutdown phase.
     ```
     
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entryPoints.name.address=:8888
     --entryPoints.name.transport.lifeCycle.graceTimeOut=42
     ```
@@ -467,7 +467,7 @@ If the Proxy Protocol header is passed, then the version is determined automatic
     Enabling Proxy Protocol with Trusted IPs.
 
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.web]
         address = ":80"
@@ -477,7 +477,7 @@ If the Proxy Protocol header is passed, then the version is determined automatic
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       web:
         address: ":80"
@@ -502,7 +502,7 @@ If the Proxy Protocol header is passed, then the version is determined automatic
     Doing so, every remote client address will be replaced (`trustedIPs` won't have any effect)
 
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.web]
         address = ":80"
@@ -512,7 +512,7 @@ If the Proxy Protocol header is passed, then the version is determined automatic
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       web:
         address: ":80"

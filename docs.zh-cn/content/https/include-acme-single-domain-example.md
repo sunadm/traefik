@@ -1,6 +1,6 @@
 
 ```yaml tab="Docker"
-## Dynamic configuration
+## 动态配置
 labels:
   - traefik.http.routers.blog.rule=Host(`company.com`) && Path(`/blog`)
   - traefik.http.routers.blog.tls=true
@@ -8,7 +8,7 @@ labels:
 ```
 
 ```yaml tab="Docker (Swarm)"
-## Dynamic configuration
+## 动态配置
 deploy:
   labels:
     - traefik.http.routers.blog.rule=Host(`company.com`) && Path(`/blog`)
@@ -45,7 +45,7 @@ labels: {
 ```
 
 ```yaml tab="Rancher"
-## Dynamic configuration
+## 动态配置
 labels:
   - traefik.http.routers.blog.rule=Host(`company.com`) && Path(`/blog`)
   - traefik.http.routers.blog.tls=true
@@ -53,7 +53,7 @@ labels:
 ```
 
 ```toml tab="Single Domain"
-## Dynamic configuration
+## 动态配置
 [http.routers]
   [http.routers.blog]
   rule = "Host(`company.com`) && Path(`/blog`)"
@@ -62,7 +62,7 @@ labels:
 ```
 
 ```yaml tab="文件 (YAML)"
-## Dynamic configuration
+## 动态配置
 http:
   routers:
     blog:

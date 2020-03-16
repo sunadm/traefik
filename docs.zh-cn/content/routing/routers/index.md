@@ -1,20 +1,19 @@
-# Routers
+# 路由器 { #routers }
 
-Connecting Requests to Services
+连接请求到服务
 {: .subtitle }
 
 ![routers](../../assets/img/routers.png)
 
-A router is in charge of connecting incoming requests to the services that can handle them.
-In the process, routers may use pieces of [middleware](../../middlewares/overview.md) to update the request,
-or act before forwarding the request to the service.
+路由器负责将传入请求与可以处理这些请求的服务连接起来。
+在此过程中，路由器可能会使用[中间件](../../middlewares/overview.md)来更新请求，或者在将请求转发到服务之前做些事情。
 
-## Configuration Example
+## 配置示例 { #configuration-example }
 
-??? example "Requests /foo are Handled by service-foo -- Using the [File Provider](../../providers/file.md)"
+??? example "请求 /foo 由 service-foo 处理 -- 使用[文件提供者](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [http.routers]
       [http.routers.my-router]
         rule = "Path(`/foo`)"
@@ -22,7 +21,7 @@ or act before forwarding the request to the service.
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       routers:
         my-router:
@@ -30,37 +29,37 @@ or act before forwarding the request to the service.
           service: service-foo
     ```
 
-??? example "Forwarding all (non-tls) requests on port 3306 to a database service"
+??? example "转发端口3306上的所有非TLS请求到一个数据库服务"
     
-    **Dynamic Configuration**
+    **动态配置**
     
     ```toml tab="文件 (TOML)"
-    ## Dynamic configuration
+    ## 动态配置
     [tcp]
       [tcp.routers]
         [tcp.routers.to-database]
           entryPoints = ["mysql"]
-          # Catch every request (only available rule for non-tls routers. See below.)
+          # 捕获所有请求 (only available rule for non-tls routers. See below.)
           rule = "HostSNI(`*`)"
           service = "database"
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Dynamic configuration
+    ## 动态配置
     tcp:
       routers:
         to-database:
           entryPoints:
             - "mysql"
-          # Catch every request (only available rule for non-tls routers. See below.)
+          # 捕获所有请求 (only available rule for non-tls routers. See below.)
           rule: "HostSNI(`*`)"
           service: database
     ```
     
-    **Static Configuration**
+    **静态配置**
     
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.web]
         address = ":80"
@@ -69,7 +68,7 @@ or act before forwarding the request to the service.
     ```
      
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       web:
         address: ":80"
@@ -78,47 +77,47 @@ or act before forwarding the request to the service.
     ```
     
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entryPoints.web.address=:80
     --entryPoints.mysql.address=:3306
     ```
 
-## Configuring HTTP Routers
+## 配置HTTP路由器 { #configuring-http-routers }
 
-!!! warning "The character `@` is not authorized in the router name"
+!!! warning "字符`@`不可用于路由器名称"
 
 ### EntryPoints
 
-If not specified, HTTP routers will accept requests from all defined entry points.
-If you want to limit the router scope to a set of entry points, set the `entryPoints` option.
+如果未明确指定，HTTP路由器将接受来自所有已定义的入口点的请求。
+如果要将路由器范围限制为一组入口点，请设置`entryPoints`选项。
 
-??? example "Listens to Every EntryPoint"
+??? example "监听每个入口点"
     
-    **Dynamic Configuration**
+    **动态配置**
     
     ```toml tab="文件 (TOML)"
-    ## Dynamic configuration
+    ## 动态配置
     [http.routers]
       [http.routers.Router-1]
-        # By default, routers listen to every entry points
+        # 默认情况下，路由器监听每一个入口点
         rule = "Host(`traefik.io`)"
         service = "service-1"
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       routers:
         Router-1:
-          # By default, routers listen to every entry points
+          # 默认情况下，路由器监听每一个入口点
           rule: "Host(`traefik.io`)"
           service: "service-1"
     ```
     
-    **Static Configuration**
+    **静态配置**
     
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.web]
         address = ":80"
@@ -129,7 +128,7 @@ If you want to limit the router scope to a set of entry points, set the `entryPo
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       web:
         address: ":80"
@@ -140,32 +139,32 @@ If you want to limit the router scope to a set of entry points, set the `entryPo
     ```
     
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entrypoints.web.address=:80
     --entrypoints.websecure.address=:443
     --entrypoints.other.address=:9090
     ```
 
-??? example "Listens to Specific EntryPoints"
+??? example "监听特定的入口点"
     
-    **Dynamic Configuration**
+    **动态配置**
     
     ```toml tab="文件 (TOML)"
-    ## Dynamic configuration
+    ## 动态配置
     [http.routers]
       [http.routers.Router-1]
-        # won't listen to entry point web
+        # 不监听入口点web
         entryPoints = ["websecure", "other"]
         rule = "Host(`traefik.io`)"
         service = "service-1"
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       routers:
         Router-1:
-          # won't listen to entry point web
+          # 不监听入口点web
           entryPoints:
             - "websecure"
             - "other"
@@ -173,10 +172,10 @@ If you want to limit the router scope to a set of entry points, set the `entryPo
           service: "service-1"
     ```
 
-    **Static Configuration**
+    **静态配置**
     
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     [entryPoints]
       [entryPoints.web]
         address = ":80"
@@ -187,7 +186,7 @@ If you want to limit the router scope to a set of entry points, set the `entryPo
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     entryPoints:
       web:
         address: ":80"
@@ -198,79 +197,80 @@ If you want to limit the router scope to a set of entry points, set the `entryPo
     ```
     
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entrypoints.web.address=:80
     --entrypoints.websecure.address=:443
     --entrypoints.other.address=:9090
     ```
 
-### Rule
+### 规则 { #rule }
 
-Rules are a set of matchers configured with values, that determine if a particular request matches specific criteria.
-If the rule is verified, the router becomes active, calls middlewares, and then forwards the request to the service.
+规则是一组配置有值的匹配器，这些值决定特定请求和特定规则是否匹配。
+如果该规则得到验证，则路由器将变为活跃状态，并调用中间件，然后将请求转发到服务。
 
-??? tip "Backticks or Quotes?"
-    To set the value of a rule, use [backticks](https://en.wiktionary.org/wiki/backtick) ``` ` ``` or escaped double-quotes `\"`.
-    
-    Single quotes `'` are not accepted as values are [Golang's String Literals](https://golang.org/ref/spec#String_literals).
+??? tip "反引号还是引号？"
+    要设置规则的值，请使用[反引号](https://en.wiktionary.org/wiki/backtick)``` ` ```，或转义的双引号`\"`。
 
-!!! example "Host is traefik.io"
+    不接受单引号`'`，因为其值是[Golang的字符串文字](https://golang.org/ref/spec#String_literals)。
+
+!!! example "主机名为traefik.io"
 
     ```toml
     rule = "Host(`traefik.io`)"
     ```
 
-!!! example "Host is traefik.io OR Host is containo.us AND path is /traefik"
+!!! example "主机名为traefik.io或主机名为containo.us且路径为/traefik"
 
     ```toml
     rule = "Host(`traefik.io`) || (Host(`containo.us`) && Path(`/traefik`))"
     ```
 
-The table below lists all the available matchers:
+下表列出了所有可用匹配器：
 
-| Rule                                                                 | Description                                                                                                    |
-|----------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
-| ```Headers(`key`, `value`)```                                        | Check if there is a key `key`defined in the headers, with the value `value`                                    |
-| ```HeadersRegexp(`key`, `regexp`)```                                 | Check if there is a key `key`defined in the headers, with a value that matches the regular expression `regexp` |
-| ```Host(`domain-1`, ...)```                                          | Check if the request domain targets one of the given `domains`.                                                |
-| ```HostRegexp(`traefik.io`, `{subdomain:[a-z]+}.traefik.io`, ...)``` | Check if the request domain matches the given `regexp`.                                                        |
-| ```Method(`GET`, ...)```                                             | Check if the request method is one of the given `methods` (`GET`, `POST`, `PUT`, `DELETE`, `PATCH`)            |
-| ```Path(`/path`, `/articles/{category}/{id:[0-9]+}`, ...)```         | Match exact request path. It accepts a sequence of literal and regular expression paths.                       |
-| ```PathPrefix(`/products/`, `/articles/{category}/{id:[0-9]+}`)```   | Match request prefix path. It accepts a sequence of literal and regular expression prefix paths.               |
-| ```Query(`foo=bar`, `bar=baz`)```                                    | Match Query String parameters. It accepts a sequence of key=value pairs.                                      |
+| 规则                                                                  | 描述                                                                   |
+|----------------------------------------------------------------------|-----------------------------------------------------------------------|
+| ```Headers(`key`, `value`)```                                        | 检查标头中是否有名为`key`的键，且其值为`value`。                              |
+| ```HeadersRegexp(`key`, `regexp`)```                                 | 检查标头中是否有名为`key`的键，且其值匹配正则表达式`regexp`                     |
+| ```Host(`domain-1`, ...)```                                          | 检查请求的主机名/域名目标，是否是给定的`domains`之一。                          |
+| ```HostRegexp(`traefik.io`, `{subdomain:[a-z]+}.traefik.io`, ...)``` | 检查请求的主机名/域名，是否匹配给定的正则表达式`regexp`。                        |
+| ```Method(`GET`, ...)```                                             | 检查请求方法是否为给定的`methods`（`GET`, `POST`, `PUT`, `DELETE`, `PATCH`） |
+| ```Path(`/path`, `/articles/{category}/{id:[0-9]+}`, ...)```         | 精确匹配请求路径。接受文字及正则表达式路径的序列。                               |
+| ```PathPrefix(`/products/`, `/articles/{category}/{id:[0-9]+}`)```   | 匹配请求路径前缀。接受文字及正则表达式路径前缀的序列。                            |
+| ```Query(`foo=bar`, `bar=baz`)```                                    | 匹配查询字符串参数。接受键=值对的序列。                                       |
 
-!!! important "Regexp Syntax"
+!!! important "正则表达式语法"
 
-    In order to use regular expressions with `Host` and `Path` expressions,
-    you must declare an arbitrarily named variable followed by the colon-separated regular expression, all enclosed in curly braces.
-    Any pattern supported by [Go's regexp package](https://golang.org/pkg/regexp/) may be used (example: `/posts/{id:[0-9]+}`).
+    为将正则表达式与`Host`和`Path`表达式一起使用，
+    必须声明一个任意命名的变量，后面跟着用冒号分隔的正则表达式，所有这些都用花括号括起来。
+    可以使用[Go的regexp软件包](https://golang.org/pkg/regexp/)支持的任何模式（如: `/posts/{id:[0-9]+}`）。
 
-!!! info "Combining Matchers Using Operators and Parenthesis"
+!!! info "使用运算符和括号组合匹配器"
 
-    You can combine multiple matchers using the AND (`&&`) and OR (`||`) operators. You can also use parenthesis.
+    可以使用AND (`&&`) 和 OR (`||`)运算符来组合匹配器。也可以使用括号。
 
-!!! important "Rule, Middleware, and Services"
+!!! important "规则，中间件，以及服务"
 
-    The rule is evaluated "before" any middleware has the opportunity to work, and "before" the request is forwarded to the service.
+    规则将会被评估，评估发生在任何中间件有机会工作"之前"，以及将请求转发到服务"之前"。
 
-!!! info "Path Vs PathPrefix"
+!!! info "路径 Vs 路径前缀"
 
-    Use `Path` if your service listens on the exact path only. For instance, `Path: /products` would match `/products` but not `/products/shoes`.
+    使用`路径`，如果服务仅监听在确切的路径上。例如，`Path: /products`将匹配`/products`，但不匹配`/products/shoes`。
 
-    Use a `*Prefix*` matcher if your service listens on a particular base path but also serves requests on sub-paths.
-    For instance, `PathPrefix: /products` would match `/products` but also `/products/shoes` and `/products/shirts`.
+    使用`*路径前缀*`匹配器，如果服务在特定的基本路径上侦听，且也服务子路径上的请求。
+    例如，`PathPrefix: /products`将匹配`/products`，且也将匹配`/products/shoes`和`/products/shirts`。
     Since the path is forwarded as-is, your service is expected to listen on `/products`.
 
 ### Priority
 
-To avoid path overlap, routes are sorted, by default, in descending order using rules length. The priority is directly equal to the length of the rule, and so the longest length has the highest priority.
+为避免路径重叠，路由器是排序过的，默认情况下，使用规则长度降序排序。
+优先级直接等于规则的长度，最长的长度具有最高优先级。
 
-A value of `0` for the priority is ignored: `priority = 0` means that the default rules length sorting is used.
+优先级值`0`将被忽略：`priority = 0`表示使用默认的长度排序规则。
 
-??? info "How default priorities are computed"
+??? info "默认优先级是怎样计算出来的"
 
     ```toml tab="文件 (TOML)"
-    ## Dynamic configuration
+    ## 动态配置
     [http.routers]
       [http.routers.Router-1]
         rule = "HostRegexp(`.*\.traefik\.com`)"
@@ -281,7 +281,7 @@ A value of `0` for the priority is ignored: `priority = 0` means that the defaul
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       routers:
         Router-1:
@@ -292,21 +292,21 @@ A value of `0` for the priority is ignored: `priority = 0` means that the defaul
           # ...
     ```
     
-    In this case, all requests with host `foobar.traefik.com` will be routed through `Router-1` instead of `Router-2`.
+    此例中，所有主机`foobar.traefik.com`的请求，都将通过`Router-1`而不是`Router-2`进行路由。
     
     | Name     | Rule                                 | Priority |
     |----------|--------------------------------------|----------|
     | Router-1 | ```HostRegexp(`.*\.traefik\.com`)``` | 30       |
     | Router-2 | ```Host(`foobar.traefik.com`)```     | 26       |
     
-    The previous table shows that `Router-1` has a higher priority than `Router-2`.
+    前表显示`Router-1`具有比`Router-2`高的优先级。
     
-    To solve this issue, the priority must be set.
+    要解决此问题，必须(显式)设置优先级。
 
-??? example "Set priorities -- using the [File Provider](../../providers/file.md)"
+??? example "设置优先级 -- 使用[文件提供者](../../providers/file.md)"
     
     ```toml tab="文件 (TOML)"
-    ## Dynamic configuration
+    ## 动态配置
     [http.routers]
       [http.routers.Router-1]
         rule = "HostRegexp(`.*\.traefik\.com`)"
@@ -321,7 +321,7 @@ A value of `0` for the priority is ignored: `priority = 0` means that the defaul
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       routers:
         Router-1:
@@ -338,38 +338,38 @@ A value of `0` for the priority is ignored: `priority = 0` means that the defaul
           service: service-2
     ```
 
-    In this configuration, the priority is configured to allow `Router-2` to handle requests with the `foobar.traefik.com` host.
+    此配置中，优先级配置为允许`Router-2`来处理带`foobar.traefik.com`主机名称的请求。
 
-### Middlewares
+### 中间件 { #middlewares }
 
-You can attach a list of [middlewares](../../middlewares/overview.md) to each HTTP router.
-The middlewares will take effect only if the rule matches, and before forwarding the request to the service.
+可以附加一个[中间件](../../middlewares/overview.md)列表到每个HTTP路由器。
+仅当规则匹配，且在将请求转发到服务之前，中间件才会生效。
 
-!!! warning "The character `@` is not authorized in the middleware name."
+!!! warning "字符`@`不可用于中间件名称。"
 
-!!! tip "Middlewares order"
+!!! tip "中间件排序"
     
-    Middlewares are applied in the same order as their declaration in **router**.
+    中间件的应用顺序，与其在**路由器**中声明的排序一致。
 
-??? example "With a [middleware](../../middlewares/overview.md) -- using the [File Provider](../../providers/file.md)"
+??? example "带有一[中间件](../../middlewares/overview.md) -- 使用[文件提供者](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [http.routers]
       [http.routers.my-router]
         rule = "Path(`/foo`)"
-        # declared elsewhere
+        # 在其他地方声明
         middlewares = ["authentication"]
         service = "service-foo"
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       routers:
         my-router:
           rule: "Path(`/foo`)"
-          # declared elsewhere
+          # 在其他地方声明
           middlewares:
           - authentication
           service: service-foo
@@ -386,54 +386,54 @@ but there are exceptions for label-based providers.
 See the specific [docker](../providers/docker.md#service-definition), [rancher](../providers/rancher.md#service-definition),
 or [marathon](../providers/marathon.md#service-definition) documentation.
 
-!!! warning "The character `@` is not authorized in the middleware name."
+!!! warning "字符`@`不可用于中间件名称。"
 
-!!! important "HTTP routers can only target HTTP services (not TCP services)."
+!!! important "HTTP路由器只能标向HTTP服务（不能标向TCP服务）。"
 
 ### TLS
 
 #### General
 
- When a TLS section is specified, it instructs Traefik that the current router is dedicated to HTTPS requests only (and that the router should ignore HTTP (non TLS) requests).
-Traefik will terminate the SSL connections (meaning that it will send decrypted data to the services).
+当指定TLS部分时，它指示Traefik当前路由器仅专用于HTTPS请求（且该路由器应忽略HTTP（非TLS）请求）。
+Traefik将终结SSL连接（意味着它将发送解密后的数据给服务）。
 
-??? example "Configuring the router to accept HTTPS requests only"
+??? example "配置路由器以仅接受HTTPS请求"
 
     ```toml tab="文件 (TOML)"
-    ## Dynamic configuration
+    ## 动态配置
     [http.routers]
       [http.routers.Router-1]
         rule = "Host(`foo-domain`) && Path(`/foo-path/`)"
         service = "service-id"
-        # will terminate the TLS request
+        # 将终结TLS请求
         [http.routers.Router-1.tls]
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       routers:
         Router-1:
           rule: "Host(`foo-domain`) && Path(`/foo-path/`)"
           service: service-id
-          # will terminate the TLS request
+          # 将终结TLS请求
           tls: {}
     ```
 
-!!! important "Routers for HTTP & HTTPS"
+!!! important "HTTP和HTTPS的路由器"
 
-    If you need to define the same route for both HTTP and HTTPS requests, you will need to define two different routers:
-    one with the tls section, one without.
+    如果需要定义同一路由，同时用于HTTP和HTTPS请求，则需要定义两个不同的路由器：
+    一个带tls部分，一个不带。
 
-    ??? example "HTTP & HTTPS routes"
+    ??? example "HTTP和HTTPS路由"
 
         ```toml tab="文件 (TOML)"
-        ## Dynamic configuration
+        ## 动态配置
         [http.routers]
           [http.routers.my-https-router]
             rule = "Host(`foo-domain`) && Path(`/foo-path/`)"
             service = "service-id"
-            # will terminate the TLS request
+            # 将终结TLS请求
             [http.routers.my-https-router.tls]
 
           [http.routers.my-http-router]
@@ -442,13 +442,13 @@ Traefik will terminate the SSL connections (meaning that it will send decrypted 
         ```
 
         ```yaml tab="文件 (YAML)"
-        ## Dynamic configuration
+        ## 动态配置
         http:
           routers:
             my-https-router:
               rule: "Host(`foo-domain`) && Path(`/foo-path/`)"
               service: service-id
-              # will terminate the TLS request
+              # 将终结TLS请求
               tls: {}
 
             my-http-router:
@@ -471,15 +471,15 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
     the TLS option is picked from the mapping mentioned above and based on the server name provided during the TLS handshake,
     and it all happens before routing actually occurs.
 
-??? example "Configuring the TLS options"
+??? example "配置TLS选项"
 
     ```toml tab="文件 (TOML)"
-    ## Dynamic configuration
+    ## 动态配置
     [http.routers]
       [http.routers.Router-1]
         rule = "Host(`foo-domain`) && Path(`/foo-path/`)"
         service = "service-id"
-        # will terminate the TLS request
+        # 将终结TLS请求
         [http.routers.Router-1.tls]
           options = "foo"
     
@@ -496,13 +496,13 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       routers:
         Router-1:
           rule: "Host(`foo-domain`) && Path(`/foo-path/`)"
           service: service-id
-          # will terminate the TLS request
+          # 将终结TLS请求
           tls:
             options: foo
     
@@ -525,7 +525,7 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
     a conflict occurs, such as in the example below:
 
     ```toml tab="文件 (TOML)"
-    ## Dynamic configuration
+    ## 动态配置
     [http.routers]
       [http.routers.routerfoo]
         rule = "Host(`snitest.com`) && Path(`/foo`)"
@@ -540,7 +540,7 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
     ```
 
     ```yaml tab="文件 (YAML)"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       routers:
         routerfoo:
@@ -561,7 +561,7 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
 If `certResolver` is defined, Traefik will try to generate certificates based on routers `Host` & `HostSNI` rules.
 
 ```toml tab="文件 (TOML)"
-## Dynamic configuration
+## 动态配置
 [http.routers]
   [http.routers.routerfoo]
     rule = "Host(`snitest.com`) && Path(`/foo`)"
@@ -570,7 +570,7 @@ If `certResolver` is defined, Traefik will try to generate certificates based on
 ```
 
 ```yaml tab="文件 (YAML)"
-## Dynamic configuration
+## 动态配置
 http:
   routers:
     routerfoo:
@@ -589,7 +589,7 @@ Every domain must have A/AAAA records pointing to Traefik.
 Each domain & SAN will lead to a certificate request.
 
 ```toml tab="文件 (TOML)"
-## Dynamic configuration
+## 动态配置
 [http.routers]
   [http.routers.routerbar]
     rule = "Host(`snitest.com`) && Path(`/bar`)"
@@ -601,7 +601,7 @@ Each domain & SAN will lead to a certificate request.
 ```
 
 ```yaml tab="文件 (YAML)"
-## Dynamic configuration
+## 动态配置
 http:
   routers:
     routerbar:
@@ -630,9 +630,9 @@ The [supported `provider` table](../../https/acme.md#providers) indicates if the
 !!! warning "Double Wildcard Certificates"
     It is not possible to request a double wildcard certificate for a domain (for example `*.*.local.com`).
 
-## Configuring TCP Routers
+## 配置TCP路由器 { #configuring-tcp-routers }
 
-!!! warning "The character `@` is not authorized in the router name"
+!!! warning "字符`@`不可用于路由器名称"
 
 ### General
 
@@ -644,12 +644,12 @@ If no matching route is found for the TCP routers, then the HTTP routers will ta
 If not specified, TCP routers will accept requests from all defined entry points.
 If you want to limit the router scope to a set of entry points, set the entry points option.
 
-??? example "Listens to Every Entry Point"
+??? example "监听每一个入口点"
     
-    **Dynamic Configuration**
+    **动态配置**
 
     ```toml tab="文件 (TOML)"
-    ## Dynamic configuration
+    ## 动态配置
     
     [tcp.routers]
       [tcp.routers.Router-1]
@@ -661,7 +661,7 @@ If you want to limit the router scope to a set of entry points, set the entry po
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Dynamic configuration
+    ## 动态配置
     
     tcp:
       routers:
@@ -673,10 +673,10 @@ If you want to limit the router scope to a set of entry points, set the entry po
           tls: {}
     ```
 
-    **Static Configuration**
+    **静态配置**
     
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     
     [entryPoints]
       [entryPoints.web]
@@ -688,7 +688,7 @@ If you want to limit the router scope to a set of entry points, set the entry po
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     
     entryPoints:
       web:
@@ -700,7 +700,7 @@ If you want to limit the router scope to a set of entry points, set the entry po
     ```
     
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entrypoints.web.address=:80
     --entrypoints.websecure.address=:443
     --entrypoints.other.address=:9090
@@ -708,10 +708,10 @@ If you want to limit the router scope to a set of entry points, set the entry po
 
 ??? example "Listens to Specific Entry Points"
     
-    **Dynamic Configuration**
+    **动态配置**
     
     ```toml tab="文件 (TOML)"
-    ## Dynamic configuration
+    ## 动态配置
     [tcp.routers]
       [tcp.routers.Router-1]
         # won't listen to entry point web
@@ -723,7 +723,7 @@ If you want to limit the router scope to a set of entry points, set the entry po
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Dynamic configuration
+    ## 动态配置
     tcp:
       routers:
         Router-1:
@@ -737,10 +737,10 @@ If you want to limit the router scope to a set of entry points, set the entry po
           tls: {}
     ```
 
-    **Static Configuration**
+    **静态配置**
     
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
     
     [entryPoints]
       [entryPoints.web]
@@ -752,7 +752,7 @@ If you want to limit the router scope to a set of entry points, set the entry po
     ```
     
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
     
     entryPoints:
       web:
@@ -764,7 +764,7 @@ If you want to limit the router scope to a set of entry points, set the entry po
     ```
     
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entrypoints.web.address=:80
     --entrypoints.websecure.address=:443
     --entrypoints.other.address=:9090
@@ -793,39 +793,37 @@ Services are the target for the router.
 
 #### General
 
-When a TLS section is specified,
-it instructs Traefik that the current router is dedicated to TLS requests only (and that the router should ignore non-TLS requests).
- 
-By default, Traefik will terminate the SSL connections (meaning that it will send decrypted data to the services),
-but Traefik can be configured in order to let the requests pass through (keeping the data encrypted), and be forwarded to the service "as is". 
+当指定TLS部分时，它指示Traefik当前路由器仅专用于TLS请求（并且该路由器应忽略非TLS请求）。
 
-??? example "Configuring TLS Termination"
+默认情况下，Traefik将终结SSL连接（这意味着它将发送已解密的数据给服务），但Traefik可以配置为使请求直通（数据保持加密），然后“如是”转发给服务。
+
+??? example "配置TLS终结"
 
     ```toml tab="文件 (TOML)"
-    ## Dynamic configuration
+    ## 动态配置
     [tcp.routers]
       [tcp.routers.Router-1]
         rule = "HostSNI(`foo-domain`)"
         service = "service-id"
-        # will terminate the TLS request by default
+        # 默认将终结TLS请求
         [tcp.routers.Router-1.tls]
     ```
 
     ```yaml tab="文件 (YAML)"
-    ## Dynamic configuration
+    ## 动态配置
     tcp:
       routers:
         Router-1:
           rule: "HostSNI(`foo-domain`)"
           service: service-id
-          # will terminate the TLS request by default
+          # 默认将终结TLS请求
           tls: {}
     ```
 
-??? example "Configuring passthrough"
+??? example "配置直通"
 
     ```toml tab="文件 (TOML)"
-    ## Dynamic configuration
+    ## 动态配置
     [tcp.routers]
       [tcp.routers.Router-1]
         rule = "HostSNI(`foo-domain`)"
@@ -835,7 +833,7 @@ but Traefik can be configured in order to let the requests pass through (keeping
     ```
 
     ```yaml tab="文件 (YAML)"
-    ## Dynamic configuration
+    ## 动态配置
     tcp:
       routers:
         Router-1:
@@ -847,18 +845,18 @@ but Traefik can be configured in order to let the requests pass through (keeping
 
 #### `options`
 
-The `options` field enables fine-grained control of the TLS parameters.  
-It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied only if a `HostSNI` rule is defined.
+`options`字段启用对TLS参数的细粒度控制。
+它指的是[TLS选项](../../https/tls.md#tls-options)，仅在定义了`HostSNI`规则后才适用。
 
-!!! example "Configuring the tls options"
+!!! example "配置TLS选项"
 
     ```toml tab="文件 (TOML)"
-    ## Dynamic configuration
+    ## 动态配置
     [tcp.routers]
       [tcp.routers.Router-1]
         rule = "HostSNI(`foo-domain`)"
         service = "service-id"
-        # will terminate the TLS request
+        # 将终结TLS请求
         [tcp.routers.Router-1.tls]
           options = "foo"
     
@@ -875,13 +873,13 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
     ```
 
     ```yaml tab="文件 (YAML)"
-    ## Dynamic configuration
+    ## 动态配置
     tcp:
       routers:
         Router-1:
           rule: "HostSNI(`foo-domain`)"
           service: service-id
-          # will terminate the TLS request
+          # 将终结TLS请求
           tls:
             options: foo
     
@@ -899,10 +897,10 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
 
 #### `certResolver`
 
-See [`certResolver` for HTTP router](./index.md#certresolver) for more information.
+更多信息参见[`certResolver` for HTTP router](./index.md#certresolver)。
 
 ```toml tab="文件 (TOML)"
-## Dynamic configuration
+## 动态配置
 [tcp.routers]
   [tcp.routers.routerfoo]
     rule = "HostSNI(`snitest.com`)"
@@ -911,7 +909,7 @@ See [`certResolver` for HTTP router](./index.md#certresolver) for more informati
 ```
 
 ```yaml tab="文件 (YAML)"
-## Dynamic configuration
+## 动态配置
 tcp:
   routers:
     routerfoo:
@@ -922,10 +920,10 @@ tcp:
 
 #### `domains`
 
-See [`domains` for HTTP router](./index.md#domains) for more information.
+更多信息参见[`domains` for HTTP router](./index.md#domains)。
 
 ```toml tab="文件 (TOML)"
-## Dynamic configuration
+## 动态配置
 [tcp.routers]
   [tcp.routers.routerbar]
     rule = "HostSNI(`snitest.com`)"
@@ -937,7 +935,7 @@ See [`domains` for HTTP router](./index.md#domains) for more information.
 ```
 
 ```yaml tab="文件 (YAML)"
-## Dynamic configuration
+## 动态配置
 tcp:
   routers:
     routerbar:
@@ -950,69 +948,63 @@ tcp:
               - "*.snitest.com"
 ```
 
-## Configuring UDP Routers
+## 配置UDP路由器 { #configuring-udp-routers }
 
-!!! warning "The character `@` is not allowed in the router name"
+!!! warning "字符`@`不可用于路由器名称"
 
 ### General
 
-Similarly to TCP, as UDP is the transport layer, there is no concept of a request,
-so there is no notion of an URL path prefix to match an incoming UDP packet with.
-Furthermore, as there is no good TLS support at the moment for multiple hosts,
-there is no Host SNI notion to match against either.
-Therefore, there is no criterion that could be used as a rule to match incoming packets in order to route them.
-So UDP "routers" at this time are pretty much only load-balancers in one form or another.
+与TCP类似，因为UDP是传输层，所以没有请求的概念，因此也没有URL路径前缀与传入的UDP数据包匹配的概念。 此外，针对多个主机名，目前还没有良好的TLS支持，因此没有主机SNI概念来做匹配。因此，没有规范可用作传入数据包的匹配规则，以对其进行路由。
+因此，此时的UDP“路由器”，几乎只是一种或另一种形式的负载均衡器。
 
-!!! important "Sessions and timeout"
+!!! important "会话和超时"
 
-	Even though UDP is connectionless (and because of that),
-	the implementation of an UDP router in Traefik relies on what we (and a couple of other implementations) call a `session`.
-	It basically means that some state is kept about an ongoing communication between a client and a backend,
-	notably so that the proxy knows where to forward a response packet from a backend.
-	As expected, a `timeout` is associated to each of these sessions,
-	so that they get cleaned out if they go through a period of inactivity longer than a given duration (that is hardcoded to 3 seconds for now).
-	Making this timeout configurable will be considered later if we get more usage feedback on this matter.
+	即使UDP是无连接的（也因此），在Traefik中的UDP路由器实现，也依赖于我们（以及其他一些实现）称之为`session`的东西。
+  基本上，这意味着保持某种状态，此状态有关于客户端与后端服务器之间正在进行的通信，
+  特别是，由此代理可以知道，从后端转发响应数据包的位置。
+  正如预期的那样，一个`timeout`与其中的每一个会话关联，因此，如果它们的闲置时间长于给定的持续时间（目前硬编码为3秒），则会被清除。
+  如果此问题获得更多使用反馈，则稍后将考虑使此超时可配置。
 
 ### EntryPoints
 
-If not specified, UDP routers will accept packets from all defined (UDP) entry points.
-If one wants to limit the router scope to a set of entry points, one should set the entry points option.
+如果未指定，则UDP路由器将接受来自所有已定义（UDP）入口点的数据包。
+如果要将路由器范围限制为一组入口点，则应设置入口点选项。
 
-??? example "Listens to Every Entry Point"
+??? example "监听每一个入口点"
 
-    **Dynamic Configuration**
+    **动态配置**
 
     ```toml tab="文件 (TOML)"
-    ## Dynamic configuration
+    ## 动态配置
 
     [udp.routers]
       [udp.routers.Router-1]
-        # By default, routers listen to all UDP entrypoints,
+        # 默认情况下，路由器侦听所有UDP入口点，
         # i.e. "other", and "streaming".
         service = "service-1"
     ```
 
     ```yaml tab="文件 (YAML)"
-    ## Dynamic configuration
+    ## 动态配置
 
     udp:
       routers:
         Router-1:
-          # By default, routers listen to all UDP entrypoints
+          # 默认情况下，路由器侦听所有UDP入口点，
           # i.e. "other", and "streaming".
           service: "service-1"
     ```
 
-    **Static Configuration**
+    **静态配置**
 
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
 
     [entryPoints]
-      # not used by UDP routers
+      # 不用于UDP路由器
       [entryPoints.web]
         address = ":80"
-      # used by UDP routers
+      # 用于UDP路由器
       [entryPoints.other]
         address = ":9090/udp"
       [entryPoints.streaming]
@@ -1020,13 +1012,13 @@ If one wants to limit the router scope to a set of entry points, one should set 
     ```
 
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
 
     entryPoints:
-      # not used by UDP routers
+      # 不用于UDP路由器
       web:
         address: ":80"
-      # used by UDP routers
+      # 用于UDP路由器
       other:
         address: ":9090/udp"
       streaming:
@@ -1034,40 +1026,40 @@ If one wants to limit the router scope to a set of entry points, one should set 
     ```
 
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entrypoints.web.address=":80"
     --entrypoints.other.address=":9090/udp"
     --entrypoints.streaming.address=":9191/udp"
     ```
 
-??? example "Listens to Specific Entry Points"
+??? example "监听特定入口点"
 
-    **Dynamic Configuration**
+    **动态配置**
 
     ```toml tab="文件 (TOML)"
-    ## Dynamic configuration
+    ## 动态配置
     [udp.routers]
       [udp.routers.Router-1]
-        # does not listen on "other" entry point
+        # 不监听入口点"other"
         entryPoints = ["streaming"]
         service = "service-1"
     ```
 
     ```yaml tab="文件 (YAML)"
-    ## Dynamic configuration
+    ## 动态配置
     udp:
       routers:
         Router-1:
-          # does not listen on "other" entry point
+          # 不监听入口点"other"
           entryPoints:
             - "streaming"
           service: "service-1"
     ```
 
-    **Static Configuration**
+    **静态配置**
 
     ```toml tab="文件 (TOML)"
-    ## Static configuration
+    ## 静态配置
 
     [entryPoints]
       [entryPoints.web]
@@ -1079,7 +1071,7 @@ If one wants to limit the router scope to a set of entry points, one should set 
     ```
 
     ```yaml tab="文件 (YAML)"
-    ## Static configuration
+    ## 静态配置
 
     entryPoints:
       web:
@@ -1091,7 +1083,7 @@ If one wants to limit the router scope to a set of entry points, one should set 
     ```
 
     ```bash tab="CLI"
-    ## Static configuration
+    ## 静态配置
     --entrypoints.web.address=":80"
     --entrypoints.other.address=":9090/udp"
     --entrypoints.streaming.address=":9191/udp"

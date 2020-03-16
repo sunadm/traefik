@@ -745,7 +745,7 @@ with the path `/admin` stripped, e.g. to `http://<IP>:<port>/`. In this case, yo
     ```
 
     ```toml tab="文件 (TOML)"
-    ## Dynamic configuration
+    ## 动态配置
     # dynamic-conf.toml
 
     [http.routers.router1]

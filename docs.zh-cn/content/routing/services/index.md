@@ -1,18 +1,18 @@
-# Services
+# 服务 { #services }
 
-Configuring How to Reach the Services
+配置如何触达服务
 {: .subtitle }
 
 ![services](../../assets/img/services.png)
 
 The `Services` are responsible for configuring how to reach the actual services that will eventually handle the incoming requests.
 
-## Configuration Examples
+## 配置示例 { #configuration-examples }
 
 ??? example "Declaring an HTTP Service with Two Servers -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [http.services]
       [http.services.my-service.loadBalancer]
 
@@ -23,7 +23,7 @@ The `Services` are responsible for configuring how to reach the actual services 
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       services:
         my-service:
@@ -36,7 +36,7 @@ The `Services` are responsible for configuring how to reach the actual services 
 ??? example "Declaring a TCP Service with Two Servers -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [tcp.services]
       [tcp.services.my-service.loadBalancer]
          [[tcp.services.my-service.loadBalancer.servers]]
@@ -58,7 +58,7 @@ The `Services` are responsible for configuring how to reach the actual services 
 ??? example "Declaring a UDP Service with Two Servers -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [udp.services]
       [udp.services.my-service.loadBalancer]
          [[udp.services.my-service.loadBalancer.servers]]
@@ -77,9 +77,9 @@ The `Services` are responsible for configuring how to reach the actual services 
             - address: "<private-ip-server-2>:<private-port-server-2>"
     ```
 
-## Configuring HTTP Services
+## 配置HTTP服务 { #configuring-http-services }
 
-### Servers Load Balancer
+### 服务负载均衡 { #servers-load-balancer }
 
 The load balancers are able to load balance the requests between multiple instances of your programs.
 
@@ -88,7 +88,7 @@ Each service has a load-balancer, even if there is only one server to forward tr
 ??? example "Declaring a Service with Two Servers (with Load Balancing) -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [http.services]
       [http.services.my-service.loadBalancer]
 
@@ -121,7 +121,7 @@ The `url` option point to a specific instance.
 ??? example "A Service with One Server -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [http.services]
       [http.services.my-service.loadBalancer]
         [[http.services.my-service.loadBalancer.servers]]
@@ -129,7 +129,7 @@ The `url` option point to a specific instance.
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       services:
         my-service:
@@ -145,7 +145,7 @@ For now, only round robin load balancing is supported:
 ??? example "Load Balancing -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [http.services]
       [http.services.my-service.loadBalancer]
         [[http.services.my-service.loadBalancer.servers]]
@@ -155,7 +155,7 @@ For now, only round robin load balancing is supported:
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       services:
         my-service:
@@ -165,7 +165,7 @@ For now, only round robin load balancing is supported:
             - url: "http://private-ip-server-2/"
     ```
 
-#### Sticky sessions
+#### 会话保持 { #sticky-sessions }
 
 When sticky sessions are enabled, a cookie is set on the initial request to track which server handles the first response.
 On subsequent requests, the client is forwarded to the same server.
@@ -185,14 +185,14 @@ On subsequent requests, the client is forwarded to the same server.
 ??? example "Adding Stickiness -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [http.services]
       [http.services.my-service]
         [http.services.my-service.loadBalancer.sticky.cookie]
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       services:
         my-service:
@@ -204,7 +204,7 @@ On subsequent requests, the client is forwarded to the same server.
 ??? example "Adding Stickiness with custom Options -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [http.services]
       [http.services.my-service]
         [http.services.my-service.loadBalancer.sticky.cookie]
@@ -214,7 +214,7 @@ On subsequent requests, the client is forwarded to the same server.
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       services:
         my-service:
@@ -226,7 +226,7 @@ On subsequent requests, the client is forwarded to the same server.
                 httpOnly: true
     ```
 
-#### Health Check
+#### 健康检测 { #health-check }
 
 Configure health check to remove unhealthy servers from the load balancing rotation.
 Traefik will consider your servers healthy as long as they return status codes between `2XX` and `3XX` to the health check requests (carried out every `interval`).
@@ -255,7 +255,7 @@ Below are the available options for the health check mechanism:
 ??? example "Custom Interval & Timeout -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [http.services]
       [http.services.Service-1]
         [http.services.Service-1.loadBalancer.healthCheck]
@@ -265,7 +265,7 @@ Below are the available options for the health check mechanism:
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       services:
         Service-1:
@@ -279,7 +279,7 @@ Below are the available options for the health check mechanism:
 ??? example "Custom Port -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [http.services]
       [http.services.Service-1]
         [http.services.Service-1.loadBalancer.healthCheck]
@@ -288,7 +288,7 @@ Below are the available options for the health check mechanism:
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       services:
         Service-1:
@@ -301,7 +301,7 @@ Below are the available options for the health check mechanism:
 ??? example "Custom Scheme -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [http.services]
       [http.services.Service-1]
         [http.services.Service-1.loadBalancer.healthCheck]
@@ -310,7 +310,7 @@ Below are the available options for the health check mechanism:
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       services:
         Service-1:
@@ -323,7 +323,7 @@ Below are the available options for the health check mechanism:
 ??? example "Additional HTTP Headers -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [http.services]
       [http.services.Service-1]
         [http.services.Service-1.loadBalancer.healthCheck]
@@ -335,7 +335,7 @@ Below are the available options for the health check mechanism:
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       services:
         Service-1:
@@ -356,7 +356,7 @@ By default, `passHostHeader` is true.
 ??? example "Don't forward the host header -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [http.services]
       [http.services.Service01]
         [http.services.Service01.loadBalancer]
@@ -364,7 +364,7 @@ By default, `passHostHeader` is true.
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       services:
         Service01:
@@ -387,7 +387,7 @@ Below are the available options for the Response Forwarding mechanism:
 ??? example "Using a custom FlushInterval -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [http.services]
       [http.services.Service-1]
         [http.services.Service-1.loadBalancer.responseForwarding]
@@ -395,7 +395,7 @@ Below are the available options for the Response Forwarding mechanism:
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     http:
       services:
         Service-1:
@@ -415,7 +415,7 @@ This strategy is only available to load balance between [services](./index.md) a
     This strategy can be defined currently with the [File](../../providers/file.md) or [IngressRoute](../../providers/kubernetes-crd.md) providers.
 
 ```toml tab="TOML"
-## Dynamic configuration
+## 动态配置
 [http.services]
   [http.services.app]
     [[http.services.app.weighted.services]]
@@ -437,7 +437,7 @@ This strategy is only available to load balance between [services](./index.md) a
 ```
 
 ```yaml tab="YAML"
-## Dynamic configuration
+## 动态配置
 http:
   services:
     app:
@@ -470,7 +470,7 @@ See the maxBodySize option in the example below for how to modify this behaviour
     This strategy can be defined currently with the [File](../../providers/file.md) or [IngressRoute](../../providers/kubernetes-crd.md) providers.
 
 ```toml tab="TOML"
-## Dynamic configuration
+## 动态配置
 [http.services]
   [http.services.mirrored-api]
     [http.services.mirrored-api.mirroring]
@@ -495,7 +495,7 @@ See the maxBodySize option in the example below for how to modify this behaviour
 ```
 
 ```yaml tab="YAML"
-## Dynamic configuration
+## 动态配置
 http:
   services:
     mirrored-api:
@@ -520,7 +520,7 @@ http:
         - url: "http://private-ip-server-2/"
 ```
 
-## Configuring TCP Services
+## 配置TCP服务 { #configuring-tcp-services }
 
 ### General
 
@@ -536,7 +536,7 @@ The servers load balancer is in charge of balancing the requests between the ser
 ??? example "Declaring a Service with Two Servers -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [tcp.services]
       [tcp.services.my-service.loadBalancer]
         [[tcp.services.my-service.loadBalancer.servers]]
@@ -546,7 +546,7 @@ The servers load balancer is in charge of balancing the requests between the ser
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     tcp:
       services:
         my-service:
@@ -564,7 +564,7 @@ The `address` option (IP:Port) point to a specific instance.
 ??? example "A Service with One Server -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [tcp.services]
       [tcp.services.my-service.loadBalancer]
         [[tcp.services.my-service.loadBalancer.servers]]
@@ -572,7 +572,7 @@ The `address` option (IP:Port) point to a specific instance.
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     tcp:
       services:
         my-service:
@@ -598,7 +598,7 @@ A negative value means an infinite deadline (i.e. the connection is never fully 
 ??? example "A Service with a termination delay -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [tcp.services]
       [tcp.services.my-service.loadBalancer]
         [[tcp.services.my-service.loadBalancer]]
@@ -606,7 +606,7 @@ A negative value means an infinite deadline (i.e. the connection is never fully 
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     tcp:
       services:
         my-service:
@@ -625,7 +625,7 @@ This strategy is only available to load balance between [services](./index.md) a
     This strategy can be defined currently with the [File](../../providers/file.md) or [IngressRoute](../../providers/kubernetes-crd.md) providers.
 
 ```toml tab="TOML"
-## Dynamic configuration
+## 动态配置
 [tcp.services]
   [tcp.services.app]
     [[tcp.services.app.weighted.services]]
@@ -647,7 +647,7 @@ This strategy is only available to load balance between [services](./index.md) a
 ```
 
 ```yaml tab="YAML"
-## Dynamic configuration
+## 动态配置
 tcp:
   services:
     app:
@@ -669,7 +669,7 @@ tcp:
         - address: "xxx.xxx.xxx.xxx:8080"
 ```
 
-## Configuring UDP Services
+## 配置UDP服务 { #configuring-udp-services }
 
 ### General
 
@@ -685,7 +685,7 @@ The servers load balancer is in charge of balancing the requests between the ser
 ??? example "Declaring a Service with Two Servers -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [udp.services]
       [udp.services.my-service.loadBalancer]
         [[udp.services.my-service.loadBalancer.servers]]
@@ -695,7 +695,7 @@ The servers load balancer is in charge of balancing the requests between the ser
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     udp:
       services:
         my-service:
@@ -713,7 +713,7 @@ i.e. each address (IP:Port) on which an instance of the service's program is dep
 ??? example "A Service with One Server -- Using the [File Provider](../../providers/file.md)"
 
     ```toml tab="TOML"
-    ## Dynamic configuration
+    ## 动态配置
     [udp.services]
       [udp.services.my-service.loadBalancer]
         [[udp.services.my-service.loadBalancer.servers]]
@@ -721,7 +721,7 @@ i.e. each address (IP:Port) on which an instance of the service's program is dep
     ```
 
     ```yaml tab="YAML"
-    ## Dynamic configuration
+    ## 动态配置
     udp:
       services:
         my-service:
@@ -739,7 +739,7 @@ This strategy is only available to load balance between [services](./index.md) a
 This strategy can only be defined with [File](../../providers/file.md).
 
 ```toml tab="TOML"
-## Dynamic configuration
+## 动态配置
 [udp.services]
   [udp.services.app]
     [[udp.services.app.weighted.services]]
@@ -761,7 +761,7 @@ This strategy can only be defined with [File](../../providers/file.md).
 ```
 
 ```yaml tab="YAML"
-## Dynamic configuration
+## 动态配置
 udp:
   services:
     app:
