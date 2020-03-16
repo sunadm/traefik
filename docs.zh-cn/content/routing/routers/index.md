@@ -1,4 +1,4 @@
-# 路由器 { #routers }
+# 路由器 { #routers } 
 
 连接请求到服务
 {: .subtitle }
@@ -795,9 +795,9 @@ Services are the target for the router.
 
 当指定TLS部分时，它指示Traefik当前路由器仅专用于TLS请求（并且该路由器应忽略非TLS请求）。
 
-默认情况下，Traefik将终结SSL连接（这意味着它将发送已解密的数据给服务），但Traefik可以配置为使请求直通（数据保持加密），然后“如是”转发给服务。
+默认下，带有TLS部分的路由器将终结TLS连接，意味着它将发送已解密的数据给服务。
 
-??? example "配置TLS终结"
+??? example "用于TLS请求的路由器"
 
     ```toml tab="文件 (TOML)"
     ## 动态配置
@@ -819,6 +819,13 @@ Services are the target for the router.
           # 默认将终结TLS请求
           tls: {}
     ```
+
+#### `passthrough`
+
+如上所示，TLS路由器将默认终结TLS连接。
+然而，可以指定`passthrough`选项，以设置将请求“如是”转发，保持所有数据为加密状态。
+
+默认为`false`。
 
 ??? example "配置直通"
 
