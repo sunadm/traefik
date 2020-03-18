@@ -1,11 +1,11 @@
 # 安装Traefik { #install-traefik } 
 
-You can install Traefik with the following flavors:
+可用以下方式安装Traefik：
 
-* [Use the official Docker image](./#use-the-official-docker-image)
-* [Use the Helm Chart](./#use-the-helm-chart)
-* [Use the binary distribution](./#use-the-binary-distribution)
-* [Compile your binary from the sources](./#compile-your-binary-from-the-sources)
+* [使用官方Docker镜像](./#use-the-official-docker-image)
+* [使用Helm Chart](./#use-the-helm-chart)
+* [使用二进制发行版](./#use-the-binary-distribution)
+* [从源代码编译自己的二进制文件](./#compile-your-binary-from-the-sources)
 
 ## 使用官方Docker镜像 { #use-the-official-docker-image }
 

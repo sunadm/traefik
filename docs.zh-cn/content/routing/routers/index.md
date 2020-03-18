@@ -86,7 +86,7 @@
 
 !!! warning "字符`@`不可用于路由器名称"
 
-### EntryPoints
+### 入口点 { #entrypoints }
 
 如果未明确指定，HTTP路由器将接受来自所有已定义的入口点的请求。
 如果要将路由器范围限制为一组入口点，请设置`entryPoints`选项。
@@ -260,7 +260,7 @@
     例如，`PathPrefix: /products`将匹配`/products`，且也将匹配`/products/shoes`和`/products/shirts`。
     Since the path is forwarded as-is, your service is expected to listen on `/products`.
 
-### Priority
+### 优先级 { #priority }
 
 为避免路径重叠，路由器是排序过的，默认情况下，使用规则长度降序排序。
 优先级直接等于规则的长度，最长的长度具有最高优先级。
@@ -375,16 +375,17 @@
           service: service-foo
     ```
 
-### Service
+### 服务 { #service }
 
-Each request must eventually be handled by a [service](../services/index.md),
-which is why each router definition should include a service target,
-which is basically where the request will be passed along to.
+每个请求最终都必须由一个[服务](../services/index.md)来处理，
+这就是为什么每个路由器定义都应包括一个目标服务的原因，
+该服务目标基本上是将请求传递到的位置。
 
-In general, a service assigned to a router should have been defined,
-but there are exceptions for label-based providers.
-See the specific [docker](../providers/docker.md#service-definition), [rancher](../providers/rancher.md#service-definition),
-or [marathon](../providers/marathon.md#service-definition) documentation.
+通常，一个分配给路由器的服务，应该是已经定义过的，
+但有例外，即基于标签的提供者程序。
+请参阅特定的[docker](../providers/docker.md#service-definition)，
+[rancher](../providers/rancher.md#service-definition)，
+或[marathon](../providers/marathon.md#service-definition)文档。
 
 !!! warning "字符`@`不可用于中间件名称。"
 
@@ -458,18 +459,18 @@ Traefik将终结SSL连接（意味着它将发送解密后的数据给服务）�
 
 #### `options`
 
-The `options` field enables fine-grained control of the TLS parameters.
-It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied only if a `Host` rule is defined.
+`options`字段启用对TLS参数的细粒度控制。
+它指的是[TLS选项](../../https/tls.md#tls-options)，仅在`Host`规则定义了之后才适用。
 
-!!! info "Server Name Association"
+!!! info "服务器名称关联"
 
-    Even though one might get the impression that a TLS options reference is mapped to a router, or a router rule,
-    one should realize that it is actually mapped only to the host name found in the `Host` part of the rule.
-    Of course, there could also be several `Host` parts in a rule, in which case the TLS options reference would be mapped to as many host names.
+    即使可能会给人一种印象，即TLS选项参考是映射到路由器或路由器规则的，
+    但您也应意识到，它实际上仅仅映射到主机名，该主机名在规则的`Host`部分中。
+    当然，规则中也可以有多个`Host`部分，在这种情况下，TLS选项参考将映射到尽可能多的主机名。
 
-    Another thing to keep in mind is:
-    the TLS option is picked from the mapping mentioned above and based on the server name provided during the TLS handshake,
-    and it all happens before routing actually occurs.
+    要记脑里的另一件事：
+    TLS选项是从上述映射中选择的，并且基于TLS握手期间所提供的服务器名称，
+    并且所有这些操作，都在路由实际发生之前进行。
 
 ??? example "配置TLS选项"
 
@@ -518,11 +519,11 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
             - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
     ```
 
-!!! important "Conflicting TLS Options"
+!!! important "配置TLS选项"
 
-    Since a TLS options reference is mapped to a host name,
-    if a configuration introduces a situation where the same host name (from a `Host` rule) gets matched with two TLS options references,
-    a conflict occurs, such as in the example below:
+    由于TLS选项引用映射到主机名，
+    因此，如果配置引入以下情况：同一主机名（来自一条`Host`规则）匹配了两个TLS选项引用，
+    则会发生冲突，如下例：
 
     ```toml tab="文件 (TOML)"
     ## 动态配置
@@ -554,11 +555,11 @@ It refers to a [TLS Options](../../https/tls.md#tls-options) and will be applied
             options: bar
     ```
 
-    If that happens, both mappings are discarded, and the host name (`snitest.com` in this case) for these routers gets associated with the default TLS options instead.
+    如果发生那种情况，则两个映射都将被丢弃，这些路由器的主机名（此例中为`snitest.com`）将与默认的TLS选项关联。
 
 #### `certResolver`
 
-If `certResolver` is defined, Traefik will try to generate certificates based on routers `Host` & `HostSNI` rules.
+如果定义了`certResolver`，Traefik将尝试基于路由器的`Host`和`HostSNI`规则来生成证书。
 
 ```toml tab="文件 (TOML)"
 ## 动态配置
@@ -579,14 +580,14 @@ http:
         certResolver: foo
 ```
 
-!!! info "Multiple Hosts in a Rule"
-    The rule ```Host(`test1.traefik.io`,`test2.traefik.io`)``` will request a certificate with the main domain `test1.traefik.io` and SAN `test2.traefik.io`.
+!!! info "一条规则中的多个主机"
+    规则```Host(`test1.traefik.io`,`test2.traefik.io`)```将以主域名`test1.traefik.io`以及SAN`test2.traefik.io`来请求证书。
 
 #### `domains`
 
-You can set SANs (alternative domains) for each main domain.
-Every domain must have A/AAAA records pointing to Traefik.
-Each domain & SAN will lead to a certificate request.
+可以为每个主域名设置SAN（备用域）。
+每个域名都必须具有指向Traefik(IP)的A/AAAA记录。
+每个域名及SAN都会引发一个证书请求。
 
 ```toml tab="文件 (TOML)"
 ## 动态配置
@@ -614,21 +615,20 @@ http:
               - "*.snitest.com"
 ```
 
-[ACME v2](https://community.letsencrypt.org/t/acme-v2-and-wildcard-certificate-support-is-live/55579) supports wildcard certificates.
-As described in [Let's Encrypt's post](https://community.letsencrypt.org/t/staging-endpoint-for-acme-v2/49605) wildcard certificates can only be generated through a [`DNS-01` challenge](../../https/acme.md#dnschallenge).
+[ACME v2](https://community.letsencrypt.org/t/acme-v2-and-wildcard-certificate-support-is-live/55579) 支持通配证书。
+如[Let's Encrypt的帖子](https://community.letsencrypt.org/t/staging-endpoint-for-acme-v2/49605)所述，通配证书只能通过[`DNS-01` challenge](../../https/acme.md#dnschallenge)来生成。
+根域名很可能也应该收到证书，因此它也需要指定为SAN，然后执行了2个`DNS-01` challenges。
+在这种情况下，为两个域名所生成的DNS TXT记录是相同的。
+即使此行为符合[DNS RFC](https://community.letsencrypt.org/t/wildcard-issuance-two-txt-records-for-the-same-name/54528/2)，
+也可能导致问题，因为所有DNS提供程序都会将DNS记录缓存一个给定时间（TTL），并且此TTL可能大于质询超时，从而使`DNS-01` challenge失败。
 
-Most likely the root domain should receive a certificate too, so it needs to be specified as SAN and 2 `DNS-01` challenges are executed.
-In this case the generated DNS TXT record for both domains is the same.
-Even though this behavior is [DNS RFC](https://community.letsencrypt.org/t/wildcard-issuance-two-txt-records-for-the-same-name/54528/2) compliant,
-it can lead to problems as all DNS providers keep DNS records cached for a given time (TTL) and this TTL can be greater than the challenge timeout making the `DNS-01` challenge fail.
+Traefik ACME客户端库[lego](https://github.com/go-acme/lego)支持部分，但不是全部DNS提供程序来解决此问题。
+[支持的`DNS提供程序`表格](../../https/acme.md#providers)指出了它们是否允许为通配域名及其根域名生成证书。
 
-The Traefik ACME client library [lego](https://github.com/go-acme/lego) supports some but not all DNS providers to work around this issue.
-The [supported `provider` table](../../https/acme.md#providers) indicates if they allow generating certificates for a wildcard domain and its root domain.
+!!! important "通配证书只能通过[`DNS-01` challenge](../../https/acme.md#dnschallenge)进行验证。"
 
-!!! important "Wildcard certificates can only be verified through a [`DNS-01` challenge](../../https/acme.md#dnschallenge)."
-
-!!! warning "Double Wildcard Certificates"
-    It is not possible to request a double wildcard certificate for a domain (for example `*.*.local.com`).
+!!! warning "双通配证书"
+    不可能为域名请求双通配符证书（例如`*.*.local.com`）。
 
 ## 配置TCP路由器 { #configuring-tcp-routers }
 
@@ -636,13 +636,13 @@ The [supported `provider` table](../../https/acme.md#providers) indicates if the
 
 ### General
 
-If both HTTP routers and TCP routers listen to the same entry points, the TCP routers will apply *before* the HTTP routers.
-If no matching route is found for the TCP routers, then the HTTP routers will take over.
+如果HTTP路由器和TCP路由器都监听相同的入口点，则TCP路由器将在HTTP路由器*之前*应用。
+如果找不到与TCP路由器匹配的路由，则HTTP路由器将接管。
 
 ### EntryPoints
 
-If not specified, TCP routers will accept requests from all defined entry points.
-If you want to limit the router scope to a set of entry points, set the entry points option.
+如未指定，TCP路由器将接受来自所有已定义入口点的请求。
+如果要将路由器范围限制为一组入口点，请设置入口点选项。
 
 ??? example "监听每一个入口点"
     
@@ -706,7 +706,7 @@ If you want to limit the router scope to a set of entry points, set the entry po
     --entrypoints.other.address=:9090
     ```
 
-??? example "Listens to Specific Entry Points"
+??? example "监听特定的入口点"
     
     **动态配置**
     
@@ -772,22 +772,22 @@ If you want to limit the router scope to a set of entry points, set the entry po
 
 ### Rule
 
-| Rule                           | Description                                                             |
-|--------------------------------|-------------------------------------------------------------------------|
-| ```HostSNI(`domain-1`, ...)``` | Check if the Server Name Indication corresponds to the given `domains`. |
+| 规则                            | 描述                                          |
+|--------------------------------|----------------------------------------------|
+| ```HostSNI(`domain-1`, ...)``` | 检查服务器名称指示（SNI）是否与给定的`domains`对应。  |
 
-!!! important "HostSNI & TLS"
+!!! important "HostSNI和TLS"
 
-    It is important to note that the Server Name Indication is an extension of the TLS protocol.
-    Hence, only TLS routers will be able to specify a domain name with that rule.
-    However, non-TLS routers will have to explicitly use that rule with `*` (every domain) to state that every non-TLS request will be handled by the router.
+    需重点注意的是，服务器名称指示（SNI，Server Name Indication）是TLS协议的扩展。
+    因此，只有TLS路由器才能使用该规则来指定域名。
+    不过，非TLS路由器将必须显式使用带有`*`（每个域名）的规则，来声明每个非TLS请求都将由该路由器处理。
 
 ### Services
 
-You must attach a TCP [service](../services/index.md) per TCP router.
-Services are the target for the router.
+您必须为每个TCP路由器附加一个TCP[服务](../services/index.md)。
+服务是路由器的目标。
 
-!!! important "TCP routers can only target TCP services (not HTTP services)."
+!!! important "TCP路由器仅能标向TCP服务（不能标向HTTP服务）。"
 
 ### TLS
 
@@ -904,7 +904,7 @@ Services are the target for the router.
 
 #### `certResolver`
 
-更多信息参见[`certResolver` for HTTP router](./index.md#certresolver)。
+更多信息参见[用于HTTP路由器的`certResolver`](./index.md#certresolver)。
 
 ```toml tab="文件 (TOML)"
 ## 动态配置
@@ -1098,7 +1098,7 @@ tcp:
 
 ### Services
 
-There must be one (and only one) UDP [service](../services/index.md) referenced per UDP router.
-Services are the target for the router.
+每个UDP路由器必须且仅能引用一个UDP[服务](../services/index.md)。
+服务是路由器的目标。
 
-!!! important "UDP routers can only target UDP services (and not HTTP or TCP services)."
+!!! important "UDP路由器仅能标向UDP服务（不能标向HTTP或TCP服务）。"
