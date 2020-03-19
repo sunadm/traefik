@@ -29,8 +29,8 @@ theme:
 copyright: "Copyright &copy; 2016-2020 Containous"
 
 google_analytics:
-  - 'UA-51880359-3'
-  - 'docs.traefik.io'
+  - 'UA-526900-5'
+  - 'traefik-docs.livedig.com'
 
 extra_css:
   - assets/styles/extra.css # Our custom styles
