@@ -13,7 +13,7 @@ docs_dir: 'content'
 theme:
   name: 'material'
   custom_dir: 'theme'
-  language: en
+  language: zh
   include_sidebar: true
   favicon: assets/img/traefik.icon.png
   logo: assets/img/traefik.logo.png
