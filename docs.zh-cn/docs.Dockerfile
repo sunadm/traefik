@@ -1,5 +1,8 @@
 FROM alpine:3.10
 
+ENV HTTP_PROXY=http://192.168.5.121:29478
+ENV HTTPS_PROXY=http://192.168.5.121:29478
+
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.local/bin
 
 COPY requirements.txt /mkdocs/
